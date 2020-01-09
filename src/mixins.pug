@@ -1,3 +1,10 @@
+- var siteText = "Этот сайт я сделал в рамках обучения в школе онлайн образования Loftschool. Чуть позже я освежу в нем свой контент, а пока посмотрите, как тут все классно и красиво!"
+- var ownerName = "Скрябин Денис"
+- var preTitle = "Личный сайт веб-разработчика"
+- var citation = "Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете"
+- var citationOwner = "Martin Golding"
+
+
 mixin icon(name, className)
   - var icon = require(`images/icons/${name}.svg`);
   svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
@@ -5,3 +12,10 @@ mixin icon(name, className)
 
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className)
+
+mixin nav(className, items, activeItem)
+  nav(class=`${className}`)
+    ul(class=`${className}__list`)
+      each item in items
+        li(class=`${className}__item`)
+          a(class=`${className}__link` href="")= item
