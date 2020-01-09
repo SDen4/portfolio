@@ -3,6 +3,8 @@
 - var preTitle = "Личный сайт веб-разработчика"
 - var citation = "Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете"
 - var citationOwner = "Martin Golding"
+- var navMenu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+- var socialIcons = ["vk", "insta", "github"]
 
 
 mixin icon(name, className)
@@ -19,3 +21,11 @@ mixin nav(className, items, activeItem)
       each item in items
         li(class=`${className}__item`)
           a(class=`${className}__link` href="")= item
+
+mixin scl(className, items)
+  div(class=`${className}`)
+    ul(class=`${className}__list`)
+      each social in items
+        li(class=`${className}__item`)
+          a(class=`${className}__link ${className}__link_${social}` href="#")
+            +icon(`${social}`, `${className}__pic`)

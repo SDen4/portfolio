@@ -17,24 +17,9 @@ html(lang="en")
       .container
         section.intro
           header.header
-            .logo
-            +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
-
-            .socials
-              ul.socials__list
-                each social in ["vk", "insta", "github"]
-                  li.social__item
-                    a(class=`socials__link socials__link_${social}` href="#")
-                      +icon(`${social}`, `socials__pic`) //_${social}
-
-            //- .socials
-            //-   ul.socials__list
-            //-     li.social__item
-            //-       a.socials__inst(href="#")
-            //-     li.social__item
-            //-       a.socials__vk(href="#")
-            //-     li.social__item
-            //-       a.socialc__git(href="#")
+            .logo СД
+            +nav('nav', navMenu)
+            +scl('socials', socialIcons)
           .pre-title #{preTitle}
           h1.title.title_main #{ownerName}
           a.scroll(href='')
@@ -207,14 +192,7 @@ html(lang="en")
               .footer__right-bottom-l
                 .site__text
                   p #{siteText}
-                .socials
-                  ul.socials__list
-                    li.social__item
-                      a.socials__inst(href="#")
-                    li.social__item
-                      a.socials__vk(href="#")
-                    li.social__item
-                      a.socialc__git(href="#")
+                +scl('socials', socialIcons)
               .footer__right-bottom-r
                 .site__text
                   p #{citation}
