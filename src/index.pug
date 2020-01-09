@@ -8,8 +8,192 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
   body
+    //- .wrapper
+    //-   .maincontent
+        //- +image('content/user.jpg', 'user-pic')
+        //- +icon('link', 'link-class')
+        //- .icon-bg
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      .container
+        section.intro
+          header.header
+            .logo СД
+            +nav('nav', navMenu)
+            +scl('socials', socialIcons)
+          .pre-title #{preTitle}
+          h1.title.title_main #{ownerName}
+          a.scroll(href='')
+            span.scroll-name Скролл
+            svg
+        section.developer
+          .developer__left
+            .developer__ava
+              img.developer__photo(src='', alt='')
+            .developer__data
+              ul.developer__list
+                li.developer__item
+                  .developer__quest
+                  .developer__answ
+                li.developer__item
+                  .developer__quest
+                  .developer__answ
+                li.developer__item
+                  .developer__quest
+                  .developer__answ
+          .developer__right
+            .developer__intro
+              .site__text Привет, меня зовут
+              h2.title #{ownerName}
+              .site__text
+                p
+                  | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+            .site__text.site__text_i
+              p #{siteText}
+        section.skills
+          .skills__intro
+            h2.title Чем я могу быть полезен вам?
+            .site__text
+              p #{siteText}
+          .skills__data
+            .skills__group
+              .skills__group-name Front-end
+              ul.skills__list
+                li.skills__item
+                  svg
+                li.skills__item
+                  svg
+                li.skills__item
+                  svg
+                li.skills__item
+                  svg
+            .skills__group
+              .skills__group-name Workflow
+              ul.skills__list
+                li.skills__item
+                  svg
+                li.skills__item
+                  svg
+                li.skills__item
+                  svg
+                li.skills__item
+                  svg
+        section.projects
+          h2(title projects__title) Мои работы
+          .projects__content
+            .projects__preview
+              .projects__view-zone
+                ul.projects__list
+                  li.projects__item
+                  li.projects__item
+                  li.projects__item
+              .projects__scroll
+              .projects__scroll-buttons
+                .button_prev
+                .button_next
+            .projects__info
+              .projects__tools
+                ul.project__tools-list
+                  li.project__tools-item HTML
+                  li.project__tools-item CSS
+                  li.project__tools-item Javascript
+              h3.title Сайт школы образования
+              .projects__feedback.site__text
+                p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool!
+              a.projects__link
+                svg
+                .projects__link-name Посмотреть сайт                
+        section.about
+          h2.title Что обо мне говорят
+          .about__content-buttons
+            .button_round.button_prev
+            .button_round.button_next
+          .about__content
+            .about__watch-zone
+              ul.about__list
+                li.about__item
+                  svg
+                  .about__item-content
+                    .site__text
+                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
+                    .about__item-user
+                      .about__user-photo
+                        img.user__ava
+                      .about__user-data
+                        h5.about__user-name Ковальчук Дмитрий
+                        .about__user-prof Основатель Loftschool
+                li.about__item
+                  svg
+                  .about__item-content
+                    .site__text
+                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
+                    .about__item-user
+                      .about__user-photo
+                        img.user__ava
+                      .about__user-data
+                        h5.about__user-name Ковальчук Дмитрий
+                        .about__user-prof Основатель Loftschool
+                li.about__item
+                  svg
+                  .about__item-content
+                    .site__text
+                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
+                    .about__item-user
+                      .about__user-photo
+                        img.user__ava
+                      .about__user-data
+                        h5.about__user-name Ковальчук Дмитрий
+                        .about__user-prof Основатель Loftschool
+                li.about__item
+                  svg
+                  .about__item-content
+                    .site__text
+                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
+                    .about__item-user
+                      .about__user-photo
+                        img.user__ava
+                      .about__user-data
+                        h5.about__user-name Ковальчук Дмитрий
+                        .about__user-prof Основатель Loftschool
+        section.feegback
+          h2.title Связаться со мной
+          form.form
+            .form__content
+              label.form__data
+                .form__subtitle Введите ваше имя
+                .form__content
+                  svg
+                  input.form__input(type="text", name="name")
+                .form__line
+            .form__content
+              label.form__data
+                .form__subtitle Введите ваш e-mail
+                .form__content
+                  svg
+                  input.form__input(type="text", name="email")
+                .form__line
+            .form__content
+              label.form__data
+                .form__subtitle Сообщение к письму
+                .form__content
+                  svg
+                  input.form__input(type="text", name="message")
+                .form__line
+            .form__content
+              button.button(type="submit") Отправить
+        footer.footer
+          .footer__left
+            .footer__copyright
+            .footer__owner-info
+              h5.title #{ownerName}
+              .pre-title #{preTitle}
+          .footer__right
+            +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+            .footer__right-bottom
+              .footer__right-bottom-l
+                .site__text
+                  p #{siteText}
+                +scl('socials', socialIcons)
+              .footer__right-bottom-r
+                .site__text
+                  p #{citation}
+                .site__text_i #{citationOwner}
