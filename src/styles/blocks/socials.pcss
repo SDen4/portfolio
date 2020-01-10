@@ -1,0 +1,45 @@
+/* .socials {
+  display: flex;
+  align-items: center;
+} */
+
+.socials__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socials__item {
+  display: block;
+  margin-right: 40px;
+  &:last-child {
+      margin-right: 0;
+  }
+}
+
+.socials__link {
+  display: block;
+}
+
+.socials__pic {
+  fill: #716d69;
+  transition: .6s;
+  &:hover {
+    fill: $text-color;
+  }
+}
+
+.socials__pic_vk {
+  width: 31px;
+  height: 28px;
+}
+
+.socials__pic_insta {
+  width: 25px;
+  height: 25px;
+}
+
+.socials__pic_github {
+  width: 27px;
+  height: 23px;
+}

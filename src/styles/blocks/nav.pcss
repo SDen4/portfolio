@@ -1,6 +1,9 @@
 .nav {
     max-width: 690px;
     width: 100%;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
 }
 
 .nav__list {
@@ -17,5 +20,19 @@
 }
 
 .nav__link {
+    display: block;
+    width: fit-content;
     text-decoration: none;
+    transition: .6s;
+    &:after{
+        content: "";
+        display: block;
+        opacity: 0;
+        height: 2px;
+        background-color: #fff;
+        transition: .6s;
+    }
+    &:hover:after {
+        opacity: 1;
+    }
 }

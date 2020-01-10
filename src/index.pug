@@ -14,41 +14,45 @@ html(lang="en")
         //- +icon('link', 'link-class')
         //- .icon-bg
     .wrapper
-      .container
+      .main-content
         section.intro
-          header.header
-            .logo СД
-            +nav('nav', navMenu)
-            +scl('socials', socialIcons)
-          .pre-title #{preTitle}
-          h1.title.title_main #{ownerName}
-          a.scroll(href='')
-            span.scroll-name Скролл
-            svg
-        section.developer
-          .developer__left
-            .developer__ava
-              img.developer__photo(src='', alt='')
-            .developer__data
-              ul.developer__list
-                li.developer__item
-                  .developer__quest
-                  .developer__answ
-                li.developer__item
-                  .developer__quest
-                  .developer__answ
-                li.developer__item
-                  .developer__quest
-                  .developer__answ
-          .developer__right
-            .developer__intro
-              .site__text Привет, меня зовут
-              h2.title #{ownerName}
-              .site__text
-                p
-                  | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-            .site__text.site__text_i
-              p #{siteText}
+          .container
+            .intro__wrapper
+              header.header
+                .header__wrapper
+                  .logo СД
+                  +nav('nav', navMenu)
+                  +scl('socials', socialIcons)
+              .main-title
+                .pre-title !{preTitle}
+                h1.title.title_owner !{ownerNameMain}
+              a.scroll(href='')
+                span.scroll-name Скролл
+                svg
+              .developer
+                .developer__left
+                  .developer__ava
+                    img.developer__photo(src='', alt='')
+                  .developer__data
+                    ul.developer__list
+                      li.developer__item
+                        .developer__quest
+                        .developer__answ
+                      li.developer__item
+                        .developer__quest
+                        .developer__answ
+                      li.developer__item
+                        .developer__quest
+                        .developer__answ
+                .developer__right
+                  .developer__intro
+                    .site__text Привет, меня зовут
+                    h2.title #{ownerName}
+                    .site__text
+                      p
+                        | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  .site__text.site__text_i
+                    p #{siteText}
         section.skills
           .skills__intro
             h2.title Чем я могу быть полезен вам?
