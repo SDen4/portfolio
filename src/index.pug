@@ -27,32 +27,26 @@ html(lang="en")
                 .pre-title !{preTitle}
                 h1.title.title_owner !{ownerNameMain}
               a.scroll(href='')
-                span.scroll-name Скролл
-                svg
-              .developer
-                .developer__left
-                  .developer__ava
-                    img.developer__photo(src='', alt='')
-                  .developer__data
-                    ul.developer__list
-                      li.developer__item
-                        .developer__quest
-                        .developer__answ
-                      li.developer__item
-                        .developer__quest
-                        .developer__answ
-                      li.developer__item
-                        .developer__quest
-                        .developer__answ
-                .developer__right
-                  .developer__intro
-                    .site__text Привет, меня зовут
-                    h2.title #{ownerName}
-                    .site__text
-                      p
-                        | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                  .site__text.site__text_i
-                    p #{siteText}
+                span.scroll__name Скролл
+                +icon('scroll', 'scroll__pic')
+        section.developer
+          .container
+            .developer__wrapper
+              .developer__left
+                .developer__ava
+                  +image('content/user.jpg', 'developer__photo')
+                .developer__info
+                  +devInfo('developer-que', devDataQues)
+                  +devInfo('developer-ans', devDataAnsw)
+              .developer__right
+                .developer__intro
+                  .site__text.site__text_developer Привет, меня зовут
+                  h2.title.title_developer #{ownerName}
+                  .site__text
+                    p
+                      | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .site__text.site__text_i
+                  p #{siteText}
         section.skills
           .skills__intro
             h2.title Чем я могу быть полезен вам?
