@@ -1,10 +1,13 @@
 - var siteText = "Этот сайт я сделал в рамках обучения в школе онлайн образования Loftschool. Чуть позже я освежу в нем свой контент, а пока посмотрите, как тут все классно и красиво!"
-- var ownerName = "Скрябин Денис"
-- var preTitle = "Личный сайт веб-разработчика"
+- var ownerNameMain = "Денис <br> Скрябин"
+- var ownerName = "Денис Скрябин"
+- var preTitle = "Личный сайт <br> веб-разработчика"
 - var citation = "Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете"
 - var citationOwner = "Martin Golding"
 - var navMenu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-- var socialIcons = ["vk", "insta", "github"]
+- var socialIcons = ["insta", "vk", "github"]
+- var devDataQues = ['Проживаю: ', 'Возраст: ', 'Родился: ']
+- var devDataAnsw = ["Екатеринбург", "37 лет", "4 июня 1982"]
 
 
 mixin icon(name, className)
@@ -28,4 +31,11 @@ mixin scl(className, items)
       each social in items
         li(class=`${className}__item`)
           a(class=`${className}__link ${className}__link_${social}` href="#")
-            +icon(`${social}`, `${className}__pic`)
+            +icon(`${social}`, `${className}__pic ${className}__pic_${social}`)
+
+mixin devInfo(className, items)
+  div(class=`${className}`)
+    ul(class=`${className}__list`)
+      for item in items
+        li(class=`${className}__item`)
+          div(class=`${className}__answ`)= item

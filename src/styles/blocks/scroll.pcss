@@ -1,0 +1,25 @@
+.scroll {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: .6s;
+    &:hover {
+        color: $text-color-gray;
+    }
+    &:hover .scroll__pic{
+        fill: $text-color-gray;
+    }
+}
+
+.scroll__name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.scroll__pic {
+    width: 30px;
+    height: 30px;
+    fill: $text-color;
+    transition: .6s;
+}

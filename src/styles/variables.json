@@ -1,5 +1,6 @@
 {
-  "text-color": "#414c63",
+  "text-color": "#fff",
+  "text-color-gray": "rgba(255, 255, 255, .4)",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
