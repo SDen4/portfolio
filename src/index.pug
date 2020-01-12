@@ -63,30 +63,35 @@ html(lang="en")
                 .skills__group-name Workflow
                 +skill('skills', workflow)
         section.projects
-          h2(title projects__title) Мои работы
-          .projects__content
-            .projects__preview
-              .projects__view-zone
-                ul.projects__list
-                  li.projects__item
-                  li.projects__item
-                  li.projects__item
-              .projects__scroll
-              .projects__scroll-buttons
-                .button_prev
-                .button_next
-            .projects__info
-              .projects__tools
-                ul.project__tools-list
-                  li.project__tools-item HTML
-                  li.project__tools-item CSS
-                  li.project__tools-item Javascript
-              h3.title Сайт школы образования
-              .projects__feedback.site__text
-                p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool!
-              a.projects__link
-                svg
-                .projects__link-name Посмотреть сайт                
+          .container
+            .projects__wrapper
+              .projects__preview
+                h2.title.title__projects Мои работы
+                .projects__slider
+                  .projects__view-zone
+                    ul.projects__list
+                      li.projects__item
+                        +image('projects/1.jpg', 'projects__pic')
+                      li.projects__item
+                        +image('projects/2.jpg', 'projects__pic')
+                      li.projects__item
+                        +image('projects/3.jpg', 'projects__pic')
+                  .projects__scroll-buttons
+                    a.button_prev
+                      +icon('arrow-down', 'projects__arrow')
+                    a.button_next
+                      +icon('arrow-down', 'projects__arrow projects__arrow_l')
+                  .projects__scroll
+              .projects__info
+                .projects__decor-number 2
+                .projects__content
+                  +tools('projects__tools', toolsOfProject)
+                  h3.title.title__projects.title__project-name Учебный проект "Коворкинг"
+                  .projects__feedback.site__text
+                    p Многостраничный сайт. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка "А".
+                  a.projects__link
+                    +icon('link', 'projects__link-pic')
+                    .projects__link-name Посмотреть сайт
         section.about
           h2.title Что обо мне говорят
           .about__content-buttons
