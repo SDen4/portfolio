@@ -1,6 +1,7 @@
 {
   "text-color": "#fff",
   "text-color-gray": "rgba(255, 255, 255, .4)",
+  "black": "#272727",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",

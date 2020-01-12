@@ -48,33 +48,20 @@ html(lang="en")
                 .site__text.site__text_i
                   p #{siteText}
         section.skills
-          .skills__intro
-            h2.title Чем я могу быть полезен вам?
-            .site__text
-              p #{siteText}
-          .skills__data
-            .skills__group
-              .skills__group-name Front-end
-              ul.skills__list
-                li.skills__item
-                  svg
-                li.skills__item
-                  svg
-                li.skills__item
-                  svg
-                li.skills__item
-                  svg
-            .skills__group
-              .skills__group-name Workflow
-              ul.skills__list
-                li.skills__item
-                  svg
-                li.skills__item
-                  svg
-                li.skills__item
-                  svg
-                li.skills__item
-                  svg
+          .skills__pic-container
+            +icon('hands', 'skills__pic')
+          .skills__wrapper
+            .skills__intro
+              h2.title.title_skills Чем я могу быть полезен вам?
+              .site__text.site__text_skills
+                p #{siteText}
+            .skills__data
+              .skills__group
+                .skills__group-name Front-end
+                +skill('skills', frontEndSkills)
+              .skills__group
+                .skills__group-name Workflow
+                +skill('skills', workflow)
         section.projects
           h2(title projects__title) Мои работы
           .projects__content
