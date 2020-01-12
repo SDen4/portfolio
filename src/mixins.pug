@@ -8,6 +8,9 @@
 - var socialIcons = ["insta", "vk", "github"]
 - var devDataQues = ['Проживаю: ', 'Возраст: ', 'Родился: ']
 - var devDataAnsw = ["Екатеринбург", "37 лет", "4 июня 1982"]
+- var frontEndSkills = ["HTML5", "CSS3", "JavaScript", "Jquery & Vue.js"]
+- var workflow = ["GIT", "Terminal", "Gulp", "Webpack"]
+- var toolsOfProject = ["HTML", "CSS", "JavaScript"]
 
 
 mixin icon(name, className)
@@ -39,3 +42,17 @@ mixin devInfo(className, items)
       for item in items
         li(class=`${className}__item`)
           div(class=`${className}__answ`)= item
+
+mixin skill(className, items)
+  ul(class=`${className}__list`)
+    for item in items
+      li(class=`${className}__item`)
+        div(class=`${className}__empty-round`)
+          div(class=`${className}__name`)= item
+
+mixin tools(className, items)
+  div(class=`${className}`)
+    ul(class=`${className}-list`)
+      for item in items
+        li(class=`${className}-item`)
+          div(class=`${className}-name`)= item
