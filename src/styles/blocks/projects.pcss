@@ -18,6 +18,7 @@
 
 .projects__slider {
     display: flex;
+    position: relative;
     justify-content: flex-start;
 }
 
@@ -43,6 +44,12 @@
 .projects__pic {
     display: block;
     width: 100%;
+    object-fit: cover;
+}
+
+.projects__pic_small{
+    height: 100%;
+    max-height: 100px;
 }
 
 .projects__scroll-buttons {
@@ -64,6 +71,14 @@
 
 .projects__scroll {
     position: absolute;
+    top: 348px;
+    right: 50px;
+    width: 555px;
+    max-height: 100px;
+}
+
+.projects__item_active-small {
+    border: 3px solid $slider-active;
 }
 
 .projects__arrow {
@@ -77,10 +92,17 @@
     transform: rotate(180deg);
 }
 
-.projects__info {
-    display: flex;
+.projects__info-list{
+    margin-left: -16%;
+}
+
+.projects__info-item {
+    display: none;
     align-items: flex-start;
-    margin-left: -8%;
+}
+
+.projects__info-item_active {
+    display: flex;
 }
 
 .projects__decor-number{

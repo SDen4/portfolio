@@ -8,6 +8,7 @@
   "buttons_gray": "#353e4e",
   "tools_block": "rgba(133, 159, 194, .1)",
   "tools_text": "#2f3642",
+  "slider-active": "#dc9322",
   "black": "#272727",
   "links-color": "#586ed3",
   "bp-desktop-hd": "1800px",
