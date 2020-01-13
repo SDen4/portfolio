@@ -78,17 +78,17 @@ html(lang="en")
                       +icon('arrow-down', 'projects__arrow projects__arrow_l')
                   .projects__scroll
                     ul.projects__list
-                      li.projects__item.projects__item_active.projects__item_active-small
+                      li.projects__item.projects__item_small.projects__item_active.projects__item_active-small
                         a.projects__item-link
                           +image('projects/1.jpg', 'projects__pic projects__pic_small')
-                      li.projects__item
+                      li.projects__item.projects__item_small
                         a.projects__item-link
                           +image('projects/2.jpg', 'projects__pic projects__pic_small')
-                      li.projects__item
+                      li.projects__item.projects__item_small
                         a.projects__item-link
                           +image('projects/3.jpg', 'projects__pic projects__pic_small')
               ul.projects__info-list
-                li.projects__info-item.projects__info-item_active //активный класс описания проекта
+                li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
                   .projects__decor-number 1
                   .projects__content
                     +tools('projects__tools', toolsOfProject)
