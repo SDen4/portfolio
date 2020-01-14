@@ -118,84 +118,91 @@ html(lang="en")
                     a.projects__link(href="https://sden4.github.io/burger_project/dist/")
                       +icon('link', 'projects__link-pic')
                       .projects__link-name Посмотреть сайт
-        section.about
-          h2.title Что обо мне говорят
-          .about__content-buttons
-            .button_round.button_prev
-            .button_round.button_next
-          .about__content
-            .about__watch-zone
-              ul.about__list
-                li.about__item
-                  svg
-                  .about__item-content
-                    .site__text
-                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
-                    .about__item-user
-                      .about__user-photo
-                        img.user__ava
-                      .about__user-data
-                        h5.about__user-name Ковальчук Дмитрий
-                        .about__user-prof Основатель Loftschool
-                li.about__item
-                  svg
-                  .about__item-content
-                    .site__text
-                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
-                    .about__item-user
-                      .about__user-photo
-                        img.user__ava
-                      .about__user-data
-                        h5.about__user-name Ковальчук Дмитрий
-                        .about__user-prof Основатель Loftschool
-                li.about__item
-                  svg
-                  .about__item-content
-                    .site__text
-                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
-                    .about__item-user
-                      .about__user-photo
-                        img.user__ava
-                      .about__user-data
-                        h5.about__user-name Ковальчук Дмитрий
-                        .about__user-prof Основатель Loftschool
-                li.about__item
-                  svg
-                  .about__item-content
-                    .site__text
-                      p Этот парень проходил обучение веб-разработке не где-то, а в Loftschool
-                    .about__item-user
-                      .about__user-photo
-                        img.user__ava
-                      .about__user-data
-                        h5.about__user-name Ковальчук Дмитрий
-                        .about__user-prof Основатель Loftschool
-        section.feegback
-          h2.title Связаться со мной
-          form.form
-            .form__content
-              label.form__data
-                .form__subtitle Введите ваше имя
+        section.aboutAndFeedback
+          .container
+            .about
+              h2.title Что обо мне говорят
+              .about__content-buttons
+                a.about__button_round
+                  +icon('arrow-down', 'about__button about__button_prev')
+                a.about__button_round
+                  +icon('arrow-down', 'about__button about__button_next')
+              .about__content
+                .about__watch-zone
+                  ul.about__list
+                    li.about__item
+                      +icon('quote', 'about__item-pic')
+                      .about__item-content
+                        .site__text.about__text
+                          p #{feedbackText}
+                        .about__item-user
+                          .about__user-photo
+                            +image("content/feedback_user1.jpg", "user__ava")
+                          .about__user-data
+                            h5.about__user-name Ковальчук Дмитрий
+                            .about__user-prof Основатель Loftschool
+                    li.about__item
+                      +icon('quote', 'about__item-pic')
+                      .about__item-content
+                        .site__text.about__text
+                          p #{feedbackText}
+                        .about__item-user
+                          .about__user-photo
+                            +image("content/feedback_user1.jpg", "user__ava")
+                            img.user__ava
+                          .about__user-data
+                            h5.about__user-name Ковальчук Дмитрий
+                            .about__user-prof Основатель Loftschool
+                    li.about__item
+                      .about__item-content
+                        .site__text.about__text
+                          p #{feedbackText}
+                        .about__item-user
+                          .about__user-photo
+                            +image("content/feedback_user1.jpg", "user__ava")
+                            img.user__ava
+                          .about__user-data
+                            h5.about__user-name Ковальчук Дмитрий
+                            .about__user-prof Основатель Loftschool
+                    li.about__item
+                      .about__item-content
+                        .site__text.about__text
+                          p #{feedbackText}
+                        .about__item-user
+                          .about__user-photo
+                            +image("content/feedback_user1.jpg", "user__ava")
+                            img.user__ava
+                          .about__user-data
+                            h5.about__user-name Ковальчук Дмитрий
+                            .about__user-prof Основатель Loftschool
+            .feegback
+              h2.title Связаться со мной
+              form.form
                 .form__content
-                  svg
-                  input.form__input(type="text", name="name")
-                .form__line
-            .form__content
-              label.form__data
-                .form__subtitle Введите ваш e-mail
+                  label.form__data
+                    .form__data_wrapper
+                      +icon('user', 'form__svg form__user_svg')
+                      .form__input-info
+                        .form__subtitle Введите ваше имя
+                        input.form__input(type="text", name="name", placeholder="Ковальчук Дмитрий")
+                    .form__line
+                  label.form__data
+                    .form__data_wrapper
+                      +icon('envelope', 'form__svg form__envelope_svg')
+                      .form__input-info
+                        .form__subtitle Введите ваш e-mail
+                        input.form__input(type="text", name="email", placeholder="loftschool@study.com")
+                    .form__line
                 .form__content
-                  svg
-                  input.form__input(type="text", name="email")
-                .form__line
-            .form__content
-              label.form__data
-                .form__subtitle Сообщение к письму
+                  label.form__data
+                    .form__data_wrapper
+                      +icon('message', 'form__svg form__message_svg')
+                      .form__input-info
+                        .form__subtitle Сообщение к письму
+                        textarea.form__input(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
+                    .form__line
                 .form__content
-                  svg
-                  input.form__input(type="text", name="message")
-                .form__line
-            .form__content
-              button.button(type="submit") Отправить
+                  button.button(type="submit") Отправить
         footer.footer
           .footer__left
             .footer__copyright

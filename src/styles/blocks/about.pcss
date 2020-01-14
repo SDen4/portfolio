@@ -1,0 +1,118 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.about__content-buttons {
+    display: flex;
+    width: 134px;
+    height: 52px;
+    position: absolute;
+    top: -80px;
+    left: 450px;
+}
+
+.about__button_round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $text-color;
+    margin-right: 30px;
+    transition: .6s;
+    &:last-child {
+        margin-right: 0;
+    }
+    &:hover {
+        border: 1px solid $text-color-gray;
+    }
+    &:hover .about__button {
+        fill: $text-color-gray;
+    }
+}
+
+.about__button {
+    fill: $text-color;
+    width: 8px;
+    height: 10px;
+    transition: .6s;
+}
+
+.about__button_prev {
+    transform: rotate(180deg);
+}
+
+.about__watch-zone {
+    display: flex;
+    width: 60vw;
+    height: 25vh;
+    max-width: 1152px;
+    max-height: 255px;
+    overflow: hidden;
+}
+
+.about__list {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.about__item {
+    display: flex;
+    justify-content: space-around;
+    width: 30vw;
+    height: 100%;
+}
+
+.about__item-pic {
+    fill: rgba($text-color, .05);
+    width: 75px;
+    height: 63px;
+    margin-right: 20px;
+}
+
+.about__item-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 325px;
+}
+
+.about__text {
+    line-height: 30px;
+}
+
+.about__item-user {
+    display: flex;
+}
+
+.about__user-photo {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user__ava {
+    max-height: unset;
+}
+
+.about__user-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.about__user-name {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.about__user-prof {
+    font-size: 16px;
+    color: $text-color-gray;
+    font-weight: 600;
+}

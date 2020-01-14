@@ -24,6 +24,9 @@
     justify-content: space-around;
     max-width: 875px;
     width: 50%;
+    @include desktop {
+        width: 80%;
+    }
 }
 
 .title_skills {
@@ -38,15 +41,14 @@
 .skills__data{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     width: 100%;
-    margin-left: 5%;
 }
 
 .skills__group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     width: 100%;
     margin-bottom: 5%;
     &:last-child {
@@ -58,6 +60,8 @@
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 5%;
+    width: 100%;
+    max-width: 745px;
 }
 
 .skills__list {
@@ -68,7 +72,6 @@
 }
 
 .skills__item {
-    /* margin-right: 65px; */
     &:last-child {
         margin-right: 0;
     }
