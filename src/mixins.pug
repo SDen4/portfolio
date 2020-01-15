@@ -1,4 +1,5 @@
 - var siteText = "Этот сайт я сделал в рамках обучения в школе онлайн образования Loftschool. Чуть позже я освежу в нем свой контент, а пока посмотрите, как тут все классно и красиво!"
+- var siteTextShort = "Этот сайт я сделал в рамках обучения в школе онлайн образования Loftschool."
 - var ownerNameMain = "Денис <br> Скрябин"
 - var ownerName = "Денис Скрябин"
 - var preTitle = "Личный сайт <br> веб-разработчика"
@@ -34,6 +35,14 @@ mixin scl(className, items)
     ul(class=`${className}__list`)
       each social in items
         li(class=`${className}__item`)
+          a(class=`${className}__link ${className}__link_${social}` href="#")
+            +icon(`${social}`, `${className}__pic ${className}__pic_${social}`)
+
+mixin scl-footer(className, items)
+  div(class=`${className}`)
+    ul(class=`${className}__list ${className}__list_footer`)
+      each social in items
+        li(class=`${className}__item ${className}__item_footer`)
           a(class=`${className}__link ${className}__link_${social}` href="#")
             +icon(`${social}`, `${className}__pic ${className}__pic_${social}`)
 

@@ -119,6 +119,7 @@ html(lang="en")
                       +icon('link', 'projects__link-pic')
                       .projects__link-name Посмотреть сайт
         section.aboutAndFeedback
+          +icon('leaves', 'feedback_leaves')
           .container
             .about
               h2.title Что обо мне говорят
@@ -149,7 +150,6 @@ html(lang="en")
                         .about__item-user
                           .about__user-photo
                             +image("content/feedback_user1.jpg", "user__ava")
-                            img.user__ava
                           .about__user-data
                             h5.about__user-name Ковальчук Дмитрий
                             .about__user-prof Основатель Loftschool
@@ -160,7 +160,6 @@ html(lang="en")
                         .about__item-user
                           .about__user-photo
                             +image("content/feedback_user1.jpg", "user__ava")
-                            img.user__ava
                           .about__user-data
                             h5.about__user-name Ковальчук Дмитрий
                             .about__user-prof Основатель Loftschool
@@ -171,7 +170,6 @@ html(lang="en")
                         .about__item-user
                           .about__user-photo
                             +image("content/feedback_user1.jpg", "user__ava")
-                            img.user__ava
                           .about__user-data
                             h5.about__user-name Ковальчук Дмитрий
                             .about__user-prof Основатель Loftschool
@@ -199,24 +197,27 @@ html(lang="en")
                       +icon('message', 'form__svg form__message_svg')
                       .form__input-info
                         .form__subtitle Сообщение к письму
-                        textarea.form__input(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
+                        textarea.form__input.form__input_textarea(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
                     .form__line
                 .form__content
                   button.button(type="submit") Отправить
         footer.footer
-          .footer__left
-            .footer__copyright
-            .footer__owner-info
-              h5.title #{ownerName}
-              .pre-title #{preTitle}
-          .footer__right
-            +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
-            .footer__right-bottom
-              .footer__right-bottom-l
-                .site__text
-                  p #{siteText}
-                +scl('socials', socialIcons)
-              .footer__right-bottom-r
-                .site__text
-                  p #{citation}
-                .site__text_i #{citationOwner}
+          .container
+            .container_footer
+              .footer__left
+                .footer__copyright ©2019
+                .footer__owner-info
+                  h5.title.title_footer #{ownerName}
+                  .pre-title !{preTitle}
+              .footer__right
+                .footer__right-up
+                  +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+                .footer__right-bottom
+                  .footer__right-bottom-l
+                    .site__text.site__text_footer
+                      p #{siteTextShort}
+                    +scl-footer('socials', socialIcons)
+                  .footer__right-bottom-r
+                    .site__text.site__text_footer
+                      p #{citation}
+                    .site__text_i #{citationOwner}
