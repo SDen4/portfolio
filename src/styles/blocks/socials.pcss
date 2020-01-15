@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.socials__list_footer {
+  justify-content: flex-start;
+}
+
 .socials__item {
   display: block;
   margin-right: 40px;
@@ -12,8 +16,34 @@
   }
 }
 
+.socials__item_footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid $text-color-gray;
+
+  transition: .6s;
+
+  &:hover {
+    border: 1px solid $text-color;
+  }
+  &:hover .socials__pic {
+    fill: $text-color;
+  }
+
+  margin-right: 20px;
+  &::last-child {
+    margin-right: 0;
+  }
+}
+
 .socials__link {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .socials__pic {

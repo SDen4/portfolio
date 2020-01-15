@@ -17,6 +17,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-right: 5%;
+    &:last-child {
+        margin-right: 0; /*проверить работу на textarea!!!*/
+    }
 }
 
 .form__data_wrapper {
@@ -59,11 +63,54 @@
 .form__input {
     font-size: 18px;
     font-weight: 700;
+    background-color: transparent;
+    border: none;
+    color: $text-color-gray;
+    width: 95%;
+    outline: none;
+}
+
+.form__input_textarea {
+  min-height: 38px;
+}
+
+.form__input::placeholder {
+  color: $text-color; 
+  opacity: 1;
+  transition: .6s;
+}
+
+.form__input:focus::placeholder {
+  opacity: 0;
 }
 
 .form__line {
     height: 1px;
     width: inherit;
-    background-color: #888888;
-    /* border: 2px solid #ffffff; */
+    background-color: $form_line;
+}
+
+.button {
+    text-transform: uppercase;
+    padding: 34px 119px;
+    background-image: linear-gradient(90deg, #cf721a 0%, #db9222 100%);
+    /* transition: .6s; */
+
+    font-size: 18px;
+    color: $text-color;
+    font-weight: 700;
+
+    &:hover {
+        background-image: linear-gradient(270deg, #cf721a 0%, #db9222 100%);
+    }
+}
+
+.feedback_leaves {
+    width: 484px;
+    height: 972px;
+    position: absolute;
+    top: -108px;
+    left: unset;
+    right: 0;
+    z-index: 5;
 }
