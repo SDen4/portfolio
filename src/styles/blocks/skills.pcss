@@ -72,9 +72,19 @@
 }
 
 .skills__item {
+    position: relative;
     &:last-child {
         margin-right: 0;
     }
+}
+
+[class ^= "skills__round-"] {
+    border-radius: 50%;
+    display: flex;
+    position: absolute;
+    fill: transparent;
+    /* background-image: linear-gradient(90deg, #cf721a 0%, #db9222 100%); */
+    border: 9px solid #db9222; /*#393939; */
 }
 
 .skills__empty-round {
@@ -85,10 +95,12 @@
     height: 134px;
     border-radius: 50%;
     border: 2px solid $text-color-gray;
+    z-index: 5;
 }
 
 .skills__name {
     font-size: 18px;
     font-weight: 700;
     text-align: center;
+    z-index: 10;
 }
