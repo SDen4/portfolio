@@ -58,7 +58,7 @@ mixin skill(className, items)
   ul(class=`${className}__list`)
     for item in items
       li(class=`${className}__item`)
-        +icon('ellips4', `${className}__round-${item}`)
+        +icon('ellips', `${className}__round-${item}`)
         div(class=`${className}__empty-round`)
           div(class=`${className}__name`)= item
 
