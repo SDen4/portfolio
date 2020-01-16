@@ -5,6 +5,7 @@
 - var preTitle = "Личный сайт <br> веб-разработчика"
 - var citation = "Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете"
 - var citationOwner = "Martin Golding"
+- var buttonText = "Отправить"
 - var navMenu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
 - var socialIcons = ["insta", "vk", "github"]
 - var devDataQues = ['Проживаю: ', 'Возраст: ', 'Родился: ']
@@ -57,6 +58,7 @@ mixin skill(className, items)
   ul(class=`${className}__list`)
     for item in items
       li(class=`${className}__item`)
+        +icon('ellips4', `${className}__round-${item}`)
         div(class=`${className}__empty-round`)
           div(class=`${className}__name`)= item
 
