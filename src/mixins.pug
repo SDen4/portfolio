@@ -21,8 +21,8 @@ mixin icon(name, className)
   svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
     use(xlink:href=icon.url)
 
-mixin image(path, className)
-  img(src=require(`images/${path}`) class=className)
+mixin image(path, className, altName)
+  img(src=require(`images/${path}`) class=className alt=altName)
 
 mixin nav(className, items, activeItem)
   nav(class=`${className}`)

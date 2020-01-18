@@ -10,14 +10,14 @@ html(lang="en")
   body
     .wrapper
       .main-content
-        section.intro-developer
+        .intro-developer
           +image("content/bg_intro_for_hw1.jpg", "intro-developer__bg")
           .parallax
             .parallax__layer.parallax__layer_1
             .parallax__layer.parallax__layer_2
             .parallax__layer.parallax__layer_3
             .parallax__layer.parallax__layer_4
-          .intro
+          section.intro
             .container
               .intro__wrapper
                 header.header
@@ -31,12 +31,12 @@ html(lang="en")
                 a.scroll(href='')
                   span.scroll__name Скролл
                   +icon('scroll', 'scroll__pic')
-          .developer
-            .container
+          section.developer
+            .container.container_developer
               .developer__wrapper
                 .developer__left
-                  .developer__ava
-                    +image('content/user.jpg', 'developer__photo')
+                  .ava.ava_developer
+                    +image('content/owner.jpeg', 'developer__ava', 'Developer')
                   .developer__info
                     +devInfo('developer-que', devDataQues)
                     +devInfo('developer-ans', devDataAnsw)
@@ -54,7 +54,7 @@ html(lang="en")
             +icon('hands', 'skills__pic')
           .skills__wrapper
             .skills__intro
-              h2.title.title_skills Чем я могу быть полезен вам?
+              h2.title.title_skills Чем я могу быть полезен вам
               .site__text.site__text_skills
                 p #{siteText}
             .skills__data
@@ -73,11 +73,11 @@ html(lang="en")
                   .projects__view-zone
                     ul.projects__list
                       li.projects__item.projects__item_active <!-- активный класс -->
-                        +image('projects/1.jpg', 'projects__pic')
+                        +image('projects/1.jpg', 'projects__pic', 'Project #1')
                       li.projects__item
-                        +image('projects/2.jpg', 'projects__pic')
+                        +image('projects/2.jpg', 'projects__pic', 'Project #2')
                       li.projects__item
-                        +image('projects/3.jpg', 'projects__pic')
+                        +image('projects/3.jpg', 'projects__pic', 'Project #3')
                   .projects__scroll-buttons
                     a.button_prev
                       +icon('arrow-down', 'projects__arrow')
@@ -87,13 +87,13 @@ html(lang="en")
                     ul.projects__list
                       li.projects__item.projects__item_small.projects__item_active.projects__item_active-small <!-- активный класс -->
                         a.projects__item-link
-                          +image('projects/1.jpg', 'projects__pic projects__pic_small')
+                          +image('projects/1.jpg', 'projects__pic projects__pic_small', 'Project small #1')
                       li.projects__item.projects__item_small
                         a.projects__item-link
-                          +image('projects/2.jpg', 'projects__pic projects__pic_small')
+                          +image('projects/2.jpg', 'projects__pic projects__pic_small', 'Project small #2')
                       li.projects__item.projects__item_small
                         a.projects__item-link
-                          +image('projects/3.jpg', 'projects__pic projects__pic_small')
+                          +image('projects/3.jpg', 'projects__pic projects__pic_small', 'Project small #3')
               ul.projects__info-list
                 li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
                   .projects__decor-number 1
@@ -126,7 +126,7 @@ html(lang="en")
                       +icon('link', 'projects__link-pic')
                       .projects__link-name Посмотреть сайт
         section.aboutAndFeedback
-          +image("content/bg_aboutAndFeedback.jpg", "aboutAndFeedback__bg")
+          +image("content/bg_aboutAndFeedback.jpg", "aboutAndFeedback__bg", 'Feedback section background')
           +icon('leaves', 'feedback_leaves')
           .container
             .about
@@ -145,7 +145,7 @@ html(lang="en")
                         .site__text.about__text
                           p #{feedbackText}
                         .about__item-user
-                          .about__user-photo
+                          .ava.ava_about
                             +image("content/feedback_user1.jpg", "user__ava")
                           .about__user-data
                             h5.about__user-name Ковальчук Дмитрий
@@ -156,8 +156,8 @@ html(lang="en")
                         .site__text.about__text
                           p #{feedbackText}
                         .about__item-user
-                          .about__user-photo
-                            +image("content/feedback_user1.jpg", "user__ava")
+                          .ava.ava_about
+                            +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
                           .about__user-data
                             h5.about__user-name Ковальчук Дмитрий
                             .about__user-prof Основатель Loftschool
@@ -166,8 +166,8 @@ html(lang="en")
                         .site__text.about__text
                           p #{feedbackText}
                         .about__item-user
-                          .about__user-photo
-                            +image("content/feedback_user1.jpg", "user__ava")
+                          .ava.ava_about
+                            +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
                           .about__user-data
                             h5.about__user-name Ковальчук Дмитрий
                             .about__user-prof Основатель Loftschool
@@ -176,8 +176,8 @@ html(lang="en")
                         .site__text.about__text
                           p #{feedbackText}
                         .about__item-user
-                          .about__user-photo
-                            +image("content/feedback_user1.jpg", "user__ava")
+                          .ava.ava_about
+                            +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
                           .about__user-data
                             h5.about__user-name Ковальчук Дмитрий
                             .about__user-prof Основатель Loftschool
@@ -216,7 +216,7 @@ html(lang="en")
                 .footer__copyright ©2020
                 .footer__owner-info
                   h5.title.title_footer !{ownerNameMain}
-                  .pre-title !{preTitle}
+                  .pre-title.pre-title_footer !{preTitle}
               .footer__right
                 .footer__right-up
                   +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
