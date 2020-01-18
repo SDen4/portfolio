@@ -67,64 +67,65 @@ html(lang="en")
         section.projects
           .container
             .projects__wrapper
-              .projects__preview
-                h2.title.title__projects Мои работы
-                .projects__slider
-                  .projects__view-zone
-                    ul.projects__list
-                      li.projects__item.projects__item_active <!-- активный класс -->
-                        +image('projects/1.jpg', 'projects__pic', 'Project #1')
-                      li.projects__item
-                        +image('projects/2.jpg', 'projects__pic', 'Project #2')
-                      li.projects__item
-                        +image('projects/3.jpg', 'projects__pic', 'Project #3')
-                  .projects__scroll-buttons
-                    a.button_prev
-                      +icon('arrow-down', 'projects__arrow')
-                    a.button_next
-                      +icon('arrow-down', 'projects__arrow projects__arrow_l')
-                  .projects__scroll
-                    ul.projects__list
-                      li.projects__item.projects__item_small.projects__item_active.projects__item_active-small <!-- активный класс -->
-                        a.projects__item-link
-                          +image('projects/1.jpg', 'projects__pic projects__pic_small', 'Project small #1')
-                      li.projects__item.projects__item_small
-                        a.projects__item-link
-                          +image('projects/2.jpg', 'projects__pic projects__pic_small', 'Project small #2')
-                      li.projects__item.projects__item_small
-                        a.projects__item-link
-                          +image('projects/3.jpg', 'projects__pic projects__pic_small', 'Project small #3')
-              ul.projects__info-list
-                li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
-                  .projects__decor-number 1
-                  .projects__content
-                    +tools('projects__tools', toolsOfProject)
-                    h3.title.title__projects.title__project-name Учебный проект "Коворкинг"
-                    .projects__feedback.site__text
-                      p Многостраничный сайт. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка "А".
-                    a.projects__link(href="https://sden4.github.io/loftschool-stage-1/")
-                      +icon('link', 'projects__link-pic')
-                      .projects__link-name Посмотреть сайт
-                li.projects__info-item
-                  .projects__decor-number 2
-                  .projects__content
-                    +tools('projects__tools', toolsOfProject)
-                    h3.title.title__projects.title__project-name Учебный проект фитнес центра "Афродита"
-                    .projects__feedback.site__text
-                      p Многостраничный сайт. Учебный проет реализован за 1 неделю в перерыве между курсами Loftschool.
-                    a.projects__link(href="https://sden4.github.io/loftschool-stage-1-fitness-centre/")
-                      +icon('link', 'projects__link-pic')
-                      .projects__link-name Посмотреть сайт
-                li.projects__info-item
-                  .projects__decor-number 3
-                  .projects__content
-                    +tools('projects__tools', toolsOfProject)
-                    h3.title.title__projects.title__project-name Учебный проект бургерной "Mr.Burger"
-                    .projects__feedback.site__text
-                      p Многостраничный сайт. Учебный проет реализован за 6 недель и сдан в обозначенные сроки. Оценка "А".
-                    a.projects__link(href="https://sden4.github.io/burger_project/dist/")
-                      +icon('link', 'projects__link-pic')
-                      .projects__link-name Посмотреть сайт
+              h2.title.title__projects Мои работы
+              .projects__main-content
+                .projects__preview
+                  .projects__slider
+                    .projects__view-zone
+                      ul.projects__list
+                        li.projects__item.projects__item_active <!-- активный класс -->
+                          +image('projects/1.jpg', 'projects__pic', 'Project #1')
+                        li.projects__item
+                          +image('projects/2.jpg', 'projects__pic', 'Project #2')
+                        li.projects__item
+                          +image('projects/3.jpg', 'projects__pic', 'Project #3')
+                    .projects__scroll-buttons
+                      a.button_prev
+                        +icon('arrow-down', 'projects__arrow')
+                      a.button_next
+                        +icon('arrow-down', 'projects__arrow projects__arrow_l')
+                    .projects__scroll
+                      ul.projects__list
+                        li.projects__item.projects__item_small.projects__item_active.projects__item_active-small <!-- активный класс -->
+                          a.projects__item-link
+                            +image('projects/1.jpg', 'projects__pic projects__pic_small', 'Project small #1')
+                        li.projects__item.projects__item_small
+                          a.projects__item-link
+                            +image('projects/2.jpg', 'projects__pic projects__pic_small', 'Project small #2')
+                        li.projects__item.projects__item_small
+                          a.projects__item-link
+                            +image('projects/3.jpg', 'projects__pic projects__pic_small', 'Project small #3')
+                ul.projects__info-list
+                  li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
+                    .projects__decor-number 1
+                    .projects__content
+                      +tools('projects__tools', toolsOfProject)
+                      h3.title.title__projects.title__project-name Учебный проект "Коворкинг"
+                      .projects__feedback.site__text
+                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка "А".
+                      a.projects__link(href="https://sden4.github.io/loftschool-stage-1/")
+                        +icon('link', 'projects__link-pic')
+                        .projects__link-name Посмотреть сайт
+                  li.projects__info-item
+                    .projects__decor-number 2
+                    .projects__content
+                      +tools('projects__tools', toolsOfProject)
+                      h3.title.title__projects.title__project-name Учебный проект фитнес центра "Афродита"
+                      .projects__feedback.site__text
+                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 1 неделю в перерыве между курсами Loftschool.
+                      a.projects__link(href="https://sden4.github.io/loftschool-stage-1-fitness-centre/")
+                        +icon('link', 'projects__link-pic')
+                        .projects__link-name Посмотреть сайт
+                  li.projects__info-item
+                    .projects__decor-number 3
+                    .projects__content
+                      +tools('projects__tools', toolsOfProject)
+                      h3.title.title__projects.title__project-name Учебный проект бургерной "Mr.Burger"
+                      .projects__feedback.site__text
+                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 6 недель и сдан в обозначенные сроки. Оценка "А".
+                      a.projects__link(href="https://sden4.github.io/burger_project/dist/")
+                        +icon('link', 'projects__link-pic')
+                        .projects__link-name Посмотреть сайт
         section.aboutAndFeedback
           +image("content/bg_aboutAndFeedback.jpg", "aboutAndFeedback__bg", 'Feedback section background')
           +icon('leaves', 'feedback_leaves')

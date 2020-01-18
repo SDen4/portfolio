@@ -1,12 +1,14 @@
+.projects {
+    height: 114vh;
+}
+
 .projects__wrapper {
-    height: 80vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 .projects__preview {
-    height: 80%;
+    /* height: 80%; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -14,6 +16,14 @@
 
 .title__projects {
     color: $text-color-black;
+    margin-bottom: 6.5%;
+}
+
+.projects__main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .projects__slider {
@@ -24,8 +34,8 @@
 
 .projects__view-zone {
     display: flex;
-    width: 50vw;
-    height: 50vh;
+    width: 60vw;
+    height: 58vh;
     max-width: 991px;
     max-height: 556px;
     overflow: hidden;
@@ -38,7 +48,7 @@
 }
 
 .projects__item {
-    width: 50vw;
+    width: 60vw;
     height: 100%;
 }
 
@@ -68,7 +78,7 @@
 }
 
 .projects__scroll-buttons {
-    margin-top: 348px;
+    margin-top: 390px;
     z-index: 10;
 }
 
@@ -86,7 +96,7 @@
 
 .projects__scroll {
     position: absolute;
-    top: 348px;
+    top: 390px;
     right: 50px;
     width: 555px;
     max-height: 100px;
@@ -104,7 +114,8 @@
 }
 
 .projects__info-list{
-    margin-left: -7%;
+    height: 100%;
+    margin-left: -6%;
 }
 
 .projects__info-item {
@@ -132,7 +143,7 @@
 }
 
 .projects__tools {
-    margin-bottom: 41px;
+    margin-bottom: 27px;
 }
 
 .projects__tools-list {
@@ -166,7 +177,7 @@
     line-height: 30px;
     font-weight: 600;
     max-width: 340px;
-    margin-bottom: 50px;
+    margin-bottom: 38px;
 }
 
 .projects__link {
@@ -198,5 +209,5 @@
 .title__project-name {
     font-size: 30px;
     line-height: 48px;
-    margin-bottom: 44px;
+    margin-bottom: 30px;
 }
