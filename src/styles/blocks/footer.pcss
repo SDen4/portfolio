@@ -8,11 +8,11 @@
 .container_footer {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .footer__left {
     display: flex;
-
     @include desktop {
         flex-direction: column;
     }
@@ -22,7 +22,7 @@
     font-size: 48px;
     font-weight: 600;
     color: rgba($text-color, .1);
-    margin-right: 60px;
+    margin-right: 70px;
     @include desktop {
         margin-bottom: 30px;
     }
@@ -37,7 +37,7 @@
 .title_footer {
     font-size: 18px;
     line-height: 28px;
-    margin-bottom: 38px;
+    margin-bottom: 12px;
 }
 
 .pre-title_footer {
@@ -50,20 +50,28 @@
 .footer__right {
     display: flex;
     flex-direction: column;
+    width: 67%;
 }
 
 .footer__right-up {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .footer__right-bottom {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin: 0 1%;
 }
 
 .footer__right-bottom-l, .footer__right-bottom-r {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer__right-bottom-l {
+    width: 35%;
 }
 
 .site__text_footer {
@@ -71,5 +79,9 @@
     font-size: 16px;
     line-height: 30px;
     font-weight: 400;
-    margin-bottom: 5%;
+    margin-bottom: 20px;
+}
+
+.site__i_footer {
+    margin-bottom: 0;
 }
