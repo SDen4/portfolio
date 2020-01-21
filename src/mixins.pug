@@ -7,8 +7,7 @@
 - var citationOwner = "Martin Golding"
 - var buttonText = "Отправить"
 - var navMenu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-- var socialIcons = ["insta", "vk", "github"]
-//- - var socialIconsNew = [["insta", "https://www.instagram.com/accounts/login/?hl=ru"],["vk", "https://vk.com/id30401197"],["github", "https://github.com/SDen4"]]
+- var socialIconsNew = {insta: "https://www.instagram.com/accounts/login/?hl=ru", vk: "https://vk.com/id30401197", github: "https://github.com/SDen4"}
 - var devDataQues = ['Проживаю: ', 'Возраст: ', 'Родился: ']
 - var devDataAnsw = ["Екатеринбург", "37 лет", "4 июня 1982"]
 - var frontEndSkills = ["HTML5", "CSS3", "JavaScript", "Jquery & Vue.js"]
@@ -35,18 +34,18 @@ mixin nav(className, items, activeItem)
 mixin scl(className, items)
   div(class=`${className}`)
     ul(class=`${className}__list`)
-      each social in items
+      each val, index in items
         li(class=`${className}__item`)
-          a(class=`${className}__link ${className}__link_${social}` href=`${social}`)
-            +icon(`${social}`, `${className}__pic ${className}__pic_${social}`)
+          a(class=`${className}__link ${className}__link_${index}` href=`${val}`)
+            +icon(`${index}`, `${className}__pic ${className}__pic_${index}`)
 
 mixin scl-footer(className, items)
   div(class=`${className}`)
     ul(class=`${className}__list ${className}__list_footer`)
-      each social in items
+      each val, index in items
         li(class=`${className}__item ${className}__item_footer`)
-          a(class=`${className}__link ${className}__link_${social}` href="#")
-            +icon(`${social}`, `${className}__pic ${className}__pic_${social}`)
+          a(class=`${className}__link ${className}__link_${index}` href=`${val}`)
+            +icon(`${index}`, `${className}__pic ${className}__pic_${index}`)
 
 mixin devInfo(className, items)
   div(class=`${className}`)
