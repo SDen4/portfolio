@@ -1,4 +1,4 @@
-.about-feedback {
+.about-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,12 +9,23 @@
     position: relative;
 }
 
-.about-feedback__bg {
+.about-form__bg {
     position: absolute;
     height: 100%;
     width: 100%;
     object-fit: cover;
     z-index: -5;
+}
+
+.form_leaves {
+    width: 484px;
+    height: 972px;
+    position: absolute;
+    top: -108px;
+    left: unset;
+    right: 0;
+    z-index: 5;
+    filter: blur(5px);
 }
 
 .about {
@@ -23,6 +34,16 @@
     position: relative;
     z-index: 10;
     margin-bottom: 6.8%;
+    @include desktop {
+        margin-bottom: 11%;
+        margin-top: -2%;
+    }
+}
+
+.about__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 4%;
 }
 
 .about__title {
@@ -82,6 +103,9 @@
     max-width: 1152px;
     max-height: 305px;
     overflow: hidden;
+    @include desktop {
+        width: 80vw;
+    }
 }
 
 .about__list {
@@ -99,6 +123,9 @@
     &:last-child {
         margin-right: 0;
     }
+    @include desktop {
+        width: 40vw;
+    }
 }
 
 .about__item-pic {
@@ -106,6 +133,9 @@
     width: 75px;
     height: 63px;
     margin-right: 20px;
+    @include desktop {
+        margin-right: 5px;
+    }
 }
 
 .about__item-content {

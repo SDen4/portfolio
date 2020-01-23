@@ -20,12 +20,18 @@ li {
     font-weight: 400;
     font-style: italic;
     margin-bottom: 14px;
+    @include desktop {
+            margin-bottom: 0;
+    }
 }
 
 .main-title {
     display: flex;
     align-items: flex-start;
     margin-right: 20%;
+    @include desktop {
+        margin-right: 6%;
+    }
 }
 
 .title {
@@ -44,6 +50,10 @@ li {
     margin-top: 2%;
     margin-right: 5%;
     text-align: end;
+    @include desktop {
+        margin-top: 2.2%;
+        margin-right: 3.6%;
+    }
 }
 
 .title_owner {

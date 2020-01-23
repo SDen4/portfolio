@@ -2,9 +2,19 @@
     z-index: 10;
 }
 
+.form__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 4%;
+}
+
 .form {
     width: 50vw;
     max-width: 850px;
+    @include desktop {
+        width: 72vw;
+        max-width: 860px;
+    }
 }
 
 .title_form {
@@ -127,14 +137,4 @@
         opacity: 1;
         color: $black;
     }
-}
-
-.feedback_leaves {
-    width: 484px;
-    height: 972px;
-    position: absolute;
-    top: -108px;
-    left: unset;
-    right: 0;
-    z-index: 5;
 }

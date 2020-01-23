@@ -4,6 +4,7 @@
   "text-color-decor": "#e6e6e6",
   "text-color-black": "#333c49",
   "text-color-black-lite": "rgba(51, 60, 73, .7)",
+
   "arrows-gray": "rgba(255, 255, 255, .3)",
   "buttons_gray": "#353e4e",
   "tools_block": "rgba(133, 159, 194, .1)",
@@ -13,9 +14,21 @@
   "bg-footer": "#222427",
   "black": "#272727",
   "links-color": "#586ed3",
+
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
   "bp-phones": "480px",
-  "buttonText": "Отправить"
+
+  "buttonText": "Отправить",
+
+  "totalSkill": "416",
+  "skill_html5": "312",
+  "skill_CSS3": "167",
+  "skill_Javascript": "125",
+  "skill_Vue": "21",
+  "skill_GIT": "125",
+  "skill_Terminal": "42",
+  "skill_Gulp": "42",
+  "skill_Webpack": "42"
 }
