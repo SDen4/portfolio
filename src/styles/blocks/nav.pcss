@@ -1,10 +1,25 @@
 .nav {
-    max-width: 690px;
+    max-width: 730px;
     width: 100%;
     font-size: 16px;
     line-height: 30px;
     font-weight: 400;
     margin: 0 1%;
+    @include tablets {
+        font-size: 14px;
+    }
+}
+
+.footer__right-up .nav {
+    @include tablets {
+        margin: 0;
+    }
+}
+
+.header__wrapper .nav {
+    @include tablets {
+        display: none;
+    }
 }
 
 .nav__list {
@@ -14,7 +29,6 @@
 
 .nav__item {
     width: 100%;
-    margin-right: 5%;
     &:last-child {
         margin-right: 0;
     }

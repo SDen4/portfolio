@@ -3,21 +3,34 @@
     @include desktop {
         height: 83vh;
     }
+    @include tablets {
+        overflow: hidden;
+        height: 103vh;
+    }
 }
 
 .projects__wrapper {
     display: flex;
     flex-direction: column;
+        margin: 0 2%;
     @include desktop {
         margin: 0 4% -2%;
+    }
+    @include tablets {
+        margin: 0 2.5%;
     }
 }
 
 .projects__preview {
-    /* height: 80%; */
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    width: 79%;
+    @include desktop {
+        width: 69%;
+    }
+    @include tablets {
+        width: 100%;
+    }
 }
 
 .title__projects {
@@ -26,19 +39,45 @@
     @include desktop {
         margin-bottom: 6%;
     }
+    @include tablets {
+        font-size: 30px;
+        margin-bottom: 8%;
+    }
 }
 
 .projects__main-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     height: 100%;
+    @include tablets {
+        flex-direction: column;
+    }
 }
 
 .projects__slider {
     display: flex;
     position: relative;
     justify-content: flex-start;
+    @include tablets {
+        margin-bottom: 9%;
+    }
+}
+
+.projects__decor-number{
+    display: flex;
+    justify-content: center;
+    max-width: 180px;
+    font-size: 400px;
+    color: $text-color-decor;
+    font-weight: 800;
+    line-height: .8;
+    margin-left: -7%;
+    @include desktop {
+        font-size: 300px;
+        max-width: 160px;
+        margin-left: -12%;
+    }
 }
 
 .projects__view-zone {
@@ -52,12 +91,17 @@
         width: 52vw;
         height: 37vh;
     }
+    @include tablets {
+        width: 82vw;
+        height: 37vh;
+    }
 }
 
 .projects__list {
     display: flex;
     position: relative;
     align-items: center;
+    height: 100%;
 }
 
 .projects__item {
@@ -65,6 +109,9 @@
     height: 100%;
     @include desktop {
         width: 52vw;
+    }
+    @include tablets {
+        width: 82vw;
     }
 }
 
@@ -118,10 +165,11 @@
     top: 390px;
     right: 50px;
     width: 555px;
-    max-height: 100px;
+    height: 100px;
     @include desktop {
         top: 222px;
-        width: 530px;
+        max-width: 530px;
+        width: 79%;
     }
 }
 
@@ -138,43 +186,40 @@
 
 .projects__info-list{
     height: 100%;
-    margin-left: -6%;
     @include desktop {
-        margin-left: -9.5%;
+        width: 31%;
+    }
+    @include tablets {
+        width: 100%;
     }
 }
 
 .projects__info-item {
     display: none;
     align-items: flex-start;
+    @include tablets {
+        justify-content: center;
+    }
 }
 
 .projects__info-item_active {
     display: flex;
 }
 
-.projects__decor-number{
-    display: flex;
-    justify-content: center;
-    max-width: 180px;
-    font-size: 400px;
-    color: $text-color-decor;
-    font-weight: 800;
-    line-height: .8;
-    @include desktop {
-        font-size: 300px;
-        max-width: 160px;
-    }
-}
-
 .projects__content{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @include tablets {
+        align-items: center;
+    }
 }
 
 .projects__tools {
     margin-bottom: 27px;
+    @include tablets {
+        margin-bottom: 5px;
+    }
 }
 
 .projects__tools-list {
@@ -204,11 +249,18 @@
 
 .projects__feedback {
     color: $text-color-black-lite;
-    font-size: 16px;
     line-height: 30px;
     font-weight: 600;
     max-width: 340px;
     margin-bottom: 38px;
+    @include tablets {
+        font-size: 14px;
+        max-width: 445px;
+    }
+    @include tablets {
+        line-height: 24px;
+        margin-bottom: 24px;
+    }
 }
 
 .projects__link {
@@ -220,6 +272,7 @@
     &:hover .projects__link-pic {
         fill: $text-color-black-lite;
     }
+    z-index: 20;
 }
 
 .projects__link-pic {
@@ -235,10 +288,16 @@
     font-weight: 700;
     color: $links-color;
     transition: .6s;
+    @include tablets {
+        font-size: 14px;
+    }
 }
 
 .title__project-name {
     font-size: 30px;
     line-height: 48px;
     margin-bottom: 30px;
+    @include tablets {
+        margin-bottom: 18px;
+    }
 }

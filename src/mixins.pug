@@ -40,7 +40,7 @@ mixin scl(className, items)
             +icon(`${index}`, `${className}__pic ${className}__pic_${index}`)
 
 mixin scl-footer(className, items)
-  div(class=`${className}`)
+  div(class=`${className} ${className}__footer`)
     ul(class=`${className}__list ${className}__list_footer`)
       each val, index in items
         li(class=`${className}__item ${className}__item_footer`)

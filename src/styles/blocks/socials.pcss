@@ -1,3 +1,19 @@
+.socials {
+  max-width: 163px;
+  width: 20%;
+  @include tablets {
+    margin-left: 36%;
+  }
+
+  &__footer {
+    max-width: 190px;
+    width: 100%;
+      @include tablets {
+        margin-left: 0;
+      }
+  }
+}
+
 .socials__list {
   display: flex;
   justify-content: space-between;
@@ -10,10 +26,13 @@
 
 .socials__item {
   display: block;
-  margin-right: 40px;
   &:last-child {
       margin-right: 0;
   }
+  @include tablets {
+    margin-right: 40PX;
+  }
+
 }
 
 .socials__item_footer {
@@ -36,9 +55,12 @@
   }
 
   margin-right: 20px;
+
   &::last-child {
     margin-right: 0;
   }
+
+
 }
 
 .socials__link {
@@ -55,16 +77,16 @@
 }
 
 .socials__pic_vk {
-  width: 31px;
-  height: 28px;
+  width: 31PX;
+  height: 28PX;
 }
 
 .socials__pic_insta {
-  width: 25px;
-  height: 25px;
+  width: 25PX;
+  height: 25PX;
 }
 
 .socials__pic_github {
-  width: 27px;
-  height: 23px;
+  width: 27PX;
+  height: 23PX;
 }

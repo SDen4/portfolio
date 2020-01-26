@@ -1,0 +1,34 @@
+.gamburger-menu {
+    width: 24PX;
+    height: 20PX;
+    display: none;
+    @include tablets {
+        display: block;
+    }
+}
+
+.gamburger-menu__link {
+    width: 24PX;
+    height: 20PX;
+}
+
+.gamburger-menu__section {
+    display: block;
+    width: 24PX;
+    height: 4PX;
+    background-color: $text-color;
+    position: relative;
+    &::before, &::after {
+        content: "";
+        width: 24PX;
+        height: 4PX;
+        background-color: $text-color;
+        position: absolute;
+    }
+    &::before {
+        top: 8PX;
+    }
+    &::after {
+        top: 16PX;
+    }
+}

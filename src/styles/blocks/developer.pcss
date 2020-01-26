@@ -7,6 +7,9 @@
     @include desktop {
         height: 134vh;
     }
+    @include tablets {
+        height: 112vh;
+    }
 }
 
 .container_developer {
@@ -21,7 +24,10 @@
     justify-content: center;
     @include desktop {
         justify-content: flex-start;
-        margin: 0 4% 18%;
+        margin: 0 4% 12%;
+    }
+    @include tablets {
+        margin: 0 4%;
     }
 }
 
@@ -33,12 +39,21 @@
     @include desktop {
         margin-right: 16%;
     }
+    @include tablets {
+        align-items: flex-start;
+        margin-right: 15%;
+    }
 }
 
 .ava_developer {
     width: 200px;
     height: 200px;
     margin-bottom: 27%;
+    @include tablets {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 22%;
+    }
 }
 
 .developer__info {
@@ -47,17 +62,26 @@
 
 .developer-ans, .developer-que {
     font-weight: 600;
+    @include tablets {
+        font-size: 14PX;
+    }
 }
 
 .developer-que {
     color: $text-color-gray;
     margin-right: 78px;
+    @include tablets {
+        margin-right: 38px;
+    }
 }
 
 .developer-ans__item, .developer-que__item {
     margin-bottom: 22px;
     &:last-child {
         margin-bottom: 0;
+    }
+    @include tablets {
+        margin-bottom: 14px;
     }
 }
 
@@ -74,9 +98,24 @@
     @include desktop {
         margin-bottom: 7%;
     }
+    @include tablets {
+        font-size: 30px;
+        margin-bottom: 12%;
+    }
 }
 
 .site__text_developer {
     font-weight: 600;
     margin-bottom: 3%;
+    @include tablets {
+        font-size: 14px;
+        margin-bottom: 2%;
+        line-height: 25px;
+    }
+}
+
+.site__text_developer_bottom {
+    @include tablets {
+        margin-bottom: 9%;
+    }
 }

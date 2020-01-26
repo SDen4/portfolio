@@ -25,6 +25,9 @@ html(lang="en")
                     .logo ДС
                     +nav('nav', navMenu)
                     +scl('socials', socialIconsNew)
+                    .gamburger-menu
+                      a.gamburger-menu__link
+                        .gamburger-menu__section
                 .main-title
                   .pre-title !{preTitle}
                   h1.title.title_owner !{ownerNameMain}
@@ -44,7 +47,7 @@ html(lang="en")
                   .developer__intro
                     .site__text.site__text_developer Привет, меня зовут
                     h2.title.title_developer #{ownerName}
-                    .site__text.site__text_developer
+                    .site__text.site__text_developer.site__text_developer_bottom
                       p
                         | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                   .site__text.site__text_i
@@ -95,9 +98,9 @@ html(lang="en")
                         li.projects__item.projects__item_small
                           a.projects__item-link
                             +image('projects/3.jpg', 'projects__pic projects__pic_small', 'Project small #3')
+                  .projects__decor-number 2
                 ul.projects__info-list
                   li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
-                    .projects__decor-number 1
                     .projects__content
                       +tools('projects__tools', toolsOfProject)
                       h3.title.title__projects.title__project-name Учебный проект "Коворкинг"
@@ -107,7 +110,6 @@ html(lang="en")
                         +icon('link', 'projects__link-pic')
                         .projects__link-name Посмотреть сайт
                   li.projects__info-item
-                    .projects__decor-number 2
                     .projects__content
                       +tools('projects__tools', toolsOfProject)
                       h3.title.title__projects.title__project-name Учебный проект фитнес центра "Афродита"
@@ -117,7 +119,6 @@ html(lang="en")
                         +icon('link', 'projects__link-pic')
                         .projects__link-name Посмотреть сайт
                   li.projects__info-item
-                    .projects__decor-number 3
                     .projects__content
                       +tools('projects__tools', toolsOfProject)
                       h3.title.title__projects.title__project-name Учебный проект бургерной "Mr.Burger"

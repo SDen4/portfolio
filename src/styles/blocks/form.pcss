@@ -5,7 +5,7 @@
 .form__wrapper {
     display: flex;
     flex-direction: column;
-    margin: 0 4%;
+    margin: 0 4% -6%;
 }
 
 .form {
@@ -15,10 +15,18 @@
         width: 72vw;
         max-width: 860px;
     }
+    @include tablets {
+        width: 92vw;
+    }
 }
 
 .title_form {
     margin-bottom: 86px;
+    @include tablets {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
 }
 
 .form__content {
@@ -29,10 +37,17 @@
     &:last-child {
         margin-bottom: 0;
     }
+    @include tablets {
+        margin-bottom: 38px;
+    }
 }
 
 .form__content_button {
     margin-top: 67px;
+    @include tablets {
+        margin-top: 0;
+        justify-content: center;
+    }
 }
 
 .form__data {
@@ -43,12 +58,18 @@
     &:last-child {
         margin-right: 0; /*проверить работу на textarea!!!*/
     }
+    @include tablets {
+        margin-right: 3.5%;
+    }
 }
 
 .form__data_wrapper {
     display: flex;
     align-items: flex-end;
     margin-bottom: 15px;
+    @include tablets {
+        margin-bottom: 18px;
+    }
 }
 
 .form__svg {
@@ -76,10 +97,13 @@
 }
 
 .form__subtitle {
-    font-size: 16px;
     color: $text-color-gray;
     font-weight: 600;
     margin-bottom: 30px;
+    @include tablets {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
 }
 
 .form__input {
@@ -90,6 +114,9 @@
     color: $text-color-gray;
     width: 95%;
     outline: none;
+        @include tablets {
+        font-size: 14px;
+    }
 }
 
 .form__input_textarea {
@@ -121,6 +148,10 @@
     color: $text-color;
     font-weight: 700;
     position: relative;
+
+    @include tablets {
+        padding: 32px 119px;
+    }
 
     &:before {
         content: "$buttonText";
