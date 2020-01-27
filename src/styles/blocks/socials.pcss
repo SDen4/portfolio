@@ -1,16 +1,23 @@
 .socials {
-  max-width: 163px;
+  max-width: 163PX;
   width: 20%;
   @include tablets {
-    margin-left: 36%;
+    width: 24%;
+    margin-left: 25%;
   }
 
   &__footer {
-    max-width: 190px;
+    max-width: 190PX;
     width: 100%;
       @include tablets {
         margin-left: 0;
       }
+  }
+}
+
+.header__wrapper .socials {
+  @include phones {
+    display: none;
   }
 }
 
@@ -40,21 +47,21 @@
   align-items: center;
   justify-content: center;
 
-  width: 50px;
-  height: 50px;
+  width: 50PX;
+  height: 50PX;
   border-radius: 50%;
-  border: 1px solid $text-color-gray;
+  border: 1PX solid $text-color-gray;
 
   transition: .6s;
 
   &:hover {
-    border: 1px solid $text-color;
+    border: 1PX solid $text-color;
   }
   &:hover .socials__pic {
     fill: $text-color;
   }
 
-  margin-right: 20px;
+  margin-right: 20PX;
 
   &::last-child {
     margin-right: 0;

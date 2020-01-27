@@ -12,19 +12,18 @@ li {
 }
 .site__text {
     color: $text-color-gray;
-    line-height: 30px;
+    line-height: 30PX;
 }
 
 .site__text_i {
     font-weight: 400;
     font-style: italic;
-    margin-bottom: 14px;
+    margin-bottom: 14PX;
     @include desktop {
         margin-bottom: 0;
     }
     @include tablets {
-        font-size: 14px;
-        line-height: 24px;
+        line-height: 24PX;
     }
 }
 
@@ -40,19 +39,22 @@ li {
         align-items: center;
         margin: 0;
     }
+    @include phones {
+        margin-bottom: 72%;
+    }
 }
 
 .title {
-    font-size: 36px;
+    font-size: 36PX;
     color: $text-color;
     font-weight: 700;
 }
 
 .pre-title {
-    width: 225px;
+    width: 225PX;
     color: $text-color-gray;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 18PX;
+    line-height: 30PX;
     font-weight: 600;
     text-align: right;
     margin-top: 2%;
@@ -66,17 +68,27 @@ li {
         text-align: center;
         margin: 0 0 5% 0;
     }
+    @include phones {
+        font-size: 14PX;
+        line-height: 24PX;
+        margin-bottom: 3%;
+    }
 }
 
 .title_owner {
-    font-size: 72px;
+    font-size: 72PX;
     font-weight: 800;
     text-align: center;
-    max-width: 400px;
+    max-width: 400PX;
     margin-left: 5%;
     text-align: left;
     @include tablets {
         text-align: center;
-        font-size: 48px;
+        font-size: 48PX;
+        margin-left: 0;
+    }
+    @include phones {
+        font-size: 36PX;
+        line-height: 48PX;
     }
 }

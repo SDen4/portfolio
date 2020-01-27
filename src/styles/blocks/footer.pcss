@@ -6,6 +6,9 @@
     @include tablets {
         height: 55vh;
     }
+    @include phones {
+        height: 130vh;
+    }
 }
 
 .container_footer {
@@ -18,6 +21,10 @@
     @include tablets {
         margin: 0 4% 6%;
     }
+    @include phones {
+        margin: 0 3.5% 8%;
+        flex-direction: column;
+    }
 }
 
 .footer__left {
@@ -25,15 +32,18 @@
     @include desktop {
         flex-direction: column;
     }
+    @include phones {
+        margin-bottom: 9%;
+    }
 }
 
 .footer__copyright {
-    font-size: 48px;
+    font-size: 48PX;
     font-weight: 600;
     color: rgba($text-color, .1);
-    margin-right: 70px; /*delete???*/
+    margin-right: 70PX; /*delete???*/
     @include desktop {
-        margin-bottom: 14px;
+        margin-bottom: 14PX;
     }
 }
 
@@ -45,16 +55,29 @@
 
 .title_footer {
     text-transform: uppercase;
-    font-size: 18px;
-    line-height: 28px;
-    margin-bottom: 12px;
+    font-size: 18PX;
+    line-height: 28PX;
+    margin-bottom: 12PX;
+    @include tablets {
+        max-width: 145PX;
+    }
+    @include phones {
+        margin-bottom: 6PX;
+    }
 }
 
 .pre-title_footer {
     text-align: start;
-    font-size: 16px;
-    line-height: 30px;
+    line-height: 30PX;
     font-weight: 400;
+    @include desktop {
+        max-width: 165PX;
+    }
+    @include tablets {
+        font-size: 14PX;
+        line-height: 26PX;
+        max-width: 140PX;
+    }
 }
 
 .footer__right {
@@ -64,13 +87,18 @@
     @include desktop {
         width: 75%;
     }
+    @include phones {
+        width: 100%;
+    }
 }
 
 .footer__right-up {
-    margin-bottom: 50px;
+    margin-bottom: 50PX;
     @include tablets {
-        margin-bottom: 40px;
-
+        margin-bottom: 40PX;
+    }
+    @include phones {
+        margin-bottom: 26PX;
     }
 }
 
@@ -80,10 +108,23 @@
     }
 }
 
+.footer__right-up .nav {
+    @include tablets {
+        margin: 0;
+    }
+}
+
 .footer__right-up .nav__item{
     @include tablets {
-        line-height: 40px;
-        width: 25%;
+        line-height: 40PX;
+        width: 20%;
+        margin-right: 10%;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    @include phones {
+        width: 40%;
     }
 }
 
@@ -113,17 +154,23 @@
         width: 100%;
         margin-bottom: 12%;
     }
+    @include phones {
+        margin-bottom: 16%;
+    }
 }
 
 .site__text_footer {
-    max-width: 485px;
-    line-height: 30px;
+    max-width: 485PX;
+    line-height: 30PX;
     font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 20PX;
+    @include desktop {
+        margin-right: 5%;
+    }
     @include tablets {
-        font-size: 14px;
-        line-height: 24px;
-        margin-bottom: 15px;
+        line-height: 24PX;
+        margin-bottom: 15PX;
+        margin-right: 0;
     }
 }
 

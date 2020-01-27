@@ -8,12 +8,15 @@
         flex-direction: column-reverse;
         height: 123vh;
     }
+    @include phones {
+        height: 248vh;
+    }
 }
 
 .skills__pic-container {
     display: block;
     width: 50%;
-    max-width: 682px;
+    max-width: 682PX;
     height: 100%;
     margin-top: 13%;
     @include desktop {
@@ -23,17 +26,29 @@
     }
     @include tablets {
         margin: 0;
-        max-height: 412px;
-        max-width: 337px;
+        max-height: 412PX;
+        max-width: 337PX;
+    }
+    @include phones {
+        width: 100%;
+        max-height: 235PX;
+        position: relative;
     }
 }
 
 .skills__pic {
     display: block;
-    max-width: 682px;
-    max-height: 983px;
+    max-width: 682PX;
+    max-height: 983PX;
     @include tablets {
         transform: rotate(-90deg);
+    }
+    @include phones {
+        max-width: 235PX;
+        max-height: 338PX;
+        position: absolute;
+        bottom: -23PX;
+        left: 16PX;
     }
 }
 
@@ -41,7 +56,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 875px;
+    max-width: 875PX;
     width: 50%;
     height: 72%;
     @include desktop {
@@ -49,6 +64,11 @@
         height: 52%;
         align-items: center;
         justify-content: center;
+    }
+    @include phones {
+        width: 84%;
+        height: 80%;
+        justify-content: flex-end;
     }
 }
 
@@ -64,29 +84,40 @@
         align-items: center;
         margin-bottom: 8.8%;
     }
+    @include phones {
+        margin-bottom: 19%;
+    }
 }
 
 .title_skills {
-    font-size: 30px;
-    margin-bottom: 50px;
+    font-size: 30PX;
+    margin-bottom: 50PX;
     @include tablets {
         text-align: center;
-        font-size: 30px;
-        max-width: 265px;
-        line-height: 36px;
-        margin-bottom: 18px;
+        font-size: 30PX;
+        max-width: 265PX;
+        line-height: 36PX;
+        margin-bottom: 18PX;
+    }
+    @include phones {
+        text-align: start;
+        font-size: 24PX;
+        margin-bottom: 16PX;
     }
 }
 
 .site__text_skills {
-    line-height: 30px;
-    max-width: 586px;
+    line-height: 30PX;
+    max-width: 586PX;
     @include tablets {
-        font-size: 14px;
+        font-size: 14PX;
         font-weight: 600;
-        line-height: 24px;
+        line-height: 24PX;
         text-align: center;
-        max-width: 430px;
+        max-width: 430PX;
+    }
+    @include phones {
+        text-align: start;
     }
 }
 
@@ -123,27 +154,31 @@
 }
 
 .skills__group-name {
-    font-size: 24px;
+    font-size: 24PX;
     font-weight: 700;
     margin-bottom: 5%;
     width: 100%;
-    max-width: 745px;
+    max-width: 745PX;
     @include tablets {
         text-align: center;
-        font-size: 18px;
+        font-size: 18PX;
+    }
+    @include phones {
+        margin-bottom: 10%;
     }
 }
 
 .skills__list {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
-    max-width: 745px;
+    max-width: 745PX;
 }
 
 .skills__item {
-    width: 143px;
-    height: 143px;
+    width: 143PX;
+    height: 143PX;
     position: relative;
     display: flex;
     justify-content: center;
@@ -152,8 +187,11 @@
         margin-right: 0;
     }
     @include tablets {
-        width: 121px;
-        height: 121px;
+        width: 121PX;
+        height: 121PX;
+    }
+    @include phones {
+        margin-bottom: 27PX;
     }
 }
 
@@ -162,17 +200,17 @@
     display: flex;
     position: absolute;
     fill: transparent;
-    width: 143px;
-    height: 143px;
+    width: 143PX;
+    height: 143PX;
     stroke: #cf721a; /*url(#gradient);*/
     z-index: 10;
     stroke-dashoffset: 0;
     transform: rotate(-90deg);
     /* background-image: linear-gradient(90deg, #cf721a 0%, #db9222 100%); */
-    /* border: 9px solid #db9222; #393939; */
+    /* border: 9PX solid #db9222; #393939; */
     @include tablets {
-        width: 121px;
-        height: 121px;
+        width: 121PX;
+        height: 121PX;
     }
 }
 
@@ -207,19 +245,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 134px;
-    height: 134px;
+    width: 134PX;
+    height: 134PX;
     border-radius: 50%;
-    border: 2px solid $text-color-gray;
+    border: 2PX solid $text-color-gray;
     z-index: 5;
     @include tablets {
-        width: 113px;
-        height: 113px;
+        width: 113PX;
+        height: 113PX;
     }
 }
 
 .skills__name {
-    font-size: 18px;
+    font-size: 18PX;
     font-weight: 700;
     text-align: center;
     z-index: 10;

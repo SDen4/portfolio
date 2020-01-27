@@ -68,7 +68,7 @@ html(lang="en")
                 .skills__group-name Workflow
                 +skill('skills', workflow)
         section.projects
-          .container
+          .container.container_projects
             .projects__wrapper
               h2.title.title__projects Мои работы
               .projects__main-content
@@ -221,8 +221,8 @@ html(lang="en")
               .footer__left
                 .footer__copyright ©2020
                 .footer__owner-info
-                  h5.title.title_footer !{ownerNameMain}
-                  .pre-title.pre-title_footer !{preTitle}
+                  h5.title.title_footer #{ownerName}
+                  .pre-title.pre-title_footer #{preTitle}
               .footer__right
                 .footer__right-up
                   +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])

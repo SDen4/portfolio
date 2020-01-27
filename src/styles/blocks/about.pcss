@@ -8,7 +8,7 @@
     background-size: cover;
     position: relative;
     @include tablets {
-        height: 112vh;
+        height: 210vh;
     }
 }
 
@@ -21,14 +21,14 @@
 }
 
 .form_leaves {
-    width: 484px;
-    height: 972px;
+    width: 48PX;
+    height: 972PX;
     position: absolute;
-    top: -108px;
+    top: -108PX;
     left: unset;
     right: 0;
     z-index: 5;
-    filter: blur(5px);
+    filter: blur(5PX);
 }
 
 .about {
@@ -44,51 +44,64 @@
     @include tablets {
         margin-bottom: 4%;
     }
+    @include phones {
+        margin-bottom: 45%;
+    }
 }
 
 .about__wrapper {
     display: flex;
     flex-direction: column;
     @include desktop {
-        margin: 0 4%;
+        margin: 0 3.5%;
     }
 }
 
 .about__title {
     display: flex;
+    @include phones {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10%;
+    }
 }
 
 .title_about{
-    margin-right: 96px;
-    margin-bottom: 95px;
+    margin-right: 96PX;
+    margin-bottom: 95PX;
     @include tablets {
-        font-size: 30px;
-        margin-right: 70px;
-        margin-bottom: 63px;
+        font-size: 30PX;
+        margin-right: 70PX;
+        margin-bottom: 63PX;
+    }
+    @include phones {
+        font-size: 24PX;
+        margin-right: 0;
+        margin-bottom: 28PX;
     }
 }
 
 .about__content-buttons {
     display: flex;
-    width: 134px;
-    height: 52px;
+    width: 134PX;
+    height: 52PX;
 }
 
 .about__button_round {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 50PX;
+    height: 50PX;
     border-radius: 50%;
-    border: 1px solid $text-color;
-    margin-right: 30px;
+    border: 1PX solid $text-color;
+    margin-right: 30PX;
     transition: .6s;
     &:last-child {
         margin-right: 0;
     }
     &:hover {
-        border: 1px solid $text-color-gray;
+        border: 1PX solid $text-color-gray;
     }
     &:hover .about__button {
         fill: $text-color-gray;
@@ -97,8 +110,8 @@
 
 .about__button {
     fill: $text-color;
-    width: 8px;
-    height: 10px;
+    width: 8PX;
+    height: 10PX;
     transition: .6s;
 }
 
@@ -110,14 +123,17 @@
     display: flex;
     width: 56vw;
     height: 30vh;
-    max-width: 1152px;
-    max-height: 305px;
+    max-width: 1152PX;
+    max-height: 305PX;
     overflow: hidden;
     @include desktop {
         width: 80vw;
     }
-    @include desktop {
+    @include tablets {
         width: 90vw;
+    }
+    @include phones {
+        width: 82vw;
     }
 }
 
@@ -142,38 +158,48 @@
     @include tablets {
         width: 45vw;
     }
+    @include phones {
+        width: 84vw;
+        margin-right: 0;
+    }
 }
 
 .about__item-pic {
     fill: rgba($text-color, .05);
-    width: 75px;
-    height: 63px;
-    margin-right: 20px;
+    width: 75PX;
+    height: 63PX;
+    margin-right: 20PX;
     @include desktop {
-        margin-right: 5px;
+        margin-right: 5PX;
     }
     @include tablets {
-        width: 30px;
-        height: 26px;
-        margin-right: 15px;
+        width: 30PX;
+        height: 26PX;
+        margin-right: 15PX;
+    }
+    @include phones {
+        font-size: 14PX;
+        margin-left: -40PX;
     }
 }
 
 .about__item-content {
     display: flex;
     flex-direction: column;
-    max-width: 310px;
+    max-width: 310PX;
 }
 
 .about__text {
-    line-height: 30px;
-    margin-bottom: 24px;
+    line-height: 30PX;
+    margin-bottom: 24PX;
     font-weight: 600;
-    max-width: 305px;
+    max-width: 305PX;
     @include tablets {
-        font-size: 14px;
-        line-height: 24px;
-        margin-bottom: 30px;
+        line-height: 24PX;
+        margin-bottom: 30PX;
+    }
+    @include phones {
+        margin-bottom: 26PX;
     }
 }
 
@@ -194,10 +220,15 @@
 }
 
 .ava_about {
-    max-width: 76px;
-    max-height: 76px;
+    max-width: 76PX;
+    max-height: 76PX;
     @include tablets {
         margin-right: 5%;
+    }
+    @include phones {
+        max-width: 50PX;
+        max-height: 50PX;
+        margin-right: 7%;
     }
 }
 
@@ -218,19 +249,16 @@
 }
 
 .about__user-name {
-    font-size: 18px;
+    font-size: 18PX;
     color: #ffffff;
     font-weight: 700;
     @include tablets {
-        font-size: 16px;
+        font-size: 16PX;
     }
 }
 
 .about__user-prof {
-    font-size: 16px;
+    font-size: 16PX;
     color: $text-color-gray;
     font-weight: 600;
-    @include tablets {
-        font-size: 14px;
-    }
 }
