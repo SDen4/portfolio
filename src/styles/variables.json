@@ -19,6 +19,7 @@
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
   "bp-phones": "480px",
+  "bp-small": "320px",
 
   "buttonText": "Отправить",
 

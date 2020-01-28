@@ -22,9 +22,8 @@
   }
 }
 
-
-
-
-
-
-
+@mixin small() {
+  @media screen and (max-width: $bp-small) {
+    @content;
+  }
+}
