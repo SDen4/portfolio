@@ -1,5 +1,7 @@
 include ./mixins.pug
 include ../components/skills.pug
+include ../components/projects.pug
+
 
 <!DOCTYPE html>
 html(lang="en")
@@ -66,62 +68,7 @@ html(lang="en")
           .container.container_projects
             .projects__wrapper
               h2.title.title__projects Мои работы
-              .projects__main-content
-                .projects__preview
-                  .projects__slider
-                    .projects__view-zone
-                      ul.projects__list
-                        li.projects__item.projects__item_active <!-- активный класс -->
-                          +image('projects/1.jpg', 'projects__pic', 'Project #1')
-                        li.projects__item
-                          +image('projects/2.jpg', 'projects__pic', 'Project #2')
-                        li.projects__item
-                          +image('projects/3.jpg', 'projects__pic', 'Project #3')
-                    .projects__scroll-buttons
-                      a.button_prev
-                        +icon('arrow-down', 'projects__arrow')
-                      a.button_next
-                        +icon('arrow-down', 'projects__arrow projects__arrow_l')
-                    .projects__scroll
-                      ul.projects__list
-                        li.projects__item.projects__item_small.projects__item_active.projects__item_active-small <!-- активный класс -->
-                          a.projects__item-link
-                            +image('projects/1.jpg', 'projects__pic projects__pic_small', 'Project small #1')
-                        li.projects__item.projects__item_small
-                          a.projects__item-link
-                            +image('projects/2.jpg', 'projects__pic projects__pic_small', 'Project small #2')
-                        li.projects__item.projects__item_small
-                          a.projects__item-link
-                            +image('projects/3.jpg', 'projects__pic projects__pic_small', 'Project small #3')
-                  .projects__decor-number 2
-                ul.projects__info-list
-                  li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
-                    .projects__content
-                      +tools('projects__tools', toolsOfProject)
-                      h3.title.title__projects.title__project-name Учебный проект "Коворкинг"
-                      .projects__feedback.site__text
-                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка "А".
-                      a.projects__link(href="https://sden4.github.io/loftschool-stage-1/")
-                        +icon('link', 'projects__link-pic')
-                        .projects__link-name Посмотреть сайт
-                  li.projects__info-item
-                    .projects__content
-                      +tools('projects__tools', toolsOfProject)
-                      h3.title.title__projects.title__project-name Учебный проект фитнес центра "Афродита"
-                      .projects__feedback.site__text
-                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 1 неделю в перерыве между курсами Loftschool.
-                      a.projects__link(href="https://sden4.github.io/loftschool-stage-1-fitness-centre/")
-                        +icon('link', 'projects__link-pic')
-                        .projects__link-name Посмотреть сайт
-                  li.projects__info-item
-                    .projects__content
-                      +tools('projects__tools', toolsOfProject)
-                      h3.title.title__projects.title__project-name Учебный проект бургерной "Mr.Burger"
-                      .projects__feedback.site__text
-                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 6 недель и сдан в обозначенные сроки. Оценка "А".
-                      a.projects__link(href="https://sden4.github.io/burger_project/dist/")
-                        +icon('link', 'projects__link-pic')
-                        .projects__link-name Посмотреть сайт
+              #projects-component
         .about-form
           +image("content/bg_aboutAndFeedback.jpg", "about-form__bg", 'Form section background')
           +icon('leaves', 'form_leaves')

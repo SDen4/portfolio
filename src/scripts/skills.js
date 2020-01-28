@@ -6,7 +6,6 @@ const skillsItem = {
     mounted() {
         const circle = this.$refs["segment"];
         const dashArray = parseInt(getComputedStyle(circle).getPropertyValue("stroke-dasharray"));
-        console.log(dashArray);
         const persent = (dashArray/100)*(100 - this.skillPers);
         circle.style.strokeDashoffset = persent;
     }

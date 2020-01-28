@@ -157,7 +157,7 @@
     }
 }
 
-.projects__item_active-small {
+.projects__item_active_small {
     outline: 3px solid $slider-active;
     z-index: 20;
 }
@@ -194,6 +194,13 @@
     background-color: $buttons_gray;
     &:hover .projects__arrow {
         fill: $text-color;
+    }
+}
+
+.button_unactive{
+    cursor: unset;
+    &:hover .projects__arrow {
+        fill: $arrows-gray;
     }
 }
 
