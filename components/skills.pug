@@ -1,0 +1,27 @@
+script(type="text/x-template")#skills-list
+    ul.skills__data
+        li.skills__data-item(v-for="skill in skills")
+            skills-group(
+                :skill="skill"
+            )
+
+script(type="text/x-template")#skills-group
+    .skills__group
+        .skills__group-name {{skill.skillsGroup}}
+        ul.skills__list
+            li.skills__item(v-for="(skillPers, skillName) in skill.skills")
+                skills-item(
+                    :skillName="skillName"
+                    :skillPers="skillPers"
+                )
+
+
+script(type="text/x-template")#skills-item
+    .skill__inside
+        svg(viewBox="0 0 144 144").skills__round
+            circle(cx="72" cy="72" r="68" ref="segment" stroke="url(#grad)")
+            linearGradient(id="grad" x1="0%" y1="0%" x2="100%" y2="0%")
+                stop(offset="0%" stop-color="#cf721a")
+                stop(offset="100%" stop-color="#db9222")
+        .skills__empty-round
+            .skills__name {{skillName}}

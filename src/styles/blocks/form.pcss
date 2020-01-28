@@ -8,9 +8,11 @@
 .form__wrapper {
     display: flex;
     flex-direction: column;
-    margin: 0 4% -6%;
+    @include desktop {
+        margin: 0 4% -6%;
+    }
     @include phones {
-    margin: 0 3.5%;
+        margin: 0 3.5%;
     }
 }
 
@@ -105,6 +107,20 @@
 .form__svg {
     fill: $text-color-gray;
     margin-right: 20PX;
+}
+
+.form_leaves {
+    width: 480PX;
+    height: 972PX;
+    position: absolute;
+    top: -108PX;
+    left: unset;
+    right: 0;
+    z-index: 5;
+    filter: blur(5PX);
+    @include phones {
+        display: none;
+    }
 }
 
 .form__user_svg {

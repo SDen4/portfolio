@@ -136,9 +136,12 @@
         margin-bottom: 0;
         margin-right: 0;
     }
+    @include phones {
+        width: 100%;
+    }
 }
 
-.skills__group {
+.skills__data-item {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -151,6 +154,10 @@
         align-items: center;
         margin-bottom: 10.5%;
     }
+}
+
+.skills__group{
+    width: 100%;
 }
 
 .skills__group-name {
@@ -195,49 +202,27 @@
     }
 }
 
-[class ^= "skills__round-"] {
+.skill__inside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills__round {
     border-radius: 50%;
     display: flex;
     position: absolute;
     fill: transparent;
     width: 143PX;
     height: 143PX;
-    stroke: #cf721a; /*url(#gradient);*/
+    stroke-width: 9PX;
     z-index: 10;
     stroke-dashoffset: 0;
-    transform: rotate(-90deg);
-    /* background-image: linear-gradient(90deg, #cf721a 0%, #db9222 100%); */
-    /* border: 9PX solid #db9222; #393939; */
+    stroke-dasharray: $totalSkill;
+    transform: rotate(180deg);
     @include tablets {
         width: 121PX;
         height: 121PX;
-    }
-}
-
-.skills__round {
-    &-HTML5 {
-        stroke-dasharray: $skill_html5 $totalSkill;
-    }
-    &-CSS3 {
-        stroke-dasharray: $skill_CSS3 $totalSkill;
-    }
-    &-Javascript {
-        stroke-dasharray: $skill_Javascript $totalSkill;
-    }
-    &-Vue {
-        stroke-dasharray: $skill_Vue $totalSkill;
-    }
-    &-GIT {
-        stroke-dasharray: $skill_GIT $totalSkill;
-    }
-    &-Terminal {
-        stroke-dasharray: $skill_Terminal $totalSkill;
-    }
-    &-Gulp {
-        stroke-dasharray: $skill_Gulp $totalSkill;
-    }
-    &-Webpack {
-        stroke-dasharray: $skill_Webpack $totalSkill;
     }
 }
 

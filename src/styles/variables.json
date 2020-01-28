@@ -22,13 +22,5 @@
 
   "buttonText": "Отправить",
 
-  "totalSkill": "416",
-  "skill_html5": "312",
-  "skill_CSS3": "167",
-  "skill_Javascript": "125",
-  "skill_Vue": "21",
-  "skill_GIT": "125",
-  "skill_Terminal": "42",
-  "skill_Gulp": "42",
-  "skill_Webpack": "42"
+  "totalSkill": "427"
 }
