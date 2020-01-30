@@ -74,16 +74,16 @@ new Vue ({
                     break;
             }
         },
-        sliderLoop(value) {
-            const projectsTotalNum = this.projects.lenght - 1;
-            if (value > projectsTotalNum) this.currentIndex = 0;
-            else if (value < 0) this.currentIndex = projectsTotalNum;
-        }
-    },
-    watch: {
-        currentIndex(value) {
-            this.sliderLoop(value)
-        }
+        // sliderLoop(value) {
+        //     const projectsTotalNum = this.projects.lenght - 1;
+        //     if (value > projectsTotalNum) this.currentIndex = 0;
+        //     else if (value < 0) this.currentIndex = projectsTotalNum;
+        // }
+    // },
+    // watch: {
+    //     currentIndex(value) {
+    //         this.sliderLoop(value)
+    //     }
     },
     created() {
         const data = require("../../projects.json");

@@ -17,8 +17,10 @@
 
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
+  "bp-iPadPro": "1024px",
   "bp-tablets": "768px",
   "bp-phones": "480px",
+  "bp-small360": "360px",
   "bp-small": "320px",
 
   "buttonText": "Отправить",

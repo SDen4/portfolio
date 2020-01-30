@@ -1,17 +1,27 @@
 .developer {
+    position: absolute;
+    top:53%;
     width: 100%;
     height: 88vh;
     display: flex;
     flex-direction: column;
-    /* background: linear-gradient(0deg, #222427 0%, rgba(34,36,39,0) 100%), url(/src/images/content/bg_dev.jpg) center no-repeat; */
+    background-image: linear-gradient(0deg, #272727 60%, rgba(34,36,39,0) 100%);
     @include desktop {
-        height: 134vh;
+        height: 116vh;
+    }
+    @include iPadPro {
+        height: 40vh;
+        top:56%;
     }
     @include tablets {
         height: 101vh;
     }
     @include phones {
         height: 116vh;
+        top:49%;
+    }
+    @include small360 {
+        top:44%;
     }
     @include small {
         height: 132vh;
@@ -21,7 +31,12 @@
 .container_developer {
     margin-bottom: 6%;
     @include desktop {
+        margin-bottom: 21%;
         justify-content: flex-end;
+    }
+    @include phones {
+        margin-bottom: 40%;
+
     }
 }
 

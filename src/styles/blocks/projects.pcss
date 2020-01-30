@@ -3,6 +3,9 @@
     @include desktop {
         height: 83vh;
     }
+    @include iPadPro {
+        height: 58vh;
+    }
     @include tablets {
         overflow: hidden;
         height: 96vh;
@@ -318,13 +321,12 @@
 .projects__link {
     display: flex;
     align-items: center;
-    &:hover .projects__link-name{
-        color: $text-color-black-lite;
-    }
-    &:hover .projects__link-pic {
-        fill: $text-color-black-lite;
-    }
     z-index: 20;
+
+    &:hover .projects__link-name:after{
+        opacity: 1;
+    }
+
     @include phones {
         align-self: flex-start;
     }
@@ -343,6 +345,16 @@
     font-weight: 700;
     color: $links-color;
     transition: .6s;
+
+    &:after{
+        content: "";
+        display: block;
+        opacity: 0;
+        height: 2PX;
+        background-color: $links-color;
+        transition: .6s;
+    }
+
     @include tablets {
         font-size: 14PX;
     }

@@ -1,6 +1,7 @@
 include ./mixins.pug
 include ../components/skills.pug
 include ../components/projects.pug
+include ../components/about.pug
 
 
 <!DOCTYPE html>
@@ -14,47 +15,52 @@ html(lang="en")
     .wrapper
       .main-content
         .intro-developer
-          +image("content/bg_intro_for_hw1.jpg", "intro-developer__bg")
+          +image("content/bg_intro_480.jpg", "intro-developer__bg intro-developer__bg_480")
+          +image("content/bg_intro_768.jpg", "intro-developer__bg intro-developer__bg_768")
           .parallax
             .parallax__layer.parallax__layer_1
+              +image("content/p1.png", "parallax__layer_img parallax__layer_img1", "ParallaxImage")
             .parallax__layer.parallax__layer_2
+              +image("content/p2.png", "parallax__layer_img parallax__layer_img2", "ParallaxImage")
             .parallax__layer.parallax__layer_3
+              +image("content/p3.png", "parallax__layer_img parallax__layer_img3", "ParallaxImage")
             .parallax__layer.parallax__layer_4
-          section.intro
-            .container
-              .intro__wrapper
-                header.header
-                  .header__wrapper
-                    .logo ДС
-                    +nav('nav', navMenu)
-                    +scl('socials', socialIconsNew)
-                    .gamburger-menu
-                      a.gamburger-menu__link
-                        .gamburger-menu__section
-                .main-title
-                  .pre-title !{preTitle}
-                  h1.title.title_owner !{ownerNameMain}
-                a.scroll(href='')
-                  span.scroll__name Скролл
-                  +icon('scroll', 'scroll__pic')
-          section.developer
-            .container.container_developer
-              .developer__wrapper
-                .developer__left
-                  .ava.ava_developer
-                    +image('content/owner.jpeg', 'developer__ava', 'Developer')
-                  .developer__info
-                    +devInfo('developer-que', devDataQues)
-                    +devInfo('developer-ans', devDataAnsw)
-                .developer__right
-                  .developer__intro
-                    .site__text.site__text_developer Привет, меня зовут
-                    h2.title.title_developer #{ownerName}
-                    .site__text.site__text_developer.site__text_developer_bottom
-                      p
-                        | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                  .site__text.site__text_i
-                    p #{siteText}
+              +image("content/p4.png", "parallax__layer_img parallax__layer_img4", "ParallaxImage")
+            section.intro
+              .container
+                .intro__wrapper
+                  header.header
+                    .header__wrapper
+                      .logo ДС
+                      +nav('nav', navMenu)
+                      +scl('socials', socialIconsNew)
+                      .gamburger-menu
+                        a.gamburger-menu__link
+                          .gamburger-menu__section
+                  .main-title
+                    .pre-title !{preTitle}
+                    h1.title.title_owner !{ownerNameMain}
+                  a.scroll(href='')
+                    span.scroll__name Скролл
+                    +icon('scroll', 'scroll__pic')
+            section.developer
+              .container.container_developer
+                .developer__wrapper
+                  .developer__left
+                    .ava.ava_developer
+                      +image('content/owner.jpeg', 'developer__ava', 'Developer')
+                    .developer__info
+                      +devInfo('developer-que', devDataQues)
+                      +devInfo('developer-ans', devDataAnsw)
+                  .developer__right
+                    .developer__intro
+                      .site__text.site__text_developer Привет, меня зовут
+                      h2.title.title_developer #{ownerName}
+                      .site__text.site__text_developer.site__text_developer_bottom
+                        p
+                          | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                    .site__text.site__text_i
+                      p #{siteText}
         section.skills
           .skills__pic-container
             +icon('hands', 'skills__pic')
@@ -74,59 +80,7 @@ html(lang="en")
           +icon('leaves', 'form_leaves')
           section.about
             .container
-              .about__wrapper
-                .about__title
-                  h2.title.title_about Что обо мне говорят
-                  .about__content-buttons
-                    a.about__button_round
-                      +icon('arrow-down', 'about__button about__button_prev')
-                    a.about__button_round
-                      +icon('arrow-down', 'about__button about__button_next')
-                .about__content
-                  .about__watch-zone
-                    ul.about__list
-                      li.about__item
-                        +icon('quote', 'about__item-pic')
-                        .about__item-content
-                          .site__text.about__text
-                            p #{feedbackText}
-                          .about__item-user
-                            .ava.ava_about
-                              +image("content/feedback_user1.jpg", "user__ava")
-                            .about__user-data
-                              h5.about__user-name Ковальчук Дмитрий
-                              .about__user-prof Основатель Loftschool
-                      li.about__item
-                        +icon('quote', 'about__item-pic')
-                        .about__item-content
-                          .site__text.about__text
-                            p #{feedbackText}
-                          .about__item-user
-                            .ava.ava_about
-                              +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
-                            .about__user-data
-                              h5.about__user-name Ковальчук Дмитрий
-                              .about__user-prof Основатель Loftschool
-                      li.about__item
-                        .about__item-content
-                          .site__text.about__text
-                            p #{feedbackText}
-                          .about__item-user
-                            .ava.ava_about
-                              +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
-                            .about__user-data
-                              h5.about__user-name Ковальчук Дмитрий
-                              .about__user-prof Основатель Loftschool
-                      li.about__item
-                        .about__item-content
-                          .site__text.about__text
-                            p #{feedbackText}
-                          .about__item-user
-                            .ava.ava_about
-                              +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
-                            .about__user-data
-                              h5.about__user-name Ковальчук Дмитрий
-                              .about__user-prof Основатель Loftschool
+              #about-component
           section.form__section
             .container
               .form__wrapper

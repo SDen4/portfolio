@@ -7,12 +7,19 @@
     background-image: linear-gradient(90deg, #232529 0%, rgba(34,36,39,0) 100%);
     background-size: cover;
     position: relative;
+
+    @include iPadPro {
+        height: 100vh;
+    }
+
     @include tablets {
         height: 102vh;
     }
+
     @include phones {
         height: 192vh;
     }
+    
     @include small {
         height: 210vh;
     }
@@ -91,6 +98,7 @@
     border-radius: 50%;
     border: 1PX solid $text-color;
     margin-right: 30PX;
+    outline: none;
     transition: .6s;
     &:last-child {
         margin-right: 0;
