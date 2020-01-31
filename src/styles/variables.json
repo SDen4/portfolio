@@ -5,6 +5,11 @@
   "text-color-black": "#333c49",
   "text-color-black-lite": "rgba(51, 60, 73, .7)",
 
+  "text-color-admin": "#414c63",
+  "text-color-nav-admin-active": "#383bcf",
+  "bg_admin": "#f7f9fd",
+  "admin_grayline": "rgba(31, 35, 45, .15)",
+
   "arrows-gray": "rgba(255, 255, 255, .3)",
   "buttons_gray": "#353e4e",
   "tools_block": "rgba(133, 159, 194, .1)",

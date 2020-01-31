@@ -1,0 +1,57 @@
+.admin__header {
+    width: 100%;
+    background-image: linear-gradient(90deg, #3d3d59 0%, #444472 100%);
+}
+
+.admin__container_header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 16PX 0;
+}
+
+.admin__user {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+}
+
+.ava_admin {
+    width: 46PX;
+    height: 46PX;
+    margin-right: 20PX;
+}
+
+.title_admin {
+    font-size: 18PX;
+    font-weight: 600;
+    margin-right: 20PX;
+}
+
+.pre-title_admin {
+    margin: 0;
+    font-size: 14PX;
+    font-weight: 400;
+    text-align: start;
+}
+
+.admin__close {
+    width: fit-content;
+}
+
+.admin__close-link {
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-color;
+    &:after {
+        content: "";
+        display: block;
+        opacity: 0;
+        height: 2PX;
+        background-color: $text-color;
+        transition: .6s;
+    }
+    &:hover:after{
+        opacity: 1;
+    }
+}
