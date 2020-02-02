@@ -112,47 +112,47 @@
                             h2.admin__title-name Блок "Работы"
                         .admin__data
                             .admin__edit-project
-                                .admin__block_container.admin__edit-project_container
-                                    .admin__edit-project-subtitle Редактирование Работы
-                                    .admin__edit-project-content
-                                        .admin__edit-project-content-left
-                                            .admin__edit-project-new-photo
-                                                .admin__edit-project-new-photo_container
-                                                    .admin__edit-project-new-photo-text Перетащите или нажмите кноку для загрузки изображения
-                                                    button.button__add.button__add_download
-                                        .admin__edit-project-content-right
-                                            form.admin__edit-project-formdata
-                                                label.admin__edit-project-data
-                                                    .admin__edit-project-name Название
-                                                    input.admin__edit-project-input(name="new_project_name", placeholder="Введите название нового проекта")
-                                                label.admin__edit-project-data
-                                                    .admin__edit-project-name Ссылка
-                                                    input.admin__edit-project-input(name="new_project_link", placeholder="Ведите ссылку")
-                                                label.admin__edit-project-data.admin__edit-project-data-textarea
-                                                    .admin__edit-project-name Описание
-                                                    textarea.admin__edit-project-input.admin__edit-project-input_textarea(name="new_project_descr", placeholder="Ведите описание")
-                                                label.admin__edit-project-data
-                                                    .admin__edit-project-name Добавление тэга
-                                                    input.admin__edit-project-input(name="new_project_tool", placeholder="Добавьте тэг")
-                                                ul.admin__edit-project-tool-list
-                                                    li.projects__tools-item.admin__edit-project-tool-item
-                                                        .projects__tools-name HTML
-                                                        button.projects__tools-close
-                                                    li.projects__tools-item.admin__edit-project-tool-item
-                                                        .projects__tools-name CSS
-                                                        button.projects__tools-close
-                                                    li.projects__tools-item.admin__edit-project-tool-item
-                                                        .projects__tools-name Javascript
-                                                        button.projects__tools-close
-                                                .admin__edit-project-form-buttons
-                                                    button.button__add.button__add_cancel(type="reset")
-                                                    button.button__add.button__add_submit(type="submit")
+                              .admin__block_container.admin__edit-project_container
+                                  .admin__edit-project-subtitle Редактирование Работы
+                                  .admin__edit-project-content
+                                      .admin__edit-project-content-left
+                                          .admin__edit-project-new-photo
+                                              .admin__edit-project-new-photo_container
+                                                  .admin__edit-project-new-photo-text Перетащите или нажмите кноку для загрузки изображения
+                                                  button.button__add.button__add_download
+                                      .admin__edit-project-content-right
+                                          form.admin__edit-project-formdata
+                                              label.admin__edit-project-data
+                                                  .admin__edit-project-name Название
+                                                  input.admin__edit-project-input(name="new_project_name", placeholder="Введите название нового проекта")
+                                              label.admin__edit-project-data
+                                                  .admin__edit-project-name Ссылка
+                                                  input.admin__edit-project-input(name="new_project_link", placeholder="Ведите ссылку")
+                                              label.admin__edit-project-data.admin__edit-project-data-textarea
+                                                  .admin__edit-project-name Описание
+                                                  textarea.admin__edit-project-input.admin__edit-project-input_textarea(name="new_project_descr", placeholder="Ведите описание")
+                                              label.admin__edit-project-data
+                                                  .admin__edit-project-name Добавление тэга
+                                                  input.admin__edit-project-input(name="new_project_tool", placeholder="Добавьте тэг")
+                                              ul.admin__edit-project-tool-list
+                                                  li.projects__tools-item.admin__edit-project-tool-item
+                                                      .projects__tools-name HTML
+                                                      button.projects__tools-close
+                                                  li.projects__tools-item.admin__edit-project-tool-item
+                                                      .projects__tools-name CSS
+                                                      button.projects__tools-close
+                                                  li.projects__tools-item.admin__edit-project-tool-item
+                                                      .projects__tools-name Javascript
+                                                      button.projects__tools-close
+                                              .admin__edit-project-form-buttons
+                                                  button.button__add.button__add_cancel(type="reset")
+                                                  button.button__add.button__add_submit(type="submit")
                             .admin__projects
                                 ul.admin__projects-list
                                     li.admin__projects-item_new
-                                        button.admin__projects-add
-                                            .admin__projects-add-button
-                                            .admin__projects-add-text Добавить работу
+                                      button.admin__projects-add
+                                        .admin__projects-add-button
+                                        .admin__projects-add-text Добавить работу
                                     li.admin__projects-item
                                         .admin__projects-preview
                                             .admin__projects-preview_pic
@@ -197,11 +197,11 @@
                                                 img.admin__projects-preview_pic(src="~images/projects/1.jpg" alt="Project preview")
                                             ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name HTML
+                                                    .projects__tools-name.admin__projects__tool-name HTML
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name CSS
+                                                    .projects__tools-name.admin__projects__tool-name CSS
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name Javascript
+                                                    .projects__tools-name.admin__projects__tool-name Javascript
                                         .admin__projects-descr
                                             .admin__projects-descr_container
                                                 .admin__projects-title Учебный проект 'Коворкинг'
@@ -210,11 +210,103 @@
                                                 .admin__projects-buttons
                                                     button.button_edit.button_edit_projects Править
                                                     button.button__group.button__group_remove.button__group_remove_projects Удалить
-
-
-
-
-
+                    .admin__block-about
+                      .admin__title
+                        h2.admin__title-name Блок "Отзывы"
+                      .admin__data
+                        .admin__new-review
+                          .admin__block_container.admin__new-review_container
+                            .admin__edit-project-subtitle Новый отзыв
+                            .admin__edit-project-content
+                              .admin__new-review-left
+                                .admin__new-review-left_container
+                                  .admin__new-review-add-photo
+                                  button.admin__new-review-add-photo-text Добавить фото
+                              .admin__new-review-right
+                                .admin__new-review-right_container
+                                  form.admin__new-review-form
+                                    .admin__new-review-form-row
+                                      label.admin__edit-project-data.admin__new-review-form-data
+                                        .admin__edit-project-name Имя автора
+                                        input.admin__edit-project-input(placeholder="Укажите здесь имя", name="new-review-name")
+                                      label.admin__edit-project-data.admin__new-review-form-data
+                                        .admin__edit-project-name Титул автора
+                                        input.admin__edit-project-input(placeholder="Укажите здесь титул", name="new-review-name")
+                                    .admin__new-review-form-row
+                                      label.admin__new-review-form-data
+                                        .admin__edit-project-name Отзыв
+                                        textarea.admin__edit-project-input_textarea.admin__new-review-input_textarea(placeholder="Введите отзыв", name="new-review-name")
+                                    .admin__new-review-form-row
+                                      button.button__add.button__add_cancel(type="reset")
+                                      button.button__add.button__add_submit(type="submit")
+                        .admin__projects.admin__reviews
+                          ul.admin__projects-list.admin__reviews-list
+                            li.admin__projects-item_new.admin__reviews-item_new
+                              button.admin__projects-add
+                                .admin__projects-add-button
+                                .admin__projects-add-text Добавить отзыв
+                            li.admin__projects-item.admin__reviews-item
+                                .admin__reviews_user
+                                    .admin__reviews_user-left
+                                        .ava.ava_admin.admin__reviews_ava
+                                            img.admin__photo.user__photo(src="~images/content/feedback_user1.jpg", alt="User photo")
+                                    .admin__reviews_user-right
+                                        .admin__reviews_user-name Ковальчук Дмитрий
+                                        .admin__reviews_user-prof Основатель Loftschool
+                                .admin__projects-descr
+                                    .admin__projects-descr_container
+                                        .admin__projects-text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
+                                        .admin__projects-buttons
+                                            button.button_edit.button_edit_projects Править
+                                            button.button__group.button__group_remove.button__group_remove_projects Удалить
+                            li.admin__projects-item.admin__reviews-item
+                                .admin__reviews_user
+                                    .admin__reviews_user-left
+                                        .ava.ava_admin.admin__reviews_ava
+                                            img.admin__photo.user__photo(src="~images/content/feedback_user1.jpg", alt="User photo")
+                                    .admin__reviews_user-right
+                                        .admin__reviews_user-name Ковальчук Дмитрий
+                                        .admin__reviews_user-prof Основатель Loftschool
+                                .admin__projects-descr
+                                    .admin__projects-descr_container
+                                        .admin__projects-text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
+                                        .admin__projects-buttons
+                                            button.button_edit.button_edit_projects Править
+                                            button.button__group.button__group_remove.button__group_remove_projects Удалить
+                            li.admin__projects-item.admin__reviews-item
+                                .admin__reviews_user
+                                    .admin__reviews_user-left
+                                        .ava.ava_admin.admin__reviews_ava
+                                            img.admin__photo.user__photo(src="~images/content/feedback_user1.jpg", alt="User photo")
+                                    .admin__reviews_user-right
+                                        .admin__reviews_user-name Ковальчук Дмитрий
+                                        .admin__reviews_user-prof Основатель Loftschool
+                                .admin__projects-descr
+                                    .admin__projects-descr_container
+                                        .admin__projects-text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.
+                                        .admin__projects-buttons
+                                            button.button_edit.button_edit_projects Править
+                                            button.button__group.button__group_remove.button__group_remove_projects Удалить
+    section.login
+        .login__wrapper
+            .login__block
+                button.login__close
+                .login__block_wrapper
+                    .login__title Авторизация
+                    .login__content
+                        form.login__form
+                            label.login__form-data
+                                .login__form-pic.login__form-pic_log
+                                .login__form-info
+                                    .login__form-name Логин
+                                    input.login__form-input(name="login" placeholder="Введите логин" required)
+                            label.login__form-data
+                                .login__form-pic.login__form-pic_psw
+                                .login__form-info
+                                    .login__form-name Пароль
+                                    input.login__form-input(name="password" placeholder="Введите пароль" required)
+                            .login__button
+                                button.button__add.button__add_submit.button__login(type="submit")
 
 
 </template>
