@@ -8,4 +8,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 4% 0;
+    @include desktop {
+        padding: 5.3% 4%;
+    }
+    @include tablets {
+        padding: 8.5% 2.7%;
+        align-items: center;
+    }
+    @include phones {
+        padding: 22.9% 2.7%;
+    }
 }

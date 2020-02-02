@@ -3,12 +3,36 @@
     align-items: center;
     background-color: $bg-footer;
     height: 38vh;
+    @include tablets {
+        height: 55vh;
+    }
+    @include phones {
+        height: 101vh;
+    }
+    @include small {
+        height: 130vh;
+    }
 }
 
 .container_footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @include desktop {
+        margin: 0 4%;
+    }
+    @include tablets {
+        margin: 0 4% 6%;
+    }
+    @include phones {
+        margin: 0 3.5% 8%;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+    }
+    @include small {
+        height: unset;
+    }
 }
 
 .footer__left {
@@ -16,15 +40,18 @@
     @include desktop {
         flex-direction: column;
     }
+    @include phones {
+        margin-bottom: 9%;
+    }
 }
 
 .footer__copyright {
-    font-size: 48px;
+    font-size: 48PX;
     font-weight: 600;
     color: rgba($text-color, .1);
-    margin-right: 70px;
+    margin-right: 70PX; /*delete???*/
     @include desktop {
-        margin-bottom: 30px;
+        margin-bottom: 14PX;
     }
 }
 
@@ -35,26 +62,86 @@
 }
 
 .title_footer {
-    font-size: 18px;
-    line-height: 28px;
-    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-size: 18PX;
+    line-height: 28PX;
+    margin-bottom: 12PX;
+    @include tablets {
+        max-width: 145PX;
+    }
+    @include phones {
+        margin-bottom: 6PX;
+    }
+    @include small {
+        max-width: 160PX;
+    }
 }
 
 .pre-title_footer {
     text-align: start;
-    font-size: 16px;
-    line-height: 30px;
+    line-height: 30PX;
     font-weight: 400;
+    @include desktop {
+        max-width: 165PX;
+    }
+    @include tablets {
+        font-size: 14PX;
+        line-height: 26PX;
+        max-width: 140PX;
+    }
 }
 
 .footer__right {
     display: flex;
     flex-direction: column;
     width: 67%;
+    @include desktop {
+        width: 75%;
+    }
+    @include phones {
+        width: 100%;
+        height: 60%;
+        justify-content: space-around;
+    }
+    @include small {
+        height: unset;
+    }
 }
 
 .footer__right-up {
-    margin-bottom: 50px;
+    margin-bottom: 50PX;
+    @include tablets {
+        margin-bottom: 40PX;
+    }
+    @include phones {
+        margin-bottom: 26PX;
+    }
+}
+
+.footer__right-up .nav__list{
+    @include tablets {
+        flex-wrap: wrap;
+    }
+}
+
+.footer__right-up .nav {
+    @include tablets {
+        margin: 0;
+    }
+}
+
+.footer__right-up .nav__item{
+    @include tablets {
+        line-height: 40PX;
+        width: 20%;
+        margin-right: 10%;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    @include phones {
+        width: 40%;
+    }
 }
 
 .footer__right-bottom {
@@ -62,6 +149,13 @@
     justify-content: space-between;
     width: 100%;
     margin: 0 1%;
+    @include tablets {
+        flex-direction: column;
+        margin: 0;
+    }
+    @include phones {
+        height: 60%;
+    }
 }
 
 .footer__right-bottom-l, .footer__right-bottom-r {
@@ -72,14 +166,34 @@
 
 .footer__right-bottom-l {
     width: 35%;
+    @include desktop {
+        width: 50%;
+    }
+    @include tablets {
+        width: 100%;
+        margin-bottom: 12%;
+    }
+    @include phones {
+        margin-bottom: 0;
+    }
+    @include small {
+        margin-bottom: 16%;
+    }
 }
 
 .site__text_footer {
-    max-width: 485px;
-    font-size: 16px;
-    line-height: 30px;
+    max-width: 485PX;
+    line-height: 30PX;
     font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 20PX;
+    @include desktop {
+        margin-right: 5%;
+    }
+    @include tablets {
+        line-height: 24PX;
+        margin-bottom: 15PX;
+        margin-right: 0;
+    }
 }
 
 .site__i_footer {

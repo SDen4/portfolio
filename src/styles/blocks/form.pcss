@@ -1,28 +1,75 @@
 .form__section {
     z-index: 10;
+    @include phones {
+        margin-bottom: 10%;
+    }
+}
+
+.form__wrapper {
+    display: flex;
+    flex-direction: column;
+    @include desktop {
+        margin: 0 4% -6%;
+    }
+    @include phones {
+        margin: 0 3.5%;
+    }
 }
 
 .form {
     width: 50vw;
-    max-width: 850px;
+    max-width: 850PX;
+    @include desktop {
+        width: 72vw;
+        max-width: 860PX;
+    }
+    @include tablets {
+        width: 92vw;
+    }
+    @include phones {
+        width: 84vw;
+    }
 }
 
 .title_form {
-    margin-bottom: 86px;
+    margin-bottom: 86PX;
+    @include tablets {
+        font-size: 30PX;
+        text-align: center;
+        margin-bottom: 50PX;
+    }
+    @include phones {
+        font-size: 24PX;
+        text-align: start;
+        margin-bottom: 52PX;
+
+    }
 }
 
 .form__content {
     display: flex;
     justify-content: space-between;
-    margin: 0 90px 40px 0;
+    margin: 0 90PX 40PX 0;
     width: 100%;
     &:last-child {
         margin-bottom: 0;
     }
+    @include tablets {
+        margin-bottom: 38PX;
+    }
+    @include phones {
+        flex-direction: column;
+        margin-bottom: 38PX;
+        align-items: center;
+    }
 }
 
 .form__content_button {
-    margin-top: 67px;
+    margin-top: 67PX;
+    @include tablets {
+        margin-top: 0;
+        justify-content: center;
+    }
 }
 
 .form__data {
@@ -33,32 +80,62 @@
     &:last-child {
         margin-right: 0; /*проверить работу на textarea!!!*/
     }
+    @include tablets {
+        margin-right: 3.5%;
+    }
+    @include phones {
+        margin-right: 0;
+        margin-bottom: 14%;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .form__data_wrapper {
     display: flex;
     align-items: flex-end;
-    margin-bottom: 15px;
+    margin-bottom: 15PX;
+    @include tablets {
+        margin-bottom: 18PX;
+    }
+    @include phones {
+        align-items: center;
+    }
 }
 
 .form__svg {
     fill: $text-color-gray;
-    margin-right: 20px;
+    margin-right: 20PX;
+}
+
+.form_leaves {
+    width: 480PX;
+    height: 972PX;
+    position: absolute;
+    top: -108PX;
+    left: unset;
+    right: 0;
+    z-index: 5;
+    filter: blur(5PX);
+    @include phones {
+        display: none;
+    }
 }
 
 .form__user_svg {
-    width: 26px;
-    height: 30px;
+    width: 34PX;
+    height: 30PX;
 }
 
 .form__envelope_svg {
-    width: 30px;
-    height: 23px;
+    width: 30PX;
+    height: 23PX;
 }
 
 .form__message_svg {
-    width: 30px;
-    height: 30px;
+    width: 30PX;
+    height: 26PX;
 }
 
 .form__input-info {
@@ -66,51 +143,68 @@
 }
 
 .form__subtitle {
-    font-size: 16px;
     color: $text-color-gray;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 30PX;
+    @include tablets {
+        margin-bottom: 24PX;
+    }
 }
 
 .form__input {
-    font-size: 18px;
+    font-size: 18PX;
     font-weight: 700;
     background-color: transparent;
     border: none;
     color: $text-color-gray;
     width: 95%;
     outline: none;
+    @include tablets {
+        font-size: 14PX;
+    }
 }
 
 .form__input_textarea {
-  min-height: 38px;
-  overflow: hidden;
+    min-height: 38PX;
+    overflow: hidden;
+    @include phones {
+        min-height: 72PX;
+        line-height: 24PX;
+    }
 }
 
 .form__input::placeholder {
-  color: $text-color; 
-  opacity: 1;
-  transition: .6s;
+    color: $text-color; 
+    opacity: 1;
+    transition: .6s;
 }
 
 .form__input:focus::placeholder {
-  opacity: 0;
+    opacity: 0;
 }
 
 .form__line {
-    height: 1px;
+    height: 1PX;
     width: inherit;
     background-color: $form_line;
 }
 
 .button {
     text-transform: uppercase;
-    padding: 34px 119px;
-    background-image: linear-gradient(90deg, #cf721a 0%, #db9222 100%);
-    font-size: 18px;
+    padding: 34PX 119PX;
+    background-image: linear-gradient(90deg, #ea7300 0%, #f29400 100%);
+    font-size: 18PX;
     color: $text-color;
     font-weight: 700;
     position: relative;
+
+    @include tablets {
+        padding: 32PX 119PX;
+    }
+    @include phones {
+        font-size: 16PX;
+        padding: 20PX 76PX;
+    }
 
     &:before {
         content: "$buttonText";
@@ -119,22 +213,11 @@
         top:0;
         left: 0;
         padding: inherit;
-        background-image: linear-gradient(270deg, #cf721a 0%, #db9222 100%);
+        background-image: linear-gradient(90deg, #ff7f00 0%, #ff9d00 100%);
         opacity: 0;
         transition: .6s;
     }
     &:hover:before {
         opacity: 1;
-        color: $black;
     }
-}
-
-.feedback_leaves {
-    width: 484px;
-    height: 972px;
-    position: absolute;
-    top: -108px;
-    left: unset;
-    right: 0;
-    z-index: 5;
 }

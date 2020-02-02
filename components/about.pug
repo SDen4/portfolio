@@ -1,0 +1,38 @@
+script(type="text/x-template")#about-slider
+    //- pre {{feedback}}
+    .about__wrapper
+        .about__title
+            h2.title.title_about Что обо мне говорят
+            buttons
+        display(
+            :feedbacks = "feedbacks",
+            :currentFeedback = "currentFeedback",
+            :currentIndex = "currentIndex",
+        )
+
+
+script(type="text/x-template")#about-display
+    .about__content
+        flickity(ref='flickity', :options='flickityOptions')
+            .about__watch-zone
+                ul.about__list
+                    li.about__item(v-for="feedback in feedbacks" :key="feedbacks.id")
+                        +icon('quote', 'about__item-pic')
+                        .about__item-content
+                            .site__text.about__text
+                                p {{feedback.text}}
+                            .about__item-user
+                                .ava.ava_about
+                                    img(:src="currentFeedback.avatar", alt="User Avatar").user__ava
+                                    //- +image("content/feedback_user1.jpg", "user__ava")
+                                .about__user-data
+                                    h5.about__user-name {{feedback.name}}
+                                    .about__user-prof {{feedback.position}}
+
+
+script(type="text/x-template")#about-slider-buttons
+    .about__content-buttons
+        button(type="button" @click="previous").about__button_round
+            +icon('arrow-down', 'about__button about__button_prev')
+        button(type="button" @click="next").about__button_round
+            +icon('arrow-down', 'about__button about__button_next')

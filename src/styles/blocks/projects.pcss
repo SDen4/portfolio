@@ -1,55 +1,154 @@
 .projects {
     height: 114vh;
+    @include desktop {
+        height: 83vh;
+    }
+    @include iPadPro {
+        height: 58vh;
+    }
+    @include tablets {
+        overflow: hidden;
+        height: 96vh;
+    }
+    @include phones {
+        height: 142vh;
+    }
+}
+
+.container_projects {
+    width: 100%;
 }
 
 .projects__wrapper {
     display: flex;
     flex-direction: column;
+        margin: 0 2%;
+    @include desktop {
+        margin: 0 4% -2%;
+    }
+    @include tablets {
+        margin: 0 2.5%;
+    }
+    @include phones {
+        margin: 0;
+    }
 }
 
 .projects__preview {
-    /* height: 80%; */
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    width: 79%;
+    @include desktop {
+        width: 69%;
+    }
+    @include tablets {
+        width: 100%;
+    }
+    @include phones {
+        margin-bottom: 19%;
+    }
 }
 
 .title__projects {
     color: $text-color-black;
     margin-bottom: 6.5%;
+    @include desktop {
+        margin-bottom: 6%;
+    }
+    @include tablets {
+        font-size: 30PX;
+        margin-bottom: 8%;
+    }
+    @include phones {
+        margin-bottom: 10%;
+        font-size: 24PX;
+        text-align: center;
+    }
 }
 
 .projects__main-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     height: 100%;
+    @include tablets {
+        flex-direction: column;
+    }
 }
 
 .projects__slider {
     display: flex;
     position: relative;
     justify-content: flex-start;
+    @include tablets {
+        width: 100%;
+        margin-bottom: 9%;
+    }
+    @include phones {
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+.projects__decor-number{
+    display: flex;
+    justify-content: center;
+    max-width: 180PX;
+    font-size: 400PX;
+    color: $text-color-decor;
+    font-weight: 800;
+    line-height: .8;
+    margin-left: -7%;
+    @include desktop {
+        font-size: 300PX;
+        max-width: 160PX;
+        margin-left: -12%;
+    }
+    @include phones {
+        display: none;
+    }
 }
 
 .projects__view-zone {
     display: flex;
     width: 60vw;
     height: 58vh;
-    max-width: 991px;
-    max-height: 556px;
+    max-width: 991PX;
+    max-height: 556PX;
     overflow: hidden;
+    @include desktop {
+        width: 52vw;
+        height: 37vh;
+    }
+    @include tablets {
+        width: 82vw;
+        height: 37vh;
+    }
+    @include phones {
+        width: 100vw;
+        height: 32vh;
+    }
 }
 
 .projects__list {
     display: flex;
     position: relative;
     align-items: center;
+    height: 100%;
 }
 
 .projects__item {
     width: 60vw;
     height: 100%;
+    @include desktop {
+        width: 52vw;
+    }
+    @include tablets {
+        width: 82vw;
+    }
+    @include phones {
+        width: 100vw;
+    }
 }
 
 .projects__item_small {
@@ -61,7 +160,7 @@
     }
 }
 
-.projects__item_active-small {
+.projects__item_active_small {
     outline: 3px solid $slider-active;
     z-index: 20;
 }
@@ -74,38 +173,60 @@
 
 .projects__pic_small{
     height: 100%;
-    max-height: 100px;
+    max-height: 100PX;
 }
 
 .projects__scroll-buttons {
-    margin-top: 390px;
+    margin-top: 390PX;
     z-index: 10;
+    @include desktop {
+        margin-top: 222PX;
+    }
+    @include phones {
+        margin-top: 82PX;
+        margin-left: -50PX;
+    }
 }
 
 .button_prev, .button_next {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 50PX;
+    height: 50PX;
     background-color: $buttons_gray;
     &:hover .projects__arrow {
         fill: $text-color;
     }
 }
 
+.button_unactive{
+    cursor: unset;
+    &:hover .projects__arrow {
+        fill: $arrows-gray;
+    }
+}
+
 .projects__scroll {
     position: absolute;
-    top: 390px;
-    right: 50px;
-    width: 555px;
-    max-height: 100px;
+    top: 390PX;
+    right: 50PX;
+    width: 555PX;
+    height: 100PX;
+    @include desktop {
+        top: 222PX;
+        max-width: 530PX;
+        width: 79%;
+    }
+    @include phones {
+        display: none;
+    }
 }
 
 .projects__arrow {
     fill: $arrows-gray;
-    width: 8px;
-    height: 10px;
+    width: 8PX;
+    height: 10PX;
     transition:  .6s;
 }
 
@@ -115,41 +236,43 @@
 
 .projects__info-list{
     height: 100%;
-    margin-left: -6%;
     @include desktop {
-        margin-left: -8%;
+        width: 31%;
+    }
+    @include tablets {
+        width: 100%;
     }
 }
 
 .projects__info-item {
     display: none;
     align-items: flex-start;
+    @include tablets {
+        justify-content: center;
+    }
 }
 
 .projects__info-item_active {
     display: flex;
 }
 
-.projects__decor-number{
-    display: flex;
-    justify-content: center;
-    max-width: 180px;
-    font-size: 400px;
-    color: $text-color-decor;
-    font-weight: 800;
-    @include desktop {
-        font-size: 300px;
-    }
-}
-
 .projects__content{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @include tablets {
+        align-items: center;
+    }
+    @include phones {
+        margin: 0 10%;
+    }
 }
 
 .projects__tools {
-    margin-bottom: 27px;
+    margin-bottom: 27PX;
+    @include tablets {
+        margin-bottom: 5PX;
+    }
 }
 
 .projects__tools-list {
@@ -162,58 +285,92 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 22px;
+    border-radius: 22PX;
     background-color: $tools_block;
-    margin: 0 9px 9px 0;
+    margin: 0 9PX 9PX 0;
     &:last-child {
         margin-right: 0;
     }
 }
 
 .projects__tools-name {
-    font-size: 15px;
+    font-size: 15PX;
     font-weight: 600;
     color: $tools_text;
-    padding: 15px 20px;
+    padding: 15PX 20PX;
+    @include phones {
+        font-size: 13PX;
+        padding: 13PX 16PX;
+    }
 }
 
 .projects__feedback {
     color: $text-color-black-lite;
-    font-size: 16px;
-    line-height: 30px;
+    line-height: 30PX;
     font-weight: 600;
-    max-width: 340px;
-    margin-bottom: 38px;
+    max-width: 340PX;
+    margin-bottom: 38PX;
+    @include tablets {
+        font-size: 14PX;
+        max-width: 445PX;
+        line-height: 24PX;
+        margin-bottom: 24PX;
+    }
 }
 
 .projects__link {
     display: flex;
     align-items: center;
-    &:hover .projects__link-name{
-        color: $text-color-black-lite;
+    z-index: 20;
+
+    &:hover .projects__link-name:after{
+        opacity: 1;
     }
-    &:hover .projects__link-pic {
-        fill: $text-color-black-lite;
+
+    @include phones {
+        align-self: flex-start;
     }
 }
 
 .projects__link-pic {
-    width: 15px;
-    height: 15px;
+    width: 15PX;
+    height: 15PX;
     fill: $links-color;
-    margin-right: 20px;
+    margin-right: 20PX;
     transition: .6s;
 }
 
 .projects__link-name {
-    font-size: 18px;
+    font-size: 18PX;
     font-weight: 700;
     color: $links-color;
     transition: .6s;
+
+    &:after{
+        content: "";
+        display: block;
+        opacity: 0;
+        height: 2PX;
+        background-color: $links-color;
+        transition: .6s;
+    }
+
+    @include tablets {
+        font-size: 14PX;
+    }
 }
 
 .title__project-name {
-    font-size: 30px;
-    line-height: 48px;
-    margin-bottom: 30px;
+    font-size: 30PX;
+    line-height: 48PX;
+    margin-bottom: 30PX;
+    @include tablets {
+        margin-bottom: 18PX;
+        text-align: center;
+    }
+    @include phones {
+        font-size: 24PX;
+        line-height: 32PX;
+        text-align: start;
+    }
 }

@@ -1,0 +1,62 @@
+script(type="text/x-template")#projects-slider
+    .projects__main-content
+        display(
+            :projects = "projects",
+            :currentProject = "currentProject",
+            :currentIndex = "currentIndex",
+            @slide = "handleSlide"
+        )
+        info(:currentProject = "currentProject")
+
+
+script(type="text/x-template")#projects-slider-display
+    .projects__preview
+        .projects__slider
+            .projects__view-zone
+                ul.projects__list
+                    li.projects__item <!-- .projects__item_active активный класс -->
+                        img(:src="currentProject.photo", alt="Project" class="projects__pic")
+            buttons(@slide = "$emit('slide', $event)")
+            preview(
+                :projects = "projects",
+                :currentProject = "currentProject"
+            )
+        .projects__decor-number {{currentIndex + 1}}
+
+
+script(type="text/x-template")#projects-slider-preview
+    .projects__scroll
+        ul.projects__list
+            li.projects__item.projects__item_small(v-for="project in projects" :class="{projects__item_active_small: project.id === currentProject.id}")
+                a.projects__item-link
+                    img(:src="project.photo" alt="Project small picture" class="projects__pic projects__pic_small")
+
+
+script(type="text/x-template")#projects-slider-buttons
+    .projects__scroll-buttons
+        a(href="#" @click.prevent="$emit('slide', 'next')").button_next
+            +icon('arrow-down', 'projects__arrow')
+        a(href="#" @click.prevent="$emit('slide', 'prev')").button_prev <!--.button_unactive класс неактивной кнопки-->
+            +icon('arrow-down', 'projects__arrow projects__arrow_l')
+
+
+script(type="text/x-template")#projects-slider-info
+    ul.projects__info-list
+        li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
+            .projects__content
+                tools(
+                    :tools = "toolsArray"
+                )
+                h3.title.title__projects.title__project-name {{currentProject.title}}
+                .projects__feedback.site__text
+                    p {{currentProject.desc}}
+                a.projects__link(:href="currentProject.link")
+                    +icon('link', 'projects__link-pic')
+                    .projects__link-name Посмотреть сайт
+
+
+script(type="text/x-template")#projects-slider-tools
+    .projects__tools
+        ul.projects__tools-list
+            li.projects__tools-item(v-for="tool in tools")
+                .projects__tools-name {{tool}}

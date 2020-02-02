@@ -1,4 +1,8 @@
 include ./mixins.pug
+include ../components/skills.pug
+include ../components/projects.pug
+include ../components/about.pug
+
 
 <!DOCTYPE html>
 html(lang="en")
@@ -11,44 +15,52 @@ html(lang="en")
     .wrapper
       .main-content
         .intro-developer
-          +image("content/bg_intro_for_hw1.jpg", "intro-developer__bg")
+          +image("content/bg_intro_480.jpg", "intro-developer__bg intro-developer__bg_480")
+          +image("content/bg_intro_768.jpg", "intro-developer__bg intro-developer__bg_768")
           .parallax
             .parallax__layer.parallax__layer_1
+              +image("content/p1.png", "parallax__layer_img parallax__layer_img1", "ParallaxImage")
             .parallax__layer.parallax__layer_2
+              +image("content/p2.png", "parallax__layer_img parallax__layer_img2", "ParallaxImage")
             .parallax__layer.parallax__layer_3
+              +image("content/p3.png", "parallax__layer_img parallax__layer_img3", "ParallaxImage")
             .parallax__layer.parallax__layer_4
-          section.intro
-            .container
-              .intro__wrapper
-                header.header
-                  .header__wrapper
-                    .logo СД
-                    +nav('nav', navMenu)
-                    +scl('socials', socialIcons)
-                .main-title
-                  .pre-title !{preTitle}
-                  h1.title.title_owner !{ownerNameMain}
-                a.scroll(href='')
-                  span.scroll__name Скролл
-                  +icon('scroll', 'scroll__pic')
-          section.developer
-            .container.container_developer
-              .developer__wrapper
-                .developer__left
-                  .ava.ava_developer
-                    +image('content/owner.jpeg', 'developer__ava', 'Developer')
-                  .developer__info
-                    +devInfo('developer-que', devDataQues)
-                    +devInfo('developer-ans', devDataAnsw)
-                .developer__right
-                  .developer__intro
-                    .site__text.site__text_developer Привет, меня зовут
-                    h2.title.title_developer #{ownerName}
-                    .site__text
-                      p
-                        | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                  .site__text.site__text_i
-                    p #{siteText}
+              +image("content/p4.png", "parallax__layer_img parallax__layer_img4", "ParallaxImage")
+            section.intro
+              .container
+                .intro__wrapper
+                  header.header
+                    .header__wrapper
+                      .logo ДС
+                      +nav('nav', navMenu)
+                      +scl('socials', socialIconsNew)
+                      .gamburger-menu
+                        a.gamburger-menu__link
+                          .gamburger-menu__section
+                  .main-title
+                    .pre-title !{preTitle}
+                    h1.title.title_owner !{ownerNameMain}
+                  a.scroll(href='')
+                    span.scroll__name Скролл
+                    +icon('scroll', 'scroll__pic')
+            section.developer
+              .container.container_developer
+                .developer__wrapper
+                  .developer__left
+                    .ava.ava_developer
+                      +image('content/owner.jpeg', 'developer__ava', 'Developer')
+                    .developer__info
+                      +devInfo('developer-que', devDataQues)
+                      +devInfo('developer-ans', devDataAnsw)
+                  .developer__right
+                    .developer__intro
+                      .site__text.site__text_developer Привет, меня зовут
+                      h2.title.title_developer #{ownerName}
+                      .site__text.site__text_developer.site__text_developer_bottom
+                        p
+                          | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                    .site__text.site__text_i
+                      p #{siteText}
         section.skills
           .skills__pic-container
             +icon('hands', 'skills__pic')
@@ -57,168 +69,55 @@ html(lang="en")
               h2.title.title_skills Чем я могу быть полезен вам
               .site__text.site__text_skills
                 p #{siteText}
-            .skills__data
-              .skills__group
-                .skills__group-name Front-end
-                +skill('skills', frontEndSkills)
-              .skills__group
-                .skills__group-name Workflow
-                +skill('skills', workflow)
+            #skills-component
         section.projects
-          .container
+          .container.container_projects
             .projects__wrapper
               h2.title.title__projects Мои работы
-              .projects__main-content
-                .projects__preview
-                  .projects__slider
-                    .projects__view-zone
-                      ul.projects__list
-                        li.projects__item.projects__item_active <!-- активный класс -->
-                          +image('projects/1.jpg', 'projects__pic', 'Project #1')
-                        li.projects__item
-                          +image('projects/2.jpg', 'projects__pic', 'Project #2')
-                        li.projects__item
-                          +image('projects/3.jpg', 'projects__pic', 'Project #3')
-                    .projects__scroll-buttons
-                      a.button_prev
-                        +icon('arrow-down', 'projects__arrow')
-                      a.button_next
-                        +icon('arrow-down', 'projects__arrow projects__arrow_l')
-                    .projects__scroll
-                      ul.projects__list
-                        li.projects__item.projects__item_small.projects__item_active.projects__item_active-small <!-- активный класс -->
-                          a.projects__item-link
-                            +image('projects/1.jpg', 'projects__pic projects__pic_small', 'Project small #1')
-                        li.projects__item.projects__item_small
-                          a.projects__item-link
-                            +image('projects/2.jpg', 'projects__pic projects__pic_small', 'Project small #2')
-                        li.projects__item.projects__item_small
-                          a.projects__item-link
-                            +image('projects/3.jpg', 'projects__pic projects__pic_small', 'Project small #3')
-                ul.projects__info-list
-                  li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
-                    .projects__decor-number 1
-                    .projects__content
-                      +tools('projects__tools', toolsOfProject)
-                      h3.title.title__projects.title__project-name Учебный проект "Коворкинг"
-                      .projects__feedback.site__text
-                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка "А".
-                      a.projects__link(href="https://sden4.github.io/loftschool-stage-1/")
-                        +icon('link', 'projects__link-pic')
-                        .projects__link-name Посмотреть сайт
-                  li.projects__info-item
-                    .projects__decor-number 2
-                    .projects__content
-                      +tools('projects__tools', toolsOfProject)
-                      h3.title.title__projects.title__project-name Учебный проект фитнес центра "Афродита"
-                      .projects__feedback.site__text
-                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 1 неделю в перерыве между курсами Loftschool.
-                      a.projects__link(href="https://sden4.github.io/loftschool-stage-1-fitness-centre/")
-                        +icon('link', 'projects__link-pic')
-                        .projects__link-name Посмотреть сайт
-                  li.projects__info-item
-                    .projects__decor-number 3
-                    .projects__content
-                      +tools('projects__tools', toolsOfProject)
-                      h3.title.title__projects.title__project-name Учебный проект бургерной "Mr.Burger"
-                      .projects__feedback.site__text
-                        p Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 6 недель и сдан в обозначенные сроки. Оценка "А".
-                      a.projects__link(href="https://sden4.github.io/burger_project/dist/")
-                        +icon('link', 'projects__link-pic')
-                        .projects__link-name Посмотреть сайт
-        .about-feedback
-          +image("content/bg_aboutAndFeedback.jpg", "about-feedback__bg", 'Feedback section background')
-          +icon('leaves', 'feedback_leaves')
+              #projects-component
+        .about-form
+          +image("content/bg_aboutAndFeedback.jpg", "about-form__bg", 'Form section background')
+          +icon('leaves', 'form_leaves')
           section.about
             .container
-              .about__title
-                h2.title.title_about Что обо мне говорят
-                .about__content-buttons
-                  a.about__button_round
-                    +icon('arrow-down', 'about__button about__button_prev')
-                  a.about__button_round
-                    +icon('arrow-down', 'about__button about__button_next')
-              .about__content
-                .about__watch-zone
-                  ul.about__list
-                    li.about__item
-                      +icon('quote', 'about__item-pic')
-                      .about__item-content
-                        .site__text.about__text
-                          p #{feedbackText}
-                        .about__item-user
-                          .ava.ava_about
-                            +image("content/feedback_user1.jpg", "user__ava")
-                          .about__user-data
-                            h5.about__user-name Ковальчук Дмитрий
-                            .about__user-prof Основатель Loftschool
-                    li.about__item
-                      +icon('quote', 'about__item-pic')
-                      .about__item-content
-                        .site__text.about__text
-                          p #{feedbackText}
-                        .about__item-user
-                          .ava.ava_about
-                            +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
-                          .about__user-data
-                            h5.about__user-name Ковальчук Дмитрий
-                            .about__user-prof Основатель Loftschool
-                    li.about__item
-                      .about__item-content
-                        .site__text.about__text
-                          p #{feedbackText}
-                        .about__item-user
-                          .ava.ava_about
-                            +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
-                          .about__user-data
-                            h5.about__user-name Ковальчук Дмитрий
-                            .about__user-prof Основатель Loftschool
-                    li.about__item
-                      .about__item-content
-                        .site__text.about__text
-                          p #{feedbackText}
-                        .about__item-user
-                          .ava.ava_about
-                            +image("content/feedback_user1.jpg", "user__ava", 'User avatar')
-                          .about__user-data
-                            h5.about__user-name Ковальчук Дмитрий
-                            .about__user-prof Основатель Loftschool
+              #about-component
           section.form__section
             .container
-              h2.title.title_form Связаться со мной
-              form.form
-                .form__content
-                  label.form__data
-                    .form__data_wrapper
-                      +icon('user', 'form__svg form__user_svg')
-                      .form__input-info
-                        .form__subtitle Введите ваше имя
-                        input.form__input(type="text", name="name", placeholder="Ковальчук Дмитрий")
-                    .form__line
-                  label.form__data
-                    .form__data_wrapper
-                      +icon('envelope', 'form__svg form__envelope_svg')
-                      .form__input-info
-                        .form__subtitle Введите ваш e-mail
-                        input.form__input(type="text", name="email", placeholder="loftschool@study.com")
-                    .form__line
-                .form__content
-                  label.form__data
-                    .form__data_wrapper
-                      +icon('message', 'form__svg form__message_svg')
-                      .form__input-info
-                        .form__subtitle Сообщение к письму
-                        textarea.form__input.form__input_textarea(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
-                    .form__line
-                .form__content.form__content_button
-                  button.button(type="submit") #{buttonText}
+              .form__wrapper
+                h2.title.title_form Связаться со мной
+                form.form
+                  .form__content
+                    label.form__data
+                      .form__data_wrapper
+                        +icon('user', 'form__svg form__user_svg')
+                        .form__input-info
+                          .form__subtitle Введите ваше имя
+                          input.form__input(type="text", name="name", placeholder="Ковальчук Дмитрий")
+                      .form__line
+                    label.form__data
+                      .form__data_wrapper
+                        +icon('envelope', 'form__svg form__envelope_svg')
+                        .form__input-info
+                          .form__subtitle Введите ваш e-mail
+                          input.form__input(type="text", name="email", placeholder="loftschool@study.com")
+                      .form__line
+                  .form__content
+                    label.form__data
+                      .form__data_wrapper
+                        +icon('message', 'form__svg form__message_svg')
+                        .form__input-info
+                          .form__subtitle Сообщение к письму
+                          textarea.form__input.form__input_textarea(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
+                      .form__line
+                  .form__content.form__content_button
+                    button.button(type="submit") #{buttonText}
         footer.footer
           .container
             .container_footer
               .footer__left
                 .footer__copyright ©2020
                 .footer__owner-info
-                  h5.title.title_footer !{ownerNameMain}
+                  h5.title.title_footer #{ownerName}
                   .pre-title.pre-title_footer !{preTitle}
               .footer__right
                 .footer__right-up
@@ -227,7 +126,7 @@ html(lang="en")
                   .footer__right-bottom-l
                     .site__text.site__text_footer
                       p #{siteTextShort}
-                    +scl-footer('socials', socialIcons)
+                    +scl-footer('socials', socialIconsNew)
                   .footer__right-bottom-r
                     .site__text.site__text_footer
                       p #{citation}

@@ -2,17 +2,14 @@
 - var siteTextShort = "Этот сайт я сделал в рамках обучения в школе онлайн образования Loftschool."
 - var ownerNameMain = "Денис <br> Скрябин"
 - var ownerName = "Денис Скрябин"
-- var preTitle = "Личный сайт <br> веб-разработчика"
+- var preTitle = "Личный сайт <br> веб разработчика"
 - var citation = "Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете"
 - var citationOwner = "Martin Golding"
 - var buttonText = "Отправить"
 - var navMenu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-- var socialIcons = ["insta", "vk", "github"]
-//- - var socialIconsNew = [["insta", "https://www.instagram.com/accounts/login/?hl=ru"],["vk", "https://vk.com/id30401197"],["github", "https://github.com/SDen4"]]
+- var socialIconsNew = {insta: "https://www.instagram.com/accounts/login/?hl=ru", vk: "https://vk.com/id30401197", github: "https://github.com/SDen4"}
 - var devDataQues = ['Проживаю: ', 'Возраст: ', 'Родился: ']
 - var devDataAnsw = ["Екатеринбург", "37 лет", "4 июня 1982"]
-- var frontEndSkills = ["HTML5", "CSS3", "JavaScript", "Jquery & Vue.js"]
-- var workflow = ["GIT", "Terminal", "Gulp", "Webpack"]
 - var toolsOfProject = ["HTML", "CSS", "JavaScript"]
 - var feedbackText = "Этот парень проходил обучение веб-разработке не где-то, а в Loftschool, 4.5 месяца только самых тяжелых испытаний и бессонных ночей!"
 
@@ -35,18 +32,18 @@ mixin nav(className, items, activeItem)
 mixin scl(className, items)
   div(class=`${className}`)
     ul(class=`${className}__list`)
-      each social in items
+      each val, index in items
         li(class=`${className}__item`)
-          a(class=`${className}__link ${className}__link_${social}` href=`${social}`)
-            +icon(`${social}`, `${className}__pic ${className}__pic_${social}`)
+          a(class=`${className}__link ${className}__link_${index}` href=`${val}`)
+            +icon(`${index}`, `${className}__pic ${className}__pic_${index}`)
 
 mixin scl-footer(className, items)
-  div(class=`${className}`)
+  div(class=`${className} ${className}__footer`)
     ul(class=`${className}__list ${className}__list_footer`)
-      each social in items
+      each val, index in items
         li(class=`${className}__item ${className}__item_footer`)
-          a(class=`${className}__link ${className}__link_${social}` href="#")
-            +icon(`${social}`, `${className}__pic ${className}__pic_${social}`)
+          a(class=`${className}__link ${className}__link_${index}` href=`${val}`)
+            +icon(`${index}`, `${className}__pic ${className}__pic_${index}`)
 
 mixin devInfo(className, items)
   div(class=`${className}`)
@@ -54,14 +51,6 @@ mixin devInfo(className, items)
       for item in items
         li(class=`${className}__item`)
           div(class=`${className}__answ`)= item
-
-mixin skill(className, items)
-  ul(class=`${className}__list`)
-    for item in items
-      li(class=`${className}__item`)
-        +icon('ellips', `${className}__round-${item}`)
-        div(class=`${className}__empty-round`)
-          div(class=`${className}__name`)= item
 
 mixin tools(className, items)
   div(class=`${className}`)
@@ -75,3 +64,7 @@ mixin tools(className, items)
 //- +image('content/user.jpg', 'user-pic')
 //- +icon('link', 'link-class')
 //- .icon-bg
+
+//- github pages
+//- git add dist && git commit -m "Initial dist subtree commit"
+//- git subtree push --prefix dist origin gh-pages

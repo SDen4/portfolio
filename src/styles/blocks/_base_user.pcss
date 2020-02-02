@@ -1,0 +1,99 @@
+body {
+    font-family: "Open Sans";
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.main-content {
+    position: relative;
+}
+
+.site__text {
+    color: $text-color-gray;
+    line-height: 30PX;
+}
+
+.site__text_i {
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 14PX;
+    @include desktop {
+        margin-bottom: 0;
+    }
+    @include tablets {
+        line-height: 24PX;
+    }
+}
+
+.main-title {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20%;
+    @include desktop {
+        margin-right: 6%;
+    }
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+    @include phones {
+        margin-bottom: 72%;
+    }
+}
+
+.title {
+    font-size: 36PX;
+    color: $text-color;
+    font-weight: 700;
+}
+
+.pre-title {
+    width: 225PX;
+    color: $text-color-gray;
+    font-size: 18PX;
+    line-height: 30PX;
+    font-weight: 600;
+    text-align: right;
+    margin-top: 2%;
+    margin-right: 5%;
+    text-align: end;
+    @include desktop {
+        margin-top: 2.2%;
+        margin-right: 3.6%;
+    }
+    @include tablets {
+        text-align: center;
+        margin: 0 0 5% 0;
+    }
+    @include phones {
+        font-size: 14PX;
+        line-height: 24PX;
+        margin-bottom: 3%;
+    }
+}
+
+.title_owner {
+    font-size: 72PX;
+    font-weight: 800;
+    text-align: center;
+    max-width: 400PX;
+    margin-left: 5%;
+    text-align: left;
+    @include tablets {
+        text-align: center;
+        font-size: 48PX;
+        margin-left: 0;
+    }
+    @include phones {
+        font-size: 36PX;
+        line-height: 48PX;
+    }
+}

@@ -1,23 +1,63 @@
 .parallax {
-    position: absolute;
-    perspective: 1px;
-    height: 130vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    height: 188vh;
+    min-height: 650PX;
+    overflow: hidden;
+    @include desktop {
+        height: 210vh;
+    }
+    @include iPadPro {
+        height: 150vh;
+    }
+    @include small360 {
+        height: 230vh;
+    }
+    @include small360 {
+        height: 240vh;
+    }
 }
 
-.parallax__layer {
+.parallax__layer{
     position: absolute;
     top:0;
     left: 0;
-    bottom: 0;
     right: 0;
+    height: 100%;
+    @include tablets {
+        display: none;
+    }
+    @include phones {
+        display: none;
+    }
 }
 
 .parallax__layer_1 {
-    transform: translateZ(0);
+    top:0%;
 }
 
 .parallax__layer_2 {
-    transform: translateZ(-1px);
+    top:-14%;
+    /* @include desktop {
+        top: -9%;
+    } */
+}
+
+.parallax__layer_3 {
+    top:28%;
+    @include iPadPro {
+        top:18%;
+    }
+}
+
+.parallax__layer_4 {
+    top:65%;
+    @include iPadPro {
+        top: 53%;
+    }
+}
+
+.parallax__layer_img {
+    display: block;
+    max-width: unset;
 }

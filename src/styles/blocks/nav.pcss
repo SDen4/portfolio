@@ -1,10 +1,15 @@
 .nav {
-    max-width: 690px;
+    max-width: 730PX;
     width: 100%;
-    font-size: 16px;
-    line-height: 30px;
+    line-height: 30PX;
     font-weight: 400;
     margin: 0 1%;
+}
+
+.header__wrapper .nav {
+    @include tablets {
+        display: none;
+    }
 }
 
 .nav__list {
@@ -14,7 +19,6 @@
 
 .nav__item {
     width: 100%;
-    margin-right: 5%;
     &:last-child {
         margin-right: 0;
     }
@@ -29,7 +33,7 @@
         content: "";
         display: block;
         opacity: 0;
-        height: 2px;
+        height: 2PX;
         background-color: #fff;
         transition: .6s;
     }
