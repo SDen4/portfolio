@@ -1,0 +1,118 @@
+.button__add {
+    width: 20PX;
+    height: 20PX;
+    border-radius: 50%;
+    padding: 0;
+    background: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+    position: relative;
+    outline: none;
+    color: $text-color;
+    text-transform: uppercase;
+    &:before, &:after {
+        content: "+";
+        display: block;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+    }
+    &:after {
+        color: inherit;
+        font-size: inherit;
+        background: linear-gradient(90deg, #005dff 0%, #0090ff 100%);
+        opacity: 0;
+        transition: .6s;
+    }
+    &:hover:after {
+        opacity: 1;
+    }
+}
+
+.button__add_skill {
+    width: 40PX;
+    height: 40PX;
+    font-size: 30PX;
+}
+
+.button__add_download {
+    width: 182px;
+    height: 51px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 48PX;
+    &:after, &:before {
+        content: "Загрузить";
+    }
+}
+
+.button__add_cancel {
+    width: 152px;
+    height: 51px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 48PX;
+    margin-right: 20PX;
+    background: transparent;
+    color: $text-color-nav-admin-active;
+    &:after, &:before {
+        content: "Отмена";
+        color: $text-color;
+    }
+    &:before {
+        color: $text-color-nav-admin-active;
+    }
+}
+
+.button__add_submit {
+    width: 182px;
+    height: 51px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 48PX;
+    &:after, &:before {
+        content: "Сохранить";
+    }
+}
+
+.button__group {
+    width: 14PX;
+    height: 18PX;
+    padding: 0;
+    background-color: transparent;
+}
+
+.button__group_approve {
+    margin-right: 20PX;
+    background: url("~images/content/tick.png") right center no-repeat;
+}
+
+.button__group_remove {
+    background: url("~images/content/cross.png") right center no-repeat;
+}
+
+.button_edit, .button_remove {
+    background-color: transparent;
+    width: 16PX;
+    height: 15PX;
+}
+
+.button_edit {
+    background: url("~images/content/pencil.png") right center no-repeat;
+}
+
+.button_remove {
+    background: url("~images/content/trash.png") right no-repeat;
+}
+
+.button_edit_projects, .button__group_remove_projects {
+    font-size: 16px;
+    font-weight: 600;
+    width: 50%;
+    padding: 0;
+    height: 18PX;
+}

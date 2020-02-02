@@ -1,0 +1,164 @@
+.admin__edit-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $text-color;
+    filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    margin-bottom: 30PX;
+}
+
+.admin__edit-project_container {
+    flex-direction: column;
+}
+
+.admin__edit-project-subtitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 75PX;
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50PX;
+        height: 2PX;
+        width: inherit;
+        background-color: $admin_grayline;
+    }
+}
+
+.admin__edit-project-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin__edit-project-content-left {
+    width: 48%;
+}
+
+.admin__edit-project-new-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 495PX;
+    max-height: 277PX;
+    background-color: $admin_new_photo;
+    border: 1px dashed #a1a1a1;
+}
+
+.admin__edit-project-new-photo_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4.5% 0;
+}
+
+.admin__edit-project-new-photo-text {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    max-width: 220PX;
+    margin-bottom: 12%;
+    line-height: 34px;
+}
+
+.admin__edit-project-content-right {
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin__edit-project-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.admin__edit-project-formdata {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.admin__edit-project-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    margin-bottom: 30PX;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 65PX;
+        height: 1PX;
+        width: inherit;
+        background-color: $black;
+    }
+}
+
+.admin__edit-project-data-textarea {
+    &:after {
+        display: none;
+    }
+}
+
+.admin__edit-project-name, .admin__edit-project-input {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.admin__edit-project-name {
+    color: $text-color-admin_gray;
+    margin-bottom: 20PX;
+}
+
+.admin__edit-project-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 25PX;
+}
+
+.admin__edit-project-input_textarea {
+    border: 1px solid $text-color-admin_gray;
+    height: 147PX;
+    writing-mode: tb-lr;
+}
+
+.admin__edit-project-tool-list {
+    width: 100%;
+    display: flex;
+    margin-bottom: 40PX;
+}
+
+.admin__edit-project-tool-item {
+    display: flex;
+}
+
+.projects__tools-close {
+    width: 11PX;
+    height: 11Px;
+    background: url("~images/content/cancel-tool.png") center center no-repeat;
+    background-size: cover;
+    padding-right: 0;
+    margin-right: 20PX;
+}
+
+.admin__edit-project-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
