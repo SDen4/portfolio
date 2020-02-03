@@ -30,15 +30,27 @@
         width: inherit;
         background-color: $admin_grayline;
     }
+    @include tablets {
+        margin-bottom: 60PX;
+    }
 }
 
 .admin__edit-project-content {
     display: flex;
     justify-content: space-between;
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .admin__edit-project-content-left {
     width: 48%;
+    @include tablets {
+    width: 73%;
+    height: 30%;
+    margin-bottom: 10%;
+    }
 }
 
 .admin__edit-project-new-photo {
@@ -73,6 +85,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include tablets {
+        width: 73%;
+    }
 }
 
 .admin__edit-project-form {
@@ -142,10 +157,24 @@
     width: 100%;
     display: flex;
     margin-bottom: 40PX;
+    @include iPadProLow {
+        flex-wrap: wrap;
+    }
 }
 
 .admin__edit-project-tool-item {
     display: flex;
+    @include tablets {
+        margin-bottom: 0;
+    }
+}
+
+.projects__tools-name_admin {
+    @include iPadProLow {
+        font-size: 13PX;
+        font-weight: 600;
+        padding: 10PX 20PX;
+    }
 }
 
 .projects__tools-close {

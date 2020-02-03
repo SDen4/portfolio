@@ -136,13 +136,13 @@
                                                   input.admin__edit-project-input(name="new_project_tool", placeholder="Добавьте тэг")
                                               ul.admin__edit-project-tool-list
                                                   li.projects__tools-item.admin__edit-project-tool-item
-                                                      .projects__tools-name HTML
+                                                      .projects__tools-name.projects__tools-name_admin HTML
                                                       button.projects__tools-close
                                                   li.projects__tools-item.admin__edit-project-tool-item
-                                                      .projects__tools-name CSS
+                                                      .projects__tools-name.projects__tools-name_admin CSS
                                                       button.projects__tools-close
                                                   li.projects__tools-item.admin__edit-project-tool-item
-                                                      .projects__tools-name Javascript
+                                                      .projects__tools-name.projects__tools-name_admin Javascript
                                                       button.projects__tools-close
                                               .admin__edit-project-form-buttons
                                                   button.button__add.button__add_cancel(type="reset")
@@ -159,11 +159,11 @@
                                                 img.admin__projects-preview_pic(src="~images/projects/1.jpg" alt="Project preview")
                                             ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name HTML
+                                                    .projects__tools-name.admin__projects__tool-name HTML
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name CSS
+                                                    .projects__tools-name.admin__projects__tool-name CSS
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name Javascript
+                                                    .projects__tools-name.admin__projects__tool-name Javascript
                                         .admin__projects-descr
                                             .admin__projects-descr_container
                                                 .admin__projects-title Учебный проект 'Коворкинг'
@@ -178,11 +178,11 @@
                                                 img.admin__projects-preview_pic(src="~images/projects/1.jpg" alt="Project preview")
                                             ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name HTML
+                                                    .projects__tools-name.admin__projects__tool-name HTML
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name CSS
+                                                    .projects__tools-name.admin__projects__tool-name CSS
                                                 li.projects__tools-item.admin__projects_tool
-                                                    .projects__tools-name Javascript
+                                                    .projects__tools-name.admin__projects__tool-name Javascript
                                         .admin__projects-descr
                                             .admin__projects-descr_container
                                                 .admin__projects-title Учебный проект 'Коворкинг'
@@ -217,7 +217,7 @@
                         .admin__new-review
                           .admin__block_container.admin__new-review_container
                             .admin__edit-project-subtitle Новый отзыв
-                            .admin__edit-project-content
+                            .admin__edit-project-content.admin__new-rewiew_content
                               .admin__new-review-left
                                 .admin__new-review-left_container
                                   .admin__new-review-add-photo
@@ -236,7 +236,7 @@
                                       label.admin__new-review-form-data
                                         .admin__edit-project-name Отзыв
                                         textarea.admin__edit-project-input_textarea.admin__new-review-input_textarea(placeholder="Введите отзыв", name="new-review-name")
-                                    .admin__new-review-form-row
+                                    .admin__new-review-form-row.admin__new-review-form-row_btn
                                       button.button__add.button__add_cancel(type="reset")
                                       button.button__add.button__add_submit(type="submit")
                         .admin__projects.admin__reviews

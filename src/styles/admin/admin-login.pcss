@@ -16,11 +16,20 @@
 .login__block {
     width: 564PX;
     height: 518PX;
+    border-radius: 5PX;
     background-color: $text-color;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    @include tablets {
+        width: 420PX;
+        height: 465PX;
+    }
+    @include phones {
+        width: 320PX;
+        height: 340PX;
+    }
 }
 
 .login__close {
@@ -47,6 +56,12 @@
     font-size: 36PX;
     font-weight: 600;
     color: $text-color-admin;
+    @include tablets {
+        font-size: 24PX;
+    }
+    @include phones {
+        font-size: 18PX;
+    }
 }
 
 .login__content {
@@ -94,7 +109,7 @@
 }
 
 .login__form-info {
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -106,6 +121,12 @@
     font-weight: 600;
     color: $text-color-admin_gray;
     margin-bottom: 30PX;
+    @include tablets {
+        font-size: 14PX;
+    }
+    @include tablets {
+        font-size: 13PX;
+    }
 }
 
 .login__form-input {
@@ -123,7 +144,7 @@
 .button__login {
     width: 348PX;
     height: 80PX;
-    font-size: 18px;
+    font-size: 18PX;
     line-height: 80PX;
     border-radius: 40PX 5PX;
     background-image: linear-gradient(90deg, #ac00ed 0%, #5500f1 100%);
@@ -132,5 +153,17 @@
     }
     &:after {
         background-image: linear-gradient(270deg, #ac00ed 0%, #5500f1 100%);
+    }
+    @include tablets {
+        width: 280PX;
+        height: 70PX;
+        font-size: 16PX;
+        line-height: 70PX;
+    }
+    @include phones {
+        width: 200PX;
+        height: 50PX;
+        font-size: 14PX;
+        line-height: 50PX;
     }
 }

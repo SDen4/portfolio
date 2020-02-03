@@ -6,7 +6,7 @@
 }
 
 .admin__title {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: flex-start;
     margin: 30PX 0;
@@ -34,15 +34,29 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @include iPadProLow {
+        margin-left: -20PX;
+    }
 }
 
 .admin__group-item {
     max-width: 526PX;
-    width: 42%;
+    min-width: 345PX;
+    width: 47%;
     min-height: 388PX;
     margin-bottom: 60PX;
     background-color: $text-color;
     filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    @include iPadProLow {
+        width: 46%;
+        min-width: 340PX;
+        margin-bottom: 20PX;
+        margin-left: 20PX;
+    }
+    @include tablets {
+        max-width: 340PX;
+        min-width: 300PX;
+    }
 }
 
 .admin__group_container {
@@ -84,7 +98,7 @@
 //форма создания имени новой группы
 .admin__group-new-name {
     position: relative;
-    width: 275PX;
+    width: 85%;
     &:after {
         content: "";
         display: block;

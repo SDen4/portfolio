@@ -16,11 +16,22 @@
     flex-direction: column;
 }
 
+.admin__new-rewiew_content {
+    @include tablets {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
 .admin__new-review-left {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30%;
+    min-width: 250PX;
+    @include tablets {
+        min-width: 220PX;
+    }
 }
 
 .admin__new-review-left_container {
@@ -40,6 +51,10 @@
     background-color: $admin_new_photo;
     position: relative;
     margin-bottom: 27PX;
+    @include tablets {
+        height: 180PX;
+        width: 180PX;
+    }
     &:after {
         content: "";
         display: block;
@@ -49,7 +64,14 @@
         top: 37PX;
         left: 57PX;
         background-image: url("~images/content/new-user.png");
+        background-size: cover;
         z-index: 50;
+        @include tablets {
+            width: 76PX;
+            height: 102PX;
+            top: 36PX;
+            left: 52PX;
+        }
     }
 }
 
@@ -87,14 +109,32 @@
     margin-bottom: 40PX;
     &:last-child {
         margin-bottom: 0;
+        justify-content: flex-end;
+        @include iPadProLow {
+            flex-direction: row;
+        }
+    }
+    @include iPadProLow {
+        flex-direction: column;
+    }
+}
+
+.admin__new-review-form-row_btn {
+    @include tablets {
+        width: 126%;
+        margin-left: -63%;
     }
 }
 
 .admin__new-review-form-data {
     width: 100%;
     margin-right: 30PX;
+    margin-bottom: 0;
     &:last-child {
         margin-right: 0;
+    }
+    @include iPadProLow {
+        margin-bottom: 40PX;
     }
 }
 
@@ -104,9 +144,4 @@
     height: 117PX;
     font-size: 16PX;
     font-weight: 600;
-}
-
-.admin__new-review-form-row {
-    display: flex;
-    justify-content: flex-end;
 }

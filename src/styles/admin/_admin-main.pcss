@@ -16,7 +16,13 @@
 
 .admin__container {
     display: flex;
-    margin: 0 60px;
+    margin: 0 60PX;
+    @include iPadProLow {
+        margin: 0 25PX;
+    }
+    @include tablets {
+        margin: 0 20PX;
+    }
 }
 
 .admin__block_container {

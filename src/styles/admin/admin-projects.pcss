@@ -8,7 +8,10 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    width: 100%;
+    /* width: 100%; */
+    @include tablets {
+        margin-left: -20PX;
+    }
 }
 
 .admin__projects-item_new {
@@ -32,6 +35,12 @@
     }
     &:hover:before {
         opacity: 1;
+    }
+    @include tablets {
+        min-width: 300PX;
+        width: 46%;
+        margin-bottom: 20PX;
+        margin-left: 20PX;
     }
 }
 
@@ -86,6 +95,12 @@
     margin-bottom: 60PX;
     background-color: $text-color;
     filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    @include tablets {
+        min-width: 300PX;
+        width: 46%;
+        margin-bottom: 20PX;
+        margin-left: 20PX;
+    }
 }
 
 .admin__projects-preview {
@@ -116,6 +131,9 @@
     top: unset;
     margin: 0;
     width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .admin__projects_tool {
@@ -125,8 +143,14 @@
 }
 
 .admin__projects__tool-name {
-    font-size: 13PX;
-    font-weight: 600;
+    @include iPadProLow {
+        padding: 15PX 10PX;
+    }
+    @include tablets {
+        padding: 15PX 20PX;
+        font-size: 13PX;
+        font-weight: 600;
+    }
 }
 
 .admin__projects-descr {
@@ -151,14 +175,18 @@
     font-size: 18PX;
     font-weight: 700;
     text-align: start;
-    margin-top: 30PX;
+    margin: 25PX 0 5PX;
 }
 
 .admin__projects-text {
     width: 100%;
-    font-size: 16px;
+    font-size: 16PX;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 30PX;
+    @include iPadProLow {
+        font-size: 14PX;
+        line-height: 22PX;
+    }
 }
 
 .admin__projects-link {
@@ -177,6 +205,9 @@
     }
     &:hover:after{
         opacity: 1;
+    }
+    @include iPadProLow {
+        font-size: 14PX;
     }
 }
 
