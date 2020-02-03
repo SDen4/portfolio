@@ -1,4 +1,6 @@
 .form__section {
+    width: 100%;
+    position: relative;
     z-index: 10;
     @include phones {
         margin-bottom: 10%;
@@ -59,8 +61,11 @@
     }
     @include phones {
         flex-direction: column;
-        margin-bottom: 38PX;
+        margin-bottom: 60PX;
         align-items: center;
+    }
+    @include small {
+        margin-bottom: 42PX;
     }
 }
 
@@ -140,6 +145,7 @@
 
 .form__input-info {
     width: 100%;
+    position: relative;
 }
 
 .form__subtitle {

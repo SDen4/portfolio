@@ -29,6 +29,13 @@ mixin nav(className, items, activeItem)
         li(class=`${className}__item`)
           a(class=`${className}__link` href="")= item
 
+mixin nav-popup(className, items, activeItem)
+  nav(class=`${className} ${className}_popup`)
+    ul(class=`${className}__list ${className}__list_popup`)
+      each item in items
+        li(class=`${className}__item ${className}__item_popup`)
+          a(class=`${className}__link ${className}__link_popup` href="")= item
+
 mixin scl(className, items)
   div(class=`${className}`)
     ul(class=`${className}__list`)
@@ -38,12 +45,20 @@ mixin scl(className, items)
             +icon(`${index}`, `${className}__pic ${className}__pic_${index}`)
 
 mixin scl-footer(className, items)
-  div(class=`${className} ${className}__footer`)
+  div(class=`${className} ${className}_footer`)
     ul(class=`${className}__list ${className}__list_footer`)
       each val, index in items
         li(class=`${className}__item ${className}__item_footer`)
           a(class=`${className}__link ${className}__link_${index}` href=`${val}`)
             +icon(`${index}`, `${className}__pic ${className}__pic_${index}`)
+
+mixin scl-popup(className, items)
+  div(class=`${className} ${className}__popup`)
+    ul(class=`${className}__list ${className}__list_popup`)
+      each val, index in items
+        li(class=`${className}__item ${className}__item_popup`)
+          a(class=`${className}__link ${className}__link_${index}` href=`${val}`)
+            +icon(`${index}`, `${className}__pic ${className}__pic_${index} ${className}__pic_popup`)
 
 mixin devInfo(className, items)
   div(class=`${className}`)

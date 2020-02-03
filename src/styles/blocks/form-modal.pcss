@@ -1,0 +1,107 @@
+.form__message-modal {
+    display: none;
+    /* display: flex; */
+    width: 100%;
+    height: 200vh;
+    position: absolute;
+    bottom: -100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(45, 60, 78, .9);
+    z-index: 50;
+}
+
+.form__message-block {
+    width: 565PX;
+    height: 265PX;
+    border-radius: 5PX;
+    background-color: $text-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    @include tablets {
+        width: 420PX;
+    }
+    @include phones {
+        width: 300PX;
+    }
+    @include small {
+        width: 220PX;
+    }
+}
+
+.form__message-block_container {
+    width: 65%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    @include tablets {
+        height: 65%;
+    }
+    @include phones {
+        height: 55%;
+    }
+}
+
+.form__message-text {
+    font-size: 36PX;
+    font-weight: 600;
+    text-align: center;
+    color: $text-color-admin;
+    @include tablets {
+        font-size: 28PX;
+    }
+    @include phones {
+        font-size: 24PX;
+        line-height: 30PX
+    }
+}
+
+.button__message-close {
+    width: 348PX;
+    height: 80PX;
+    font-size: 18PX;
+    font-weight: 700;
+    line-height: 80PX;
+    border-radius: 40PX 5PX;
+    background-image: linear-gradient(90deg, #ac00ed 0%, #5500f1 100%);
+    position: relative;
+    outline: none;
+    color: $text-color;
+    text-transform: uppercase;
+    &:after, &:before {
+        content: "Закрыть";
+        display: block;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+    }
+    &:after {
+        color: inherit;
+        font-size: inherit;
+        background-image: linear-gradient(270deg, #ac00ed 0%, #5500f1 100%);
+        opacity: 0;
+        transition: .6s;
+    }
+    &:hover:after {
+        opacity: 1;
+    }
+    @include tablets {
+        width: 280PX;
+        height: 70PX;
+        font-size: 16PX;
+        line-height: 70PX;
+    }
+    @include phones {
+        width: 200PX;
+        height: 50PX;
+        font-size: 14PX;
+        line-height: 50PX;
+    }
+}
