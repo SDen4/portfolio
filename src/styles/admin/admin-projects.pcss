@@ -1,6 +1,13 @@
 .admin__projects {
     width: 100%;
     margin-bottom: 30PX;
+    @include small {
+        margin-bottom: 10PX;
+    }
+}
+
+.admin__title-name_projects {
+    margin-bottom: 0;
 }
 
 .admin__projects-list {
@@ -11,6 +18,9 @@
     /* width: 100%; */
     @include tablets {
         margin-left: -20PX;
+    }
+    @include phones {
+        margin-left: 0;
     }
 }
 
@@ -42,6 +52,15 @@
         margin-bottom: 20PX;
         margin-left: 20PX;
     }
+    @include phones {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10PX;
+    }
+    @include small {
+        max-height: 112PX;
+    }
 }
 
 .admin__projects-add {
@@ -53,15 +72,26 @@
     height: 100%;
     padding: 0;
     background-color: transparent;
+    @include small {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .admin__projects-add-button {
     width: 150PX;
-    height: 150Px;
+    height: 150PX;
     border-radius: 50%;
     border: 1PX solid $text-color;
     margin-bottom: 30PX;
     position: relative;
+    @include small {
+        width: 50PX;
+        height: 50PX;
+        border: 2PX solid $text-color;
+        margin-bottom: 0;
+        margin-right: 20PX;
+    }
     &:after {
         content: "+";
         display: block;
@@ -73,6 +103,12 @@
         color: #fff;
         font-size: 72PX;
         line-height: 35PX;
+            @include small {
+                width: 14PX;
+                height: 14PX;
+                font-size: 24PX;
+                line-height: 10PX;
+            }
     }
 }
 
@@ -101,6 +137,18 @@
         margin-bottom: 20PX;
         margin-left: 20PX;
     }
+    @include phones {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10PX;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    @include small {
+        max-width: 320PX;
+    }
 }
 
 .admin__projects-preview {
@@ -108,6 +156,9 @@
     height: 195PX;
     width: 100%;
     position: relative;
+    @include phones {
+        max-width: 100%;
+    }
 }
 
 .admin__projects-preview_pic {
@@ -168,6 +219,9 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    @include iPadProLow {
+        width: 90%;
+    }
 }
 
 .admin__projects-title {
@@ -186,6 +240,9 @@
     @include iPadProLow {
         font-size: 14PX;
         line-height: 22PX;
+    }
+    @include phones {
+        line-height: 32PX;
     }
 }
 

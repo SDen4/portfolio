@@ -7,6 +7,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 16PX 0;
+    @include phones {
+        width: unset;
+        flex-direction: column;
+    }
 }
 
 .admin__user {
@@ -14,6 +18,9 @@
     justify-content: flex-start;
     align-items: center;
     width: 80%;
+    @include phones {
+        margin-bottom: 10PX;
+    }
 }
 
 .ava_admin {
@@ -26,6 +33,10 @@
     font-size: 18PX;
     font-weight: 600;
     margin-right: 20PX;
+    @include small {
+        margin-right: 0;
+        font-size: 16PX;
+    }
 }
 
 .pre-title_admin {
@@ -33,10 +44,17 @@
     font-size: 14PX;
     font-weight: 400;
     text-align: start;
+    @include phones {
+        display: none;
+    }
 }
 
 .admin__close {
     width: fit-content;
+    @include phones {
+        width: 80%;
+        text-align: start;
+    }
 }
 
 .admin__close-link {
@@ -53,5 +71,8 @@
     }
     &:hover:after{
         opacity: 1;
+    }
+    @include small {
+        font-size: 14PX;
     }
 }

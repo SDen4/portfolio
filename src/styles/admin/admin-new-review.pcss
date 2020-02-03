@@ -14,12 +14,17 @@
 
 .admin__new-review_container {
     flex-direction: column;
+    @include small {
+        margin: 20PX;
+    }
 }
 
 .admin__new-rewiew_content {
     @include tablets {
         flex-direction: row;
         align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
 
@@ -32,6 +37,9 @@
     @include tablets {
         min-width: 220PX;
     }
+    @include phones {
+        margin-bottom: 40PX;
+    }
 }
 
 .admin__new-review-left_container {
@@ -40,6 +48,9 @@
     align-items: center;
     width: 80%;
     height: 100%;
+    @include small {
+        width: 100%;
+    }
 }
 
 .admin__new-review-add-photo {
@@ -54,6 +65,10 @@
     @include tablets {
         height: 180PX;
         width: 180PX;
+    }
+    @include small {
+        height: 200PX;
+        width: 200PX;
     }
     &:after {
         content: "";
@@ -72,6 +87,12 @@
             top: 36PX;
             left: 52PX;
         }
+        @include small {
+            width: 85PX;
+            height: 113PX;
+            top: 37PX;
+            left: 57PX;
+        }
     }
 }
 
@@ -88,11 +109,17 @@
     justify-content: center;
     align-items: center;
     width: 70%;
+    @include tablets {
+        width: 100%;
+    }
 }
 
 .admin__new-review-right_container {
     width: 80%;
     height: 100%;
+    @include tablets {
+        width: 98%;
+    }
 }
 
 .admin__new-review-form {
@@ -113,16 +140,12 @@
         @include iPadProLow {
             flex-direction: row;
         }
+        @include small {
+            justify-content: center;
+        }
     }
     @include iPadProLow {
         flex-direction: column;
-    }
-}
-
-.admin__new-review-form-row_btn {
-    @include tablets {
-        width: 126%;
-        margin-left: -63%;
     }
 }
 

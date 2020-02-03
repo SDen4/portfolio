@@ -109,7 +109,7 @@
                                                 button.button__add.button__add_skill
                     .admin__block-projects
                         .admin__title
-                            h2.admin__title-name Блок "Работы"
+                            h2.admin__title-name.admin__title-name_projects Блок "Работы"
                         .admin__data
                             .admin__edit-project
                               .admin__block_container.admin__edit-project_container
@@ -127,10 +127,10 @@
                                                   input.admin__edit-project-input(name="new_project_name", placeholder="Введите название нового проекта")
                                               label.admin__edit-project-data
                                                   .admin__edit-project-name Ссылка
-                                                  input.admin__edit-project-input(name="new_project_link", placeholder="Ведите ссылку")
+                                                  input.admin__edit-project-input(name="new_project_link", placeholder="Введите ссылку")
                                               label.admin__edit-project-data.admin__edit-project-data-textarea
                                                   .admin__edit-project-name Описание
-                                                  textarea.admin__edit-project-input.admin__edit-project-input_textarea(name="new_project_descr", placeholder="Ведите описание")
+                                                  textarea.admin__edit-project-input.admin__edit-project-input_textarea(name="new_project_descr", placeholder="Введите описание")
                                               label.admin__edit-project-data
                                                   .admin__edit-project-name Добавление тэга
                                                   input.admin__edit-project-input(name="new_project_tool", placeholder="Добавьте тэг")
@@ -212,7 +212,7 @@
                                                     button.button__group.button__group_remove.button__group_remove_projects Удалить
                     .admin__block-about
                       .admin__title
-                        h2.admin__title-name Блок "Отзывы"
+                        h2.admin__title-name.admin__title-name_about Блок "Отзывы"
                       .admin__data
                         .admin__new-review
                           .admin__block_container.admin__new-review_container
@@ -236,7 +236,7 @@
                                       label.admin__new-review-form-data
                                         .admin__edit-project-name Отзыв
                                         textarea.admin__edit-project-input_textarea.admin__new-review-input_textarea(placeholder="Введите отзыв", name="new-review-name")
-                                    .admin__new-review-form-row.admin__new-review-form-row_btn
+                                    .admin__new-review-form-row
                                       button.button__add.button__add_cancel(type="reset")
                                       button.button__add.button__add_submit(type="submit")
                         .admin__projects.admin__reviews

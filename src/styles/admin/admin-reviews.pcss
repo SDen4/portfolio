@@ -1,5 +1,15 @@
+.admin__title-name_about {
+    margin-bottom: 0;
+}
+
 .admin__reviews-item_new, .admin__reviews-item {
     max-height: 380PX;
+}
+
+.admin__reviews-item_new {
+    @include small {
+        max-height: 112PX;
+    }
 }
 
 .admin__reviews_ava {
@@ -28,6 +38,9 @@
         height: 2PX;
         width: inherit;
         background-color: $admin_grayline;
+    }
+    @include iPadProLow {
+        margin: 10PX 10PX 40PX;
     }
 }
 

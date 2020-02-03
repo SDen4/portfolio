@@ -10,6 +10,9 @@
 
 .admin__edit-project_container {
     flex-direction: column;
+    @include small {
+        margin: 20PX;
+    }
 }
 
 .admin__edit-project-subtitle {
@@ -29,6 +32,9 @@
         height: 2PX;
         width: inherit;
         background-color: $admin_grayline;
+        @include small {
+            top: 40PX;
+        }
     }
     @include tablets {
         margin-bottom: 60PX;
@@ -47,9 +53,12 @@
 .admin__edit-project-content-left {
     width: 48%;
     @include tablets {
-    width: 73%;
-    height: 30%;
-    margin-bottom: 10%;
+        width: 73%;
+        height: 30%;
+        margin-bottom: 10%;
+    }
+    @include small {
+        width: 100%;
     }
 }
 
@@ -86,7 +95,7 @@
     justify-content: center;
     align-items: center;
     @include tablets {
-        width: 73%;
+        width: 96%;
     }
 }
 
@@ -133,6 +142,9 @@
 .admin__edit-project-name, .admin__edit-project-input {
     font-size: 16px;
     font-weight: 600;
+    @include small {
+        font-size: 14px;
+    }
 }
 
 .admin__edit-project-name {
@@ -150,7 +162,7 @@
 .admin__edit-project-input_textarea {
     border: 1px solid $text-color-admin_gray;
     height: 147PX;
-    writing-mode: tb-lr;
+    width: 100%;
 }
 
 .admin__edit-project-tool-list {
@@ -167,6 +179,9 @@
     @include tablets {
         margin-bottom: 0;
     }
+    @include phones {
+        margin-bottom: 10PX;
+    }
 }
 
 .projects__tools-name_admin {
@@ -174,6 +189,9 @@
         font-size: 13PX;
         font-weight: 600;
         padding: 10PX 20PX;
+    }
+    @include small {
+        padding: 8PX 10PX 8PX 18PX;
     }
 }
 
@@ -190,4 +208,7 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    @include phones {
+        justify-content: center;
+    }
 }

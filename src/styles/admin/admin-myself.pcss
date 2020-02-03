@@ -10,17 +10,31 @@
     display: flex;
     justify-content: flex-start;
     margin: 30PX 0;
+    @include tablets {
+        width: 80%;
+    }
+    @include phones {
+        margin-left: 20PX;
+        flex-direction: column;
+    }
 }
 
 .admin__title-name {
     width: 50%;
     font-size: 21px;
     font-weight: 700;
+    @include phones {
+        margin-bottom: 40PX;
+        width: 100%;
+    }
 }
 
 .admin__add-group {
     display: flex;
     width: 50%;
+    @include phones {
+        width: 100%;
+    }
 }
 
 .admin__add-text {
@@ -37,11 +51,18 @@
     @include iPadProLow {
         margin-left: -20PX;
     }
+    @include tablets {
+        width: 103%;
+    }
+    @include phones {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 .admin__group-item {
     max-width: 526PX;
-    min-width: 345PX;
+    min-width: 340PX;
     width: 47%;
     min-height: 388PX;
     margin-bottom: 60PX;
@@ -55,7 +76,22 @@
     }
     @include tablets {
         max-width: 340PX;
+    }
+    @include phones {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    @include small {
         min-width: 300PX;
+        max-width: 320PX;
+        margin-bottom: 10PX;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -65,6 +101,10 @@
     justify-content: space-between;
     height: 85%;
     margin: 30PX;
+    @include small {
+        width: 88%;
+        margin: 0;
+    }
 }
 
 .admin__group-name {
@@ -161,6 +201,9 @@
 
 .admin__skills-new-skill {
     width: 220PX;
+    @include iPadProLow {
+        width: 160PX;
+    }
 }
 
 .admin__skills-new-persent {
