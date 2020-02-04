@@ -23,6 +23,27 @@
     }
 }
 
+.popup-menu-screen-lock{
+    @include tablets {
+        content: "";
+        /* display: block; */
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        width: 57%;
+        height: 100vh;
+        background-color: transparent;
+    }
+    @include phones {
+        width: 28%;
+    }
+    @include small {
+        display: none;
+        width: 0;
+    }
+}
+
 .button__close-popup {
     display: none;
     @include tablets {
@@ -30,7 +51,7 @@
         width: 22PX;
         height: 22PX;
         position: absolute;
-        top: 5%;
+        top: 6%;
         left: 82%;
         background-image: url("~images/content/cross-login.png");
         background-color: transparent;
