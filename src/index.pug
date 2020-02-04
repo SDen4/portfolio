@@ -27,8 +27,8 @@ html(lang="en")
             .parallax__layer.parallax__layer_4
               +image("content/p4.png", "parallax__layer_img parallax__layer_img4", "ParallaxImage")
             section.intro
-              //- .popup-menu.popup-menu_active
-                button.button__close-popup
+              .popup-menu(id="popup-menu")
+                button.button__close-popup(id="popup-menu-button-close")
                 .popup-menu_container
                   +nav-popup('nav', navMenu)
                   +scl-popup('socials', socialIconsNew)
@@ -40,7 +40,7 @@ html(lang="en")
                       +nav('nav', navMenu)
                       +scl('socials', socialIconsNew)
                       .gamburger-menu
-                        a.gamburger-menu__link
+                        a.gamburger-menu__link(href="#" id="gamburger-menu-button")
                           .gamburger-menu__section
                   .main-title
                     .pre-title !{preTitle}

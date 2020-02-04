@@ -2,29 +2,24 @@
     display: none;
     z-index: 10;
     @include tablets {
-        /* display: flex; */
-        display: none;
+        display: flex;
         height: 100vh;
         width: 43.5%;
         justify-content: center;
         align-items: center;
         background-color: $text-color;
         position: absolute;
-        right: 0;
+        right: -44%;
         left: unset;
         color: $text-color-admin;
     }
     @include phones {
         width: 73%;
+        right: -74%;
     }
     @include small {
         width: 100%;
-    }
-}
-
-.popup-menu_active {
-    @include tablets {
-        display: flex;
+        right: -100%;
     }
 }
 
