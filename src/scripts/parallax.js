@@ -1,5 +1,4 @@
 var winWidth = document.querySelector('.parallax').offsetWidth;
-console.log("winWidth" + winWidth);
 var maxWinWidth = 753; // максимальное значение разрешения для планшетов
 
 if (winWidth>maxWinWidth) {
