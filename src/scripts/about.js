@@ -1,10 +1,5 @@
 import Vue from "vue";
 import Flickity from "vue-flickity";
-import autoprefixer from "autoprefixer";
-
-// const display = {
-//     template: "#about-display",
-//     props: ["feedbacks", "currentFeedback", "currentIndex"]
 
 
 new Vue ({
@@ -15,7 +10,6 @@ new Vue ({
     currentIndex: "currentIndex",
     components: {
         Flickity
-        // display
     },
     data() {
         return {
