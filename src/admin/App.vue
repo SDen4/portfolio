@@ -287,26 +287,14 @@
                                         .admin__projects-buttons
                                             button.button_edit.button_edit_projects Править
                                             button.button__group.button__group_remove.button__group_remove_projects Удалить
-    section.login
-        .login__wrapper
-            .login__block
-                button.login__close
-                .login__block_wrapper
-                    .login__title Авторизация
-                    .login__content
-                        form.login__form
-                            label.login__form-data
-                                .login__form-pic.login__form-pic_log
-                                .login__form-info
-                                    .login__form-name Логин
-                                    input.login__form-input(name="login" placeholder="Введите логин" required)
-                            label.login__form-data
-                                .login__form-pic.login__form-pic_psw
-                                .login__form-info
-                                    .login__form-name Пароль
-                                    input.login__form-input(name="password" placeholder="Введите пароль" required)
-                            .login__button
-                                button.button__add.button__add_submit.button__login(type="submit")
-
-
+    login-admin
 </template>
+
+<script>
+    import LoginAdmin from './components/Login.vue';
+    export default {
+        components: {
+            LoginAdmin
+        }
+    };
+</script>
