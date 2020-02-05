@@ -1,32 +1,31 @@
 import Vue from "vue";
 import Flickity from "vue-flickity";
 
-const buttons = {
-    template: "#about-slider-buttons",
-}
+// const display = {
+//     template: "#about-display",
+//     props: ["feedbacks", "currentFeedback", "currentIndex"]
 
-const display = {
-    template: "#about-display",
-    props: ["feedbacks", "currentFeedback", "currentIndex"]
-}
 
 new Vue ({
     el: "#about-component",
     template: "#about-slider",
+    feedbacks: "feedbacks",
+    currentFeedback: "currentFeedback",
+    currentIndex: "currentIndex",
     components: {
-        Flickity,
-        buttons,
-        display
+        Flickity
+        // display
     },
     data() {
         return {
             feedbacks: [],
             currentIndex: 0,
             flickityOptions: {
-                initialIndex: 0,
+                initialIndex: 3,
                 prevNextButtons: false,
                 pageDots: false,
-                wrapAround: true
+                wrapAround: true,
+                groupCells: 2
             }
         }
     },
@@ -45,11 +44,9 @@ new Vue ({
         },
         next() {
             this.$refs.flickity.next();
-            console.log('next');
         },
         previous() {
             this.$refs.flickity.previous();
-            console.log('prev');
         }
     },
     created() {
