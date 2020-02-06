@@ -1,0 +1,33 @@
+[
+    {
+        "id": "main",
+        "title": "Главная",
+        "class": "nav__link_main"
+    },
+    {
+        "id": "about",
+        "title": "Обо мне",
+        "class": "nav__link_about"
+    },
+    {
+        "id": "skills",
+        "title": "Навыки",
+        "class": "nav__link_skills"
+    },
+    {
+        "id": "projects",
+        "title": "Работы",
+        "class": "nav__link_projects"
+        
+    },
+    {
+        "id": "reviews",
+        "title": "Отзывы",
+        "class": "nav__link_reviews"
+    },
+    {
+        "id": "contacts",
+        "title": "Связаться",
+        "class": "nav__link_contacts"
+    }
+]

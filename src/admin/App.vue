@@ -292,6 +292,7 @@
 
 <script>
     import LoginAdmin from './components/Login.vue';
+    
     export default {
         components: {
             LoginAdmin

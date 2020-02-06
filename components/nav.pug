@@ -1,0 +1,7 @@
+script(type="text/x-template")#navlist
+    //-pre{{items}}
+    //- mixin nav(className, items, activeItem)
+    nav.nav
+        ul.nav__list
+            li.nav__item(v-for="nav in navs")
+                a.nav__link(:class="nav.class" @click.prevent href="" v-text="nav.title")

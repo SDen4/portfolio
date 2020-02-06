@@ -2,6 +2,8 @@ include ./mixins.pug
 include ../components/skills.pug
 include ../components/projects.pug
 include ../components/about.pug
+include ../components/nav.pug
+
 
 
 <!DOCTYPE html>
@@ -11,6 +13,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
+    script(src="https://cdn.jsdelivr.net/npm/vue-scrollto")
   body
     .wrapper
       .main-content
@@ -38,7 +41,8 @@ html(lang="en")
                   header.header
                     .header__wrapper
                       .logo ДС
-                      +nav('nav', navMenu)
+                      #nav-component
+                      //- +nav('nav', navMenu)
                       +scl('socials', socialIconsNew)
                       .gamburger-menu
                         a.gamburger-menu__link(href="#" id="gamburger-menu-button")

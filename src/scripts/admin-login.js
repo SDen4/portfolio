@@ -2,7 +2,7 @@ import Vue from "vue";
 
 
 const login = {
-    template: "#login-qdmin",
+    template: "#login-admin",
     data: () => ({
         user: {
             name: "",
