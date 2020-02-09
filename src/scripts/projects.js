@@ -67,27 +67,26 @@ new Vue ({
         handleSlide(direction) {
             switch(direction) {
                 case "next":
-                    this.currentIndex++;
-                    break;
+                    if(this.currentIndex === this.projects.length-1) {
+                        this.currentIndex = 0;
+                        break;
+                    } else {
+                        this.currentIndex++;
+                        break;
+                    };
                 case "prev":
-                    this.currentIndex--;
-                    break;
+                    if(this.currentIndex === 0) {
+                        this.currentIndex = this.projects.length-1;
+                        break;
+                    } else {
+                        this.currentIndex--;
+                        break;
+                    }
             }
-        },
-        // sliderLoop(value) {
-        //     const projectsTotalNum = this.projects.lenght - 1;
-        //     if (value > projectsTotalNum) this.currentIndex = 0;
-        //     else if (value < 0) this.currentIndex = projectsTotalNum;
-        // }
-    // },
-    // watch: {
-    //     currentIndex(value) {
-    //         this.sliderLoop(value)
-    //     }
+        }
     },
     created() {
         const data = require("../../projects.json");
         this.projects = this.makeImages(data);
-        // this.currentProject = this.projects[this.currentIndex];
     }
 });
