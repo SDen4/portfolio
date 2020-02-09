@@ -155,30 +155,3 @@
     display: flex;
     justify-content: center;
 }
-
-.button__login {
-    width: 348PX;
-    height: 80PX;
-    font-size: 18PX;
-    line-height: 80PX;
-    border-radius: 40PX 5PX;
-    background-image: linear-gradient(90deg, #ac00ed 0%, #5500f1 100%);
-    &:after, &:before {
-        content: "Отправить";
-    }
-    &:after {
-        background-image: linear-gradient(270deg, #ac00ed 0%, #5500f1 100%);
-    }
-    @include tablets {
-        width: 280PX;
-        height: 70PX;
-        font-size: 16PX;
-        line-height: 70PX;
-    }
-    @include phones {
-        width: 200PX;
-        height: 50PX;
-        font-size: 14PX;
-        line-height: 50PX;
-    }
-}

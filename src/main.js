@@ -9,5 +9,4 @@ import "./scripts/projects";
 import "./scripts/about";
 import "./scripts/parallax";
 import "./scripts/gamburger-menu";
-import "./scripts/admin-login";
 import "./scripts/navi";

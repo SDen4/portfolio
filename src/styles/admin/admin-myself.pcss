@@ -83,6 +83,7 @@
         align-items: center;
         margin-left: 0;
         width: 100%;
+        min-width: unset;
         max-width: 100%;
     }
     @include small {
@@ -126,7 +127,7 @@
 
 //заголовок созданной группы
 .admin__group-name-text {
-    display: none;
+    /* display: none; */
     font-size: 18px;
     font-weight: 600;
 }
@@ -136,14 +137,21 @@
 }
 
 //форма создания имени новой группы
+.admin__group-new-name-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .admin__group-new-name {
+    width: 80%;
+    max-width: 275PX;
     position: relative;
-    width: 85%;
     &:after {
         content: "";
         display: block;
         position: absolute;
-        top: 30PX;
+        top: 26PX;
         height: 1PX;
         width: inherit;
         background-color: $black;
@@ -155,6 +163,8 @@
     border: none;
     outline: none;
     width: 275PX;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .admin__group-name-buttons {
@@ -162,9 +172,15 @@
     justify-content: flex-end;
     width: 20%;
 }
+.admin__skills_container {
+    width: 100%;
+    height: 83%;
+    display: flex;
+    flex-direction: column;
+}
 
 .admin__skills {
-    height: 60%;
+    height: 86%;
 }
 
 .admin__skills-list {

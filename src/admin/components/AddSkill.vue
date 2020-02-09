@@ -1,0 +1,102 @@
+<template lang="pug">
+    .admin__skills_container
+        .admin__skills
+            ul.admin__skills-list
+                skill-item(
+                    v-for="skill in category.skills"
+                    :key="skill.id"
+                    :skill="skill"
+                )
+        form.admin__skills-add(
+            @submit.prevent="addNewSkill"
+            :class={blocked: loading}
+        )
+            label.admin__skills-new-skill
+                input.admin__skills-new(v-model="skill.title" placeholder="Новый навык")
+            label.admin__skills-new-persent
+                input.admin__skills-setPercent(v-model="skill.percent" placeholder="100 %")
+            .admin__skills-buttons
+                button.button__add.button__add_skill(
+                    type="submit"
+                    :disabled="loading"
+                    :class={blocked: loading}
+                )
+</template>
+
+<script id="add-skill">
+//(v-for="skill in catSkills" :key="skill.id") 
+    // import axios from 'axios';
+
+    // const baseUrl = "https://webdev-api.loftschool.com";
+    // const token = localStorage.getItem("token") || "";
+
+    // axios.defaults.baseURL = baseUrl;
+    // axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+    // localStorage.setItem("token", token);
+
+    import { mapActions } from 'vuex';
+
+    export default {
+        name: 'AddSkill',
+        components: {
+            skillItem: ()=> import('./skill-item.vue')
+        },
+        props: {
+            category: {
+                type: Object,
+                default: () => {},
+                required: true
+            }
+        },
+        // props: ["categoryId", "catSkills"],
+        data() {
+            return {
+                loading: false,
+                skill: {
+                    title: "",
+                    percent: 0,
+                    category: this.category.id
+                }
+            }
+        },
+        // data() {
+        //     return {
+        //         skill: {
+        //             title: "",
+        //             percent: 0,
+        //             category: this.categoryId
+        //         }
+        //     }
+        // },
+        methods: {
+            ...mapActions("skills", ["addSkill"]),
+            async addNewSkill() {
+                this.loading = true;
+                try {
+                    await this.addSkill(this.skill);
+                    this.skill.title = "";
+                    this.skill.percent = "";
+                } catch (error) {
+                } finally {
+                    this.loading = false;
+                }
+            },
+            // addNewSkill() {
+            //     axios.post('/skills', this.skill).then(response => {
+            //         this.$emit('skillAdded', response.data);
+            //         // this.skill.title = "";
+            //         // this.skill.percent = 0;
+            //     })
+            // }
+        }
+    }
+</script>
+
+<style lang="pcss">
+.blocked {
+    opacity: .5;
+    filter: grayscale(100%);
+    pointer-events: none;
+    user-select: none;
+}
+</style>
