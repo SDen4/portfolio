@@ -115,12 +115,20 @@
 
 .login__form-pic_log {
     height: 30PX;
-    background: url("~images/content/pic-login.png") center center no-repeat;
+    background: svg-load("user.svg", fill=$text-color-admin_gray, width=100%, height=100%) center center no-repeat;
+}
+
+.login__form-pic_log_error {
+    background: svg-load("user.svg", fill=$admin_red, width=100%, height=100%) center center no-repeat;
 }
 
 .login__form-pic_psw {
     height: 28PX;
-    background: url("~images/content/pic-passw.png") center center no-repeat;
+    background: svg-load("key.svg", fill=$text-color-admin_gray, width=100%, height=100%) center center no-repeat;
+}
+
+.login__form-pic_psw_error {
+    background: svg-load("key.svg", fill=$admin_red, width=100%, height=100%) center center no-repeat;
 }
 
 .login__form-info {

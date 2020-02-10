@@ -27,10 +27,8 @@ if (winWidth>maxWinWidth) {
             }
         }
     }());
-
+    window.onscroll = function() {
+        var wScroll = window.pageYOffset;
+        parallax.init(wScroll);
+    };
 }
-
-window.onscroll = function() {
-    var wScroll = window.pageYOffset;
-    parallax.init(wScroll);
-};
