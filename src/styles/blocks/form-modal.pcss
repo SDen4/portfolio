@@ -1,6 +1,5 @@
 .form__message-modal {
     display: none;
-    /* display: flex; */
     width: 100%;
     height: 200vh;
     position: absolute;
@@ -9,6 +8,11 @@
     align-items: center;
     background-color: rgba(45, 60, 78, .9);
     z-index: 50;
+}
+
+.form__message-modal_active {
+    display: flex;
+    width: 100vw;
 }
 
 .form__message-block {

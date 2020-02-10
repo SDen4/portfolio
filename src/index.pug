@@ -3,6 +3,7 @@ include ../components/skills.pug
 include ../components/projects.pug
 include ../components/about.pug
 include ../components/nav.pug
+include ../components/form.pug
 
 
 
@@ -92,43 +93,45 @@ html(lang="en")
             .container
               #about-component
           section.form__section
-            .form__message-modal
-              .form__message-block
-                .form__message-block_container
-                  .form__message-text Письмо отправлено
-                  button.button__message-close
-            .container
-              .form__wrapper
-                h2.title.title_form Связаться со мной
-                form.form
-                  .form__content
-                    label.form__data
-                      .form__data_wrapper
-                        +icon('user', 'form__svg form__user_svg')
-                        .form__input-info
-                          .form__subtitle Введите ваше имя
-                          input.form__input(type="text", name="name", placeholder="Ковальчук Дмитрий")
-                          .form__error Заполните данные
-                      .form__line
-                    label.form__data
-                      .form__data_wrapper
-                        +icon('envelope', 'form__svg form__envelope_svg')
-                        .form__input-info
-                          .form__subtitle Введите ваш e-mail
-                          input.form__input(type="text", name="email", placeholder="loftschool@study.com")
-                          .form__error Заполните данные
-                      .form__line
-                  .form__content
-                    label.form__data
-                      .form__data_wrapper
-                        +icon('message', 'form__svg form__message_svg')
-                        .form__input-info
-                          .form__subtitle Сообщение к письму
-                          textarea.form__input.form__input_textarea(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
-                          .form__error.form__error_textarea Заполните данные
-                      .form__line
-                  .form__content.form__content_button
-                    button.button(type="submit") #{buttonText}
+            .form__section_container
+              .form__message-modal
+                .form__message-block
+                  .form__message-block_container
+                    .form__message-text Письмо отправлено
+                    button.button__message-close
+              .container
+                #form-component
+                //- .form__wrapper
+                //-   h2.title.title_form Связаться со мной
+                //-   form.form
+                //-     .form__content
+                //-       label.form__data
+                //-         .form__data_wrapper
+                //-           +icon('user', 'form__svg form__user_svg')
+                //-           .form__input-info
+                //-             .form__subtitle Введите ваше имя
+                //-             input.form__input(type="text", name="name", placeholder="Ковальчук Дмитрий")
+                //-             .form__error Заполните данные
+                //-         .form__line
+                //-       label.form__data
+                //-         .form__data_wrapper
+                //-           +icon('envelope', 'form__svg form__envelope_svg')
+                //-           .form__input-info
+                //-             .form__subtitle Введите ваш e-mail
+                //-             input.form__input(type="text", name="email", placeholder="loftschool@study.com")
+                //-             .form__error Заполните данные
+                //-         .form__line
+                //-     .form__content
+                //-       label.form__data
+                //-         .form__data_wrapper
+                //-           +icon('message', 'form__svg form__message_svg')
+                //-           .form__input-info
+                //-             .form__subtitle Сообщение к письму
+                //-             textarea.form__input.form__input_textarea(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
+                //-             .form__error.form__error_textarea Заполните данные
+                //-         .form__line
+                //-     .form__content.form__content_button
+                //-       button.button(type="submit") #{buttonText}
         footer.footer
           .container
             .container_footer

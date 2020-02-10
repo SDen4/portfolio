@@ -1,0 +1,39 @@
+script(type="text/x-template")#form-container
+    .form__section_container
+        .form__message-modal(:class="{'form__message-modal_active' : msgModal}")
+            .form__message-block
+                .form__message-block_container
+                    .form__message-text Письмо отправлено
+                    button.button__message-close(@click="msgModal = false")
+        .container
+            .form__wrapper
+                h2.title.title_form Связаться со мной
+                form.form(@submit.prevent="sendMessage")
+                    .form__content
+                        label.form__data
+                            .form__data_wrapper
+                                +icon('user', 'form__svg form__user_svg')
+                                .form__input-info
+                                    .form__subtitle Введите ваше имя
+                                    input.form__input(v-model="user.name" type="text" placeholder="Ковальчук Дмитрий")
+                                    div(:class="{form__error : validation.hasError('user.name')}") {{validation.firstError('user.name')}}
+                            .form__line
+                        label.form__data
+                            .form__data_wrapper
+                                +icon('envelope', 'form__svg form__envelope_svg')
+                                .form__input-info
+                                    .form__subtitle Введите ваш e-mail
+                                    input.form__input(v-model="user.email" type="text" placeholder="loftschool@study.com")
+                                    div(:class="{form__error : validation.hasError('user.email')}") {{validation.firstError('user.email')}}
+                            .form__line
+                    .form__content
+                        label.form__data
+                            .form__data_wrapper
+                                +icon('message', 'form__svg form__message_svg')
+                                .form__input-info
+                                    .form__subtitle Сообщение к письму
+                                    textarea.form__input.form__input_textarea(v-model="user.message" type="text" placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
+                                    div(:class="{form__error_textarea : validation.hasError('user.message')}") {{validation.firstError('user.message')}}
+                            .form__line
+                    .form__content.form__content_button
+                        button.button(type="submit") #{buttonText}
