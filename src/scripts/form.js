@@ -2,6 +2,7 @@ import Vue from "vue";
 import { Validator } from 'simple-vue-validator';
 
 const errorMessage = "Заполните поле";
+const errorMessageMail = "Введите e-mail";
 
 
 new Vue ({
@@ -13,7 +14,7 @@ new Vue ({
             return Validator.value(value).required(errorMessage);
         },
         'user.email'(value) {
-            return Validator.value(value).required(errorMessage);
+            return Validator.value(value).required(errorMessageMail).email(errorMessageMail);
         },
         'user.message'(value) {
             return Validator.value(value).required(errorMessage);

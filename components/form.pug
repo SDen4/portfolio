@@ -15,7 +15,11 @@ script(type="text/x-template")#form-container
                                 +icon('user', 'form__svg form__user_svg')
                                 .form__input-info
                                     .form__subtitle Введите ваше имя
-                                    input.form__input(v-model="user.name" type="text" placeholder="Ковальчук Дмитрий")
+                                    input.form__input(
+                                        v-model="user.name"
+                                        type="text"
+                                        placeholder="Ковальчук Дмитрий"
+                                    )
                                     div(:class="{form__error : validation.hasError('user.name')}") {{validation.firstError('user.name')}}
                             .form__line
                         label.form__data
@@ -23,7 +27,11 @@ script(type="text/x-template")#form-container
                                 +icon('envelope', 'form__svg form__envelope_svg')
                                 .form__input-info
                                     .form__subtitle Введите ваш e-mail
-                                    input.form__input(v-model="user.email" type="text" placeholder="loftschool@study.com")
+                                    input.form__input(
+                                        v-model="user.email"
+                                        type="text"
+                                        placeholder="loftschool@study.com"
+                                    )
                                     div(:class="{form__error : validation.hasError('user.email')}") {{validation.firstError('user.email')}}
                             .form__line
                     .form__content
@@ -32,7 +40,11 @@ script(type="text/x-template")#form-container
                                 +icon('message', 'form__svg form__message_svg')
                                 .form__input-info
                                     .form__subtitle Сообщение к письму
-                                    textarea.form__input.form__input_textarea(v-model="user.message" type="text" placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
+                                    textarea.form__input.form__input_textarea(
+                                        v-model="user.message"
+                                        type="text"
+                                        placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса."
+                                    )
                                     div(:class="{form__error_textarea : validation.hasError('user.message')}") {{validation.firstError('user.message')}}
                             .form__line
                     .form__content.form__content_button
