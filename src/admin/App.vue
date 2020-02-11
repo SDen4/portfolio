@@ -13,14 +13,11 @@
         .admin__interface
             .admin__nav
                 .admin__container.admin__container_nav
-                    ul.admin__nav-list
-                        li.admin__nav-item
-                            a.admin__nav-link(@clik.prevent href="/admin#/") Обо мне
-                            //- router-link(exact-active-class="active" to="/admin#/").admin__nav-link Обо мне
-                        li.admin__nav-item
-                            a.admin__nav-link(@clik.prevent href="/admin#/projects") Работы
-                        li.admin__nav-item
-                            a.admin__nav-link(@clik.prevent href="/admin#/about") Отзывы
+                    nav.admin__nav-list
+                        router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="/").admin__nav-link Обо мне
+                        router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="projects").admin__nav-link Работы
+                        router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="about").admin__nav-link Отзывы
+
             .admin__content
                 .admin__container.admin__container_content
                     router-view

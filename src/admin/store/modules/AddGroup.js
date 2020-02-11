@@ -5,7 +5,7 @@ export default {
     },
     mutations: {
         SET_GROUPS: (state, data) => state.categories = data,
-        ADD_CATEGORY: (state, category) => state.categories.push(category),
+        ADD_CATEGORY: (state, category) => state.categories.unshift(category),
         ADD_SKILL: (state, newSkill) => {
             state.categories = state.categories.map(category => {
                 if(category.id === newSkill.category) {

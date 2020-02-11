@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     width: 35%;
-    padding: 16PX 0;
+    padding: 16PX 0 0;
     @include tablets {
         width: 42%;
     }
@@ -30,7 +30,7 @@
         content: "";
         display: block;
         position: absolute;
-        top: 30PX;
+        top: 32PX;
         opacity: 0;
         height: 2PX;
         width: inherit;
@@ -45,9 +45,16 @@
     }
 }
 
+.admin__nav-item_active {
+    &:after{
+        opacity: 1;
+    }
+}
+
 .admin__nav-link {
     width: 100%;
     font-size: 16px;
     font-weight: 400;
     text-decoration: none;
+    padding-bottom: 16PX;
 }

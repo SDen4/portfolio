@@ -4,10 +4,12 @@
             h2.admin__title-name Блок "Обо мне"
             .admin__add-group
                 .button__add_cont
-                    button.button__add
+                    button.button__add(@click="unActive")
                 .admin__add-text Добавить группу
         .admin__data
-            add-group
+            add-group(
+                :unAct = "unAct"
+            )
             //- li.admin__group-item
             //-     .admin__group_container
             //-         .admin__group-name
@@ -75,8 +77,18 @@
     import AddGroup from '../AddGroup.vue';
 
     export default {
+        data: () => ({
+            unAct: true
+        }),
         components: {
             AddGroup
+        },
+        methods: {
+            unActive() {
+                this.unAct = false;
+            }
         }
+
+
     }
 </script>

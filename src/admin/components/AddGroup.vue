@@ -1,6 +1,6 @@
 <template lang="pug">
     ul.admin__group-list
-        li.admin__group-item
+        li.admin__group-item(:class="{'admin__group-item_unActive' : unAct}")
             .admin__group_container
                 //- .admin__group-name
                 //-     .admin__group-name-text {{category.category}}
@@ -10,7 +10,7 @@
                         input.admin__group-name-input(v-model="title" type="text" placeholder="Название новой группы")
                     .admin__group-name-buttons
                         button.button__group.button__group_approve(type="submit")
-                        button.button__group.button__group_remove(type="reset")
+                        button.button__group.button__group_remove(@click="canceAddGroup" type="reset")
         li.admin__group-item(v-for="category in categories" :key="category.id")
             .admin__group_container
                 .admin__group-name
@@ -49,6 +49,7 @@
         data: () => ({
             title: ""
         }),
+        props: ["unAct"],
         components: {
             AddSkill: () => import("./AddSkill.vue")
         },
@@ -63,37 +64,20 @@
             async createGroup() {
                 try {
                     await this.addGroup(this.title);
+                    this.unAct = true;
                 } catch (error) {
                     alert("Пожалуйста, зарегистрируйтесь и повторите попытку")
                 }
-                
-                // axios
-                // .post("/categories?token=", {
-                //     title: this.title
-                // }).then(response => {
-                //     this.categories.unshift(response.data)
-                // })
             },
             async deleteExistedGroup() {
                 try {
                     await this.deleteGroup(this.category.id);
                 } catch (error) {
                 }
+            },
+            canceAddGroup () {
+                this.unAct = true;
             }
-            // fetchCategories() {
-            //     axios.get("/categories/255").then(response => {
-            //         this.categories = response.data
-            //     })
-            // },
-            // addSkill(newSkill) {
-            //     this.categories = this.categories.map(category => {
-            //         if (category.id === newSkill.category) {
-            //             category.skills.push(newSkill);
-            //         }
-            //         return category;
-            //     })
-            //     console.log(newSkill);
-            // }
         }
     }
 
