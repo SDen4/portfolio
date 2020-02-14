@@ -3,18 +3,19 @@ include ../components/skills.pug
 include ../components/projects.pug
 include ../components/about.pug
 include ../components/nav.pug
+include ../components/nav-footer.pug
+include ../components/nav-popup.pug
 include ../components/form.pug
 
 
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
-    script(src="https://cdn.jsdelivr.net/npm/vue-scrollto")
   body
     .wrapper
       .main-content
@@ -30,14 +31,15 @@ html(lang="en")
               +image("content/p3.png", "parallax__layer_img parallax__layer_img3", "ParallaxImage")
             .parallax__layer.parallax__layer_4
               +image("content/p4.png", "parallax__layer_img parallax__layer_img4", "ParallaxImage")
-            section.intro
+            section.intro#main
               .popup-menu-screen-lock
               .popup-menu(id="popup-menu")
                 button.button__close-popup(id="popup-menu-button-close")
                 .popup-menu_container
-                  +nav-popup('nav', navMenu)
+                  #navPopupComponent
+                  //- +nav-popup('nav', navMenu)
                   +scl-popup('socials', socialIconsNew)
-              .container
+              .container#cont
                 .intro__wrapper
                   header.header
                     .header__wrapper
@@ -51,10 +53,11 @@ html(lang="en")
                   .main-title
                     .pre-title !{preTitle}
                     h1.title.title_owner !{ownerNameMain}
-                  a.scroll(href='')
+                  a.scroll
+                    //-(href='#skills')
                     span.scroll__name Скролл
                     +icon('scroll', 'scroll__pic')
-            section.developer
+            section.developer#developer
               .container.container_developer
                 .developer__wrapper
                   .developer__left
@@ -72,7 +75,7 @@ html(lang="en")
                           | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                     .site__text.site__text_i
                       p #{siteText}
-        section.skills
+        section.skills#skills
           .skills__pic-container
             +icon('hands', 'skills__pic')
           .skills__wrapper
@@ -81,7 +84,7 @@ html(lang="en")
               .site__text.site__text_skills
                 p #{siteText}
             #skills-component
-        section.projects
+        section.projects#projects
           .container.container_projects
             .projects__wrapper
               h2.title.title__projects Мои работы
@@ -89,10 +92,10 @@ html(lang="en")
         .about-form
           +image("content/bg_aboutAndFeedback.jpg", "about-form__bg", 'Form section background')
           +icon('leaves', 'form_leaves')
-          section.about
+          section.about#about
             .container
               #about-component
-          section.form__section
+          section.form__section#contacts
             #form-component
         footer.footer
           .container
@@ -104,7 +107,8 @@ html(lang="en")
                   .pre-title.pre-title_footer !{preTitle}
               .footer__right
                 .footer__right-up
-                  +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+                  #nav-footer-component
+                  //- +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
                 .footer__right-bottom
                   .footer__right-bottom-l
                     .site__text.site__text_footer

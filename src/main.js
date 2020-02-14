@@ -10,4 +10,6 @@ import "./scripts/about";
 import "./scripts/parallax";
 import "./scripts/gamburger-menu";
 import "./scripts/navi";
+import "./scripts/navi-footer";
+import "./scripts/navi-popup";
 import "./scripts/form";

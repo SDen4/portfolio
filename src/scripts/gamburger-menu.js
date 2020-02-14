@@ -3,6 +3,7 @@ const popupMenuClose = document.getElementById("popup-menu-button-close");
 const popupMenu = document.getElementById("popup-menu");
 const sreenLock = document.querySelector(".popup-menu-screen-lock");
 const curRight = Math.round( parseInt( window.getComputedStyle(popupMenu).right)/10 )*10;
+
 let step = 5;
 let interval, duration;
 
@@ -39,3 +40,34 @@ sreenLock.addEventListener('click', function(e) {
         popupMenuClose.click();
     };
 });
+
+
+
+setTimeout( ()=> {
+    const anchors = document.querySelectorAll('a.nav__link');
+    for (let anchor of anchors) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const sectionId = anchor.getAttribute('href');
+            document.querySelector(sectionId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            })
+            if (curRight !==0 && duration === 0) {
+                popupMenuClose.click();
+            };
+        });
+    }
+}, 1);
+
+
+
+
+    const scrollButton = document.querySelector("a.scroll");
+    scrollButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            behavior: 'smooth',
+            top: 950,
+        })
+    });
