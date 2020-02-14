@@ -3,35 +3,51 @@
     .admin__title
         h2.admin__title-name.admin__title-name_about Блок "Отзывы"
     .admin__data
-        .admin__new-review
+        .admin__new-review(:class="{'admin__new-review_active' : addNewReviewPoint}")
             .admin__block_container.admin__new-review_container
                 .admin__edit-project-subtitle Новый отзыв
                 .admin__edit-project-content.admin__new-rewiew_content
-                    .admin__new-review-left
-                        .admin__new-review-left_container
-                            .admin__new-review-add-photo
-                            button.admin__new-review-add-photo-text Добавить фото
-                    .admin__new-review-right
-                        .admin__new-review-right_container
-                            form.admin__new-review-form
-                                .admin__new-review-form-row
-                                    label.admin__edit-project-data.admin__new-review-form-data
-                                        .admin__edit-project-name Имя автора
-                                        input.admin__edit-project-input(placeholder="Укажите здесь имя", name="new-review-name")
-                                    label.admin__edit-project-data.admin__new-review-form-data
-                                        .admin__edit-project-name Титул автора
-                                        input.admin__edit-project-input(placeholder="Укажите здесь титул", name="new-review-name")
-                                .admin__new-review-form-row
-                                    label.admin__new-review-form-data
-                                        .admin__edit-project-name Отзыв
-                                        textarea.admin__edit-project-input_textarea.admin__new-review-input_textarea(placeholder="Введите отзыв", name="new-review-name")
-                                .admin__new-review-form-row
-                                    button.button__add.button__add_cancel(type="reset")
-                                    button.button__add.button__add_submit(type="submit")
+                    form.admin__new-review-form(@submit="addNewReview")
+                        .admin__new-review-left
+                            .admin__new-review-left_container
+                                label.admin__new-review-add-photo(for="add-review-photo")
+                                span.admin__new-review-add-photo-text Добавить фото
+                                input.admin__new-review-add-photo-input(id="add-review-photo" accept="image/*" type="file")
+                                div(:class="{'form__error_add-review-photo' : validation.hasError('reviews.photo')}") {{validation.firstError('reviews.photo')}}
+                        .admin__new-review-right
+                            .admin__new-review-form-row
+                                label.admin__edit-project-data.admin__new-review-form-data
+                                    .admin__edit-project-name Имя автора
+                                    input.admin__edit-project-input(
+                                        v-model="reviews.author"
+                                        type="text"
+                                        placeholder="Укажите здесь имя"
+                                    )
+                                    div(:class="{'form__error_add-project' : validation.hasError('reviews.author')}") {{validation.firstError('reviews.author')}}
+                                label.admin__edit-project-data.admin__new-review-form-data
+                                    .admin__edit-project-name Титул автора
+                                    input.admin__edit-project-input(
+                                        v-model="reviews.occ"
+                                        type="text"
+                                        placeholder="Укажите здесь титул"
+                                    )
+                                    div(:class="{'form__error_add-project' : validation.hasError('reviews.occ')}") {{validation.firstError('reviews.occ')}}
+                            .admin__new-review-form-row
+                                label.admin__new-review-form-data
+                                    .admin__edit-project-name Отзыв
+                                    textarea.admin__edit-project-input_textarea.admin__new-review-input_textarea(
+                                        v-model="reviews.text"
+                                        type="text"
+                                        placeholder="Введите отзыв"
+                                    )
+                                    div(:class="{'form__error_add-review' : validation.hasError('reviews.text')}") {{validation.firstError('reviews.text')}}
+                            .admin__new-review-form-row
+                                button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
+                                button.button__add.button__add_submit(type="submit")
         .admin__projects.admin__reviews
             ul.admin__projects-list.admin__reviews-list
                 li.admin__projects-item_new.admin__reviews-item_new
-                    button.admin__projects-add
+                    button.admin__projects-add(@click="showReviewForm")
                         .admin__projects-add-button
                         .admin__projects-add-text Добавить отзыв
                 li.admin__projects-item.admin__reviews-item
@@ -79,9 +95,82 @@
 </template>
 
 <script id="about">
-export default {
-    name: "about"
-}
+    import axios from "axios";
+    import { Validator } from 'simple-vue-validator';
+    const errorMessage = "Заполните поле";
+    const errorMessagePhoto = "Загрузите фото";
+    const baseURL = "https://webdev-api.loftschool.com";
+
+    const token = localStorage.getItem("token");
+    if(!token) {console.log("Отсутствует токен")};
+
+    export default {
+        name: "about",
+        data() {
+            return {
+                addNewReviewPoint: false,
+                reviews: {
+                    photo: "",
+                    author: "",
+                    occ: "",
+                    text: ""
+                }
+            }
+        },
+        mixins: [require('simple-vue-validator').mixin],
+        validators: {
+            'reviews.photo'(value) {
+                return Validator.value(value).required(errorMessagePhoto);
+            },
+            'reviews.author'(value) {
+                return Validator.value(value).required(errorMessage);
+            },
+            'reviews.occ'(value) {
+                return Validator.value(value).required(errorMessage);
+            },
+            'reviews.text'(value) {
+                return Validator.value(value).required(errorMessage);
+            }
+        },
+        methods: {
+            showReviewForm() {
+                this.addNewReviewPoint = true;
+            },
+            closeAddForm() {
+                this.reviews.author = "";
+                this.reviews.occ = "";
+                this.reviews.text = "";
+                this.validation.reset();
+                this.addNewReviewPoint = false;
+            },
+            addNewReview() {
+                this.$validate().then(success =>{
+                    if(!success) return;
+                    try {
+
+                        axios.post(baseURL + "/reviews?token=" + token, {
+                            // photo: file,
+                            author: this.reviews.author,
+                            occ: this.reviews.occ,
+                            text: this.reviews.text
+
+                        })
+                        .then(response => {
+                            console.log(response.data);
+                            console.log('Отзыв добавлен');
+                        });
+                        console.log("Добавлен новый отзыв!");
+                        this.reviews.author = "";
+                        this.reviews.occ = "";
+                        this.reviews.text = "";
+                        this.validation.reset();
+                        this.addNewReviewPoint = false;
+                    } catch (error) {
+                    }
+                })
+            }
+        }
+    }
 </script>
 
 <style lang="pcss">

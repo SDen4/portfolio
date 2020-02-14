@@ -3,13 +3,17 @@
 }
 
 .admin__new-review {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: $text-color;
     filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
     margin-bottom: 30PX;
+}
+
+.admin__new-review_active {
+    display: flex;
 }
 
 .admin__new-review_container {
@@ -20,7 +24,10 @@
 }
 
 .admin__new-rewiew_content {
+    width: 100%;
+    height: 100%;
     @include tablets {
+        width: 98%;
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
@@ -34,11 +41,9 @@
     align-items: center;
     width: 30%;
     min-width: 250PX;
+    margin-bottom: 40PX;
     @include tablets {
         min-width: 220PX;
-    }
-    @include phones {
-        margin-bottom: 40PX;
     }
 }
 
@@ -48,12 +53,16 @@
     align-items: center;
     width: 80%;
     height: 100%;
+    position: relative;
     @include small {
         width: 100%;
     }
 }
 
 .admin__new-review-add-photo {
+
+    cursor: pointer;
+
     width: 100%;
     height: 100%;
     max-height: 200PX;
@@ -104,29 +113,33 @@
     background-color: transparent;
 }
 
+.admin__new-review-add-photo-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+}
+
+.admin__new-review-form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .admin__new-review-right {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 70%;
     @include tablets {
         width: 100%;
     }
-}
-
-.admin__new-review-right_container {
-    width: 80%;
-    height: 100%;
-    @include tablets {
-        width: 98%;
-    }
-}
-
-.admin__new-review-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: flex-start
 }
 
 .admin__new-review-form-row {

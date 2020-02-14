@@ -2,8 +2,6 @@
     ul.admin__group-list
         li.admin__group-item(:class="{'admin__group-item_unActive' : unAct}")
             .admin__group_container
-                //- .admin__group-name
-                //-     .admin__group-name-text {{category.category}}
                 form.admin__group-new-name-form(@submit.prevent="createGroup") 
                     //-method - addNewCategory
                     label.admin__group-new-name
@@ -71,6 +69,7 @@
             },
             async deleteExistedGroup() {
                 try {
+                    console.log("Yess!!!" + this.title);
                     await this.deleteGroup(this.category.id);
                 } catch (error) {
                 }

@@ -1,11 +1,15 @@
 .admin__edit-project {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: $text-color;
     filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
     margin-bottom: 30PX;
+}
+
+.admin__edit-project_active {
+    display: flex
 }
 
 .admin__edit-project_container {
@@ -57,27 +61,23 @@
         height: 30%;
         margin-bottom: 10%;
     }
-    @include small {
+    @include phones {
         width: 100%;
     }
 }
 
 .admin__edit-project-new-photo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 495PX;
     max-height: 277PX;
+    height: 45%;
     background-color: $admin_new_photo;
     border: 1px dashed #a1a1a1;
-}
-
-.admin__edit-project-new-photo_container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 4.5% 0;
+    position: relative;
+    cursor: pointer;
 }
 
 .admin__edit-project-new-photo-text {
@@ -92,6 +92,7 @@
 .admin__edit-project-content-right {
     width: 48%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     @include tablets {
@@ -107,9 +108,12 @@
 
 .admin__edit-project-formdata {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .admin__edit-project-data {
