@@ -1,3 +1,7 @@
+<style lang="postcss">
+    @import "../styles/main.pcss";
+</style>
+
 <template lang="pug">
 .maincontent
     section.admin
@@ -9,7 +13,7 @@
                     .title.title_admin Денис Скрябин
                     .pre-title.pre-title_admin Панель администрирования
                 .admin__close
-                    a.admin__close-link Выйти
+                    a.admin__close-link(@click="logoutUser") Выйти
         .admin__interface
             .admin__nav
                 .admin__container.admin__container_nav
@@ -28,6 +32,7 @@
     import myself from './components/pages/myself.vue';
     import projects from './components/pages/projects.vue';
     import about from './components/pages/about.vue';
+    import { mapActions } from "vuex";
 
 
     export default {
@@ -36,10 +41,14 @@
             myself,
             projects,
             about,
+        },
+        methods: {
+            ...mapActions("user", ["logout"]),
+            logoutUser() {
+                this.logout();
+                this.$router.replace("/login");
+            }
         }
     };
 </script>
 
-<style lang="postcss">
-    @import "../styles/main.pcss";
-</style>

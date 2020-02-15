@@ -2,7 +2,7 @@
     section.login
         .login__wrapper
             .login__block
-                button.login__close
+                button.login__close(@click="cancellLogin")
                 .login__block_wrapper
                     .login__title Авторизация
                     .login__content
@@ -85,6 +85,12 @@
                     }
                     this.validation.reset();
                 })
+            },
+            cancellLogin() {
+                this.user.name = "";
+                this.user.password = "";
+                this.validation.reset();
+                this.$router.go(-1);
             }
         }
     };

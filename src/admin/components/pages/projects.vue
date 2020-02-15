@@ -9,18 +9,25 @@
                     .admin__edit-project-content
                         form.admin__edit-project-formdata(@submit.prevent="addNewWork")
                             .admin__edit-project-content-left
-                                label.admin__edit-project-new-photo(for="add-work-photo")
-                                    span.admin__edit-project-new-photo-text Перетащите или нажмите кноку для загрузки изображения
-                                    .button__add.button__add_download.button__add_download_label
+                                label.admin__edit-project-new-photo(
+                                    for="add-work-photo"
+                                    :class="{formPic: renderedPhotoProject.length}"
+                                    :style="{backgroundImage: `url(${renderedPhotoProject})`}"
+                                )
+                                    span.admin__edit-project-new-photo-text(
+                                        :class="{hideText: renderedPhotoProject.length}"
+                                    ) Перетащите или нажмите кноку для загрузки изображения
+                                    .button__add.button__add_download.button__add_download_label(
+                                        :class="{hideText: renderedPhotoProject.length}"
+                                    )
                                 input.admin__new-review-add-photo-input(
                                     @change="photoDownLoad"
                                     id="add-work-photo"
                                     accept="image/*"
                                     type="file"
                                 )
-                                div(
-                                    :class="{'form__error_add-work-photo' : validation.hasError('works.photo')}"
-                                ) {{validation.firstError('works.photo')}}
+                                //- div(
+                                //-     :class="{'form__error_add-work-photo' : validation.hasError('works.photo')}") 
                             .admin__edit-project-content-right
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Название
@@ -141,20 +148,25 @@
 </template>
 
 <script id="projects">
+    //{{validation.firstError('works.photo')}}
     import axios from "axios";
     import { Validator } from 'simple-vue-validator';
-    import renderer from "../../renderer.js";
 
     const errorMessage = "Заполните поле";
     const errorMessagePhoto = "Загрузите фото";
+    const baseURL = "https://webdev-api.loftschool.com";
+    const token = localStorage.getItem("token");
+    
+    if(!token) {console.log("Отсутствует токен")};
 
 
     export default {
         data() {
             return {
+                renderedPhotoProject: "",
                 addNewWorkPoint: false,
                 works: {
-                    photo: "",
+                    photo: {},
                     title: "",
                     link: "",
                     description: "",
@@ -164,9 +176,9 @@
         },
         mixins: [require('simple-vue-validator').mixin],
         validators: {
-            'works.photo'(value) {
-                return Validator.value(value).required(errorMessagePhoto);
-            },
+            // 'works.photo'(value) {
+            //     return Validator.value(value).required(errorMessagePhoto);
+            // },
             'works.title'(value) {
                 return Validator.value(value).required(errorMessage);
             },
@@ -189,42 +201,56 @@
                 this.works.link = "";
                 this.works.description = "";
                 this.works.techs = "";
-                this.works.photo = "";
+                this.renderedPhotoProject = {};
                 this.validation.reset();
                 this.addNewWorkPoint = false;
+            },
+            async photoDownLoad(e) {
+            
+                const file = e.target.files[0];
+                this.works.photo = file;
+                this.renderImageFile(file);
+            
+            },
+            renderImageFile(file) {
+                const reader = new FileReader();
+                try {
+                    reader.readAsDataURL(file);
+                    reader.onloadend = () => {
+                        this.renderedPhotoProject = reader.result;
+                    }
+                } catch (error) {
+                    throw new Error("Ошибка при чтении файла");
+                }
             },
             addNewWork() {
                 this.$validate().then(success =>{
                     if(!success) return;
                     try {
+                        const formData = new FormData();
 
+                        Object.keys(this.works).forEach(key => {
+                            const value = this.works[key];
+                            formData.append(key, value);
+                        });
 
+                        axios.post(baseURL + "/works", formData)
+                        .then(response => {
+                            console.log(response.data);
+                            console.log('Проект добавлен');
+                        });
 
-
-                        console.log("Добавлен новый проект!");
+                        this.renderedPhotoProject = {};
                         this.works.title = "";
                         this.works.link = "";
                         this.works.description = "";
                         this.works.techs = "";
-                        this.works.photo = "";
                         this.validation.reset();
                         this.addNewWorkPoint = false;
                     } catch (error) {
                     }
                 })
             },
-            async photoDownLoad(e) {
-                const file = e.target.files[0];
-                this.works.photo = file;
-                console.log(this.works.photo);
-                try {
-                    const renderedResult = await renderer(file);
-                    this.renderedAvatar = renderedResult;
-                    console.log('renderedResult' + renderedResult);
-                } catch (error) {
-                    
-                }
-            }
         }
     }
 </script>

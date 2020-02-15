@@ -10,10 +10,21 @@
                     form.admin__new-review-form(@submit="addNewReview")
                         .admin__new-review-left
                             .admin__new-review-left_container
-                                label.admin__new-review-add-photo(for="add-review-photo")
+                                label.admin__new-review-add-photo(
+                                    for="add-review-photo"
+                                    :class="{hide: renderedPhoto.length}"
+                                    :style="{backgroundImage: `url(${renderedPhoto})`}"
+                                )
                                 span.admin__new-review-add-photo-text Добавить фото
-                                input.admin__new-review-add-photo-input(id="add-review-photo" accept="image/*" type="file")
-                                div(:class="{'form__error_add-review-photo' : validation.hasError('reviews.photo')}") {{validation.firstError('reviews.photo')}}
+                                input.admin__new-review-add-photo-input(
+                                    id="add-review-photo"
+                                    accept="image/*"
+                                    type="file"
+                                    @change="hadleFile"
+                                )
+                                div(
+                                    :class="{'form__error_add-review-photo' : validation.hasError('reviews.photo')}"
+                                ) {{validation.firstError('reviews.photo')}}
                         .admin__new-review-right
                             .admin__new-review-form-row
                                 label.admin__edit-project-data.admin__new-review-form-data
@@ -108,9 +119,10 @@
         name: "about",
         data() {
             return {
+                renderedPhoto: "",
                 addNewReviewPoint: false,
                 reviews: {
-                    photo: "",
+                    photo: {},
                     author: "",
                     occ: "",
                     text: ""
@@ -133,10 +145,27 @@
             }
         },
         methods: {
+            hadleFile(e) {
+                const file = e.target.files[0];
+                this.reviews.photo = file;
+                this.renderImageFile(file);
+            },
+            renderImageFile(file) {
+                const reader = new FileReader();
+                try {
+                    reader.readAsDataURL(file);
+                    reader.onloadend = () => {
+                        this.renderedPhoto = reader.result;
+                    }
+                } catch (error) {
+                    throw new Error("Ошибка при чтении файла");
+                }
+            },
             showReviewForm() {
                 this.addNewReviewPoint = true;
             },
             closeAddForm() {
+                this.renderedPhoto = {};
                 this.reviews.author = "";
                 this.reviews.occ = "";
                 this.reviews.text = "";
@@ -147,19 +176,21 @@
                 this.$validate().then(success =>{
                     if(!success) return;
                     try {
+                        const formData = new FormData();
 
-                        axios.post(baseURL + "/reviews?token=" + token, {
-                            // photo: file,
-                            author: this.reviews.author,
-                            occ: this.reviews.occ,
-                            text: this.reviews.text
-
+                        Object.keys(this.reviews).forEach(key => {
+                            const value = this.reviews[key];
+                            formData.append(key, value);
                         })
+
+                        axios.post(baseURL + "/reviews", formData)
+
                         .then(response => {
                             console.log(response.data);
                             console.log('Отзыв добавлен');
                         });
                         console.log("Добавлен новый отзыв!");
+                        this.renderedPhoto = {};
                         this.reviews.author = "";
                         this.reviews.occ = "";
                         this.reviews.text = "";

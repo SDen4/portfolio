@@ -4,7 +4,8 @@ export default {
         user: {}
     },
     mutations: {
-        SET_USER: (state, user) => (state.user = user)
+        SET_USER: (state, user) => (state.user = user),
+        CLEAR_USER: state => (state.user = {})
     },
     getters: {
         userIsLoggedIn: state => {
@@ -13,6 +14,12 @@ export default {
 console.log('userObj = ' + userObj);
 
             return userObjectIsEmpty === false;
+        }
+    },
+    actions: {
+        logout({commit}) {
+            commit("CLEAR_USER");
+            localStorage.clear();
         }
     }
 };
