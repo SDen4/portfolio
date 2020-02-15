@@ -37,7 +37,6 @@ html(lang="ru")
                 button.button__close-popup(id="popup-menu-button-close")
                 .popup-menu_container
                   #navPopupComponent
-                  //- +nav-popup('nav', navMenu)
                   +scl-popup('socials', socialIconsNew)
               .container#cont
                 .intro__wrapper
@@ -45,7 +44,6 @@ html(lang="ru")
                     .header__wrapper
                       .logo ДС
                       #nav-component
-                      //- +nav('nav', navMenu)
                       +scl('socials', socialIconsNew)
                       .gamburger-menu
                         a.gamburger-menu__link(href="#" id="gamburger-menu-button")
@@ -53,8 +51,7 @@ html(lang="ru")
                   .main-title
                     .pre-title !{preTitle}
                     h1.title.title_owner !{ownerNameMain}
-                  a.scroll
-                    //-(href='#skills')
+                  a.scroll(href='')
                     span.scroll__name Скролл
                     +icon('scroll', 'scroll__pic')
             section.developer#developer
@@ -108,7 +105,6 @@ html(lang="ru")
               .footer__right
                 .footer__right-up
                   #nav-footer-component
-                  //- +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
                 .footer__right-bottom
                   .footer__right-bottom-l
                     .site__text.site__text_footer

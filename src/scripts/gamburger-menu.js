@@ -7,7 +7,7 @@ const curRight = Math.round( parseInt( window.getComputedStyle(popupMenu).right)
 let step = 5;
 let interval, duration;
 
-
+//popup меню
 gambBtnOpen.addEventListener("click", function(e) {
     e.preventDefault();
     duration = curRight;
@@ -43,16 +43,26 @@ sreenLock.addEventListener('click', function(e) {
 
 
 
+//скролл по навигации, в т.ч. из popup меню
 setTimeout( ()=> {
     const anchors = document.querySelectorAll('a.nav__link');
     for (let anchor of anchors) {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const sectionId = anchor.getAttribute('href');
-            document.querySelector(sectionId).scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            })
+
+            if(sectionId === "#developer") {
+                document.querySelector(sectionId).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end'
+                })
+            } else {
+                document.querySelector(sectionId).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                })
+            }
+
             if (curRight !==0 && duration === 0) {
                 popupMenuClose.click();
             };
@@ -61,8 +71,7 @@ setTimeout( ()=> {
 }, 1);
 
 
-
-
+//скролл по кнопке "скролл"
     const scrollButton = document.querySelector("a.scroll");
     scrollButton.addEventListener('click', function(e) {
         e.preventDefault();
