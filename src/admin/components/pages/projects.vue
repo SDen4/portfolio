@@ -7,7 +7,7 @@
                 .admin__block_container.admin__edit-project_container
                     .admin__edit-project-subtitle Редактирование Работы
                     .admin__edit-project-content
-                        form.admin__edit-project-formdata(@submit.prevent="addNewWork")
+                        form.admin__edit-project-formdata(v-if="editWorkPoint === false" @submit.prevent="addNewWork")
                             .admin__edit-project-content-left
                                 label.admin__edit-project-new-photo(
                                     for="add-work-photo"
@@ -26,49 +26,117 @@
                                     accept="image/*"
                                     type="file"
                                 )
-                                //- div(
-                                //-     :class="{'form__error_add-work-photo' : validation.hasError('works.photo')}") 
+                                div(:class="{'form__error_add-work-photo' : validation.hasError('work.photo')}") {{validation.firstError('work.photo')}}
                             .admin__edit-project-content-right
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Название
                                     input.admin__edit-project-input(
-                                        v-model="works.title"
+                                        v-model="work.title"
                                         type="text"
                                         placeholder="Введите название нового проекта"
                                     )
                                     div(
-                                        :class="{'form__error_add-project' : validation.hasError('works.title')}"
-                                    ) {{validation.firstError('works.title')}}
+                                        :class="{'form__error_add-project' : validation.hasError('work.title')}"
+                                    ) {{validation.firstError('work.title')}}
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Ссылка
                                     input.admin__edit-project-input(
-                                        v-model="works.link"
+                                        v-model="work.link"
                                         type="text"
                                         placeholder="Введите ссылку"
                                     )
                                     div(
-                                        :class="{'form__error_add-project' : validation.hasError('works.link')}"
-                                    ) {{validation.firstError('works.link')}}
+                                        :class="{'form__error_add-project' : validation.hasError('work.link')}"
+                                    ) {{validation.firstError('work.link')}}
                                 label.admin__edit-project-data.admin__edit-project-data-textarea
                                     .admin__edit-project-name Описание
                                     textarea.admin__edit-project-input.admin__edit-project-input_textarea(
-                                        v-model="works.description"
+                                        v-model="work.description"
                                         type="text"
                                         placeholder="Введите описание"
                                     )
                                     div(
-                                        :class="{'form__error_add-project_textarea' : validation.hasError('works.description')}"
-                                    ) {{validation.firstError('works.description')}}
+                                        :class="{'form__error_add-project_textarea' : validation.hasError('work.description')}"
+                                    ) {{validation.firstError('work.description')}}
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Добавление тэга
                                     input.admin__edit-project-input(
-                                        v-model="works.techs"
+                                        v-on:input="addTag"
+                                        v-model="work.techs"
                                         type="text"
                                         placeholder="Добавьте тэг"
                                     )
                                     div(
-                                        :class="{'form__error_add-project' : validation.hasError('works.techs')}"
-                                        ) {{validation.firstError('works.techs')}}
+                                        :class="{'form__error_add-project' : validation.hasError('work.techs')}"
+                                        ) {{validation.firstError('work.techs')}}
+                                ul.admin__edit-project-tool-list
+                                    li.projects__tools-item.admin__edit-project-tool-item(v-for="tech in work.techs" :key="tech.id")
+                                        .projects__tools-name.projects__tools-name_admin {{tech}}
+                                        button.projects__tools-close(type="button" @click="deleteTag")
+                                .admin__edit-project-form-buttons
+                                    button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
+                                    button.button__add.button__add_submit(type="submit")
+                        form.admin__edit-project-formdata(v-else)
+                            .admin__edit-project-content-left
+                                label.admin__edit-project-new-photo(
+                                    for="add-work-photo"
+                                    :class="{formPic: renderedPhotoProject.length}"
+                                    :style="{backgroundImage: `url(${renderedPhotoProject})`}"
+                                )
+                                    span.admin__edit-project-new-photo-text(
+                                        :class="{hideText: renderedPhotoProject.length}"
+                                    ) Изменение изображения
+                                    .button__add.button__add_download.button__add_download_label(
+                                        :class="{hideText: renderedPhotoProject.length}"
+                                    )
+                                input.admin__new-review-add-photo-input(
+                                    @change="photoDownLoad"
+                                    id="add-work-photo"
+                                    accept="image/*"
+                                    type="file"
+                                )
+                                div(:class="{'form__error_add-work-photo' : validation.hasError('work.photo')}") {{validation.firstError('work.photo')}}
+                            .admin__edit-project-content-right
+                                label.admin__edit-project-data
+                                    .admin__edit-project-name Название
+                                    input.admin__edit-project-input(
+                                        v-model="work.title"
+                                        type="text"
+                                        placeholder="Введите название нового проекта"
+                                    )
+                                    div(
+                                        :class="{'form__error_add-project' : validation.hasError('work.title')}"
+                                    ) {{validation.firstError('work.title')}}
+                                label.admin__edit-project-data
+                                    .admin__edit-project-name Ссылка
+                                    input.admin__edit-project-input(
+                                        v-model="work.link"
+                                        type="text"
+                                        placeholder="Введите ссылку"
+                                    )
+                                    div(
+                                        :class="{'form__error_add-project' : validation.hasError('work.link')}"
+                                    ) {{validation.firstError('work.link')}}
+                                label.admin__edit-project-data.admin__edit-project-data-textarea
+                                    .admin__edit-project-name Описание
+                                    textarea.admin__edit-project-input.admin__edit-project-input_textarea(
+                                        v-model="work.description"
+                                        type="text"
+                                        placeholder="Введите описание"
+                                    )
+                                    div(
+                                        :class="{'form__error_add-project_textarea' : validation.hasError('work.description')}"
+                                    ) {{validation.firstError('work.description')}}
+                                label.admin__edit-project-data
+                                    .admin__edit-project-name Добавление тэга
+                                    input.admin__edit-project-input(
+                                        v-model="work.techs"
+                                        type="text"
+                                        placeholder="Добавьте тэг"
+                                    )
+                                    div(
+                                        :class="{'form__error_add-project' : validation.hasError('work.techs')}"
+                                        ) {{validation.firstError('work.techs')}}
                                 ul.admin__edit-project-tool-list
                                     li.projects__tools-item.admin__edit-project-tool-item
                                         .projects__tools-name.projects__tools-name_admin HTML
@@ -88,67 +156,25 @@
                         button.admin__projects-add(@click="showAddForm")
                             .admin__projects-add-button
                             .admin__projects-add-text Добавить работу
-                    li.admin__projects-item
+                    li.admin__projects-item(v-for="work in works" :key="work.id")
                         .admin__projects-preview
                             .admin__projects-preview_pic
-                                img.admin__projects-preview_pic(src="~images/projects/1.jpg" alt="Project preview")
+                                img.admin__projects-preview_pic(:src="`https://webdev-api.loftschool.com/${work.photo}`" alt="Project preview")
                             ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name HTML
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name CSS
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name Javascript
+                                li.projects__tools-item.admin__projects_tool(v-for="tech in work.techs" :key="tech.id")
+                                    .projects__tools-name.admin__projects__tool-name {{tech}}
                         .admin__projects-descr
                             .admin__projects-descr_container
-                                .admin__projects-title Учебный проект 'Коворкинг'
-                                .admin__projects-text Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка 'А'.
-                                a.admin__projects-link(href="https://sden4.github.io/loftschool-stage-1/") sden4.github.io/loftschool-stage-1
+                                .admin__projects-title {{work.title}}
+                                .admin__projects-text {{work.description}}
+                                a.admin__projects-link(:href="`${work.link}`") {{work.link}}
                                 .admin__projects-buttons
-                                    button.button_edit.button_edit_projects Править
-                                    button.button__group.button__group_remove.button__group_remove_projects Удалить
-                    li.admin__projects-item
-                        .admin__projects-preview
-                            .admin__projects-preview_pic
-                                img.admin__projects-preview_pic(src="~images/projects/1.jpg" alt="Project preview")
-                            ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name HTML
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name CSS
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name Javascript
-                        .admin__projects-descr
-                            .admin__projects-descr_container
-                                .admin__projects-title Учебный проект 'Коворкинг'
-                                .admin__projects-text Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка 'А'.
-                                a.admin__projects-link(href="https://sden4.github.io/loftschool-stage-1/") sden4.github.io/loftschool-stage-1
-                                .admin__projects-buttons
-                                    button.button_edit.button_edit_projects Править
-                                    button.button__group.button__group_remove.button__group_remove_projects Удалить
-                    li.admin__projects-item
-                        .admin__projects-preview
-                            .admin__projects-preview_pic
-                                img.admin__projects-preview_pic(src="~images/projects/1.jpg" alt="Project preview")
-                            ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name HTML
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name CSS
-                                li.projects__tools-item.admin__projects_tool
-                                    .projects__tools-name.admin__projects__tool-name Javascript
-                        .admin__projects-descr
-                            .admin__projects-descr_container
-                                .admin__projects-title Учебный проект 'Коворкинг'
-                                .admin__projects-text Многостраничный сайт. Школа онлайн онлайн образования Loftschool. Учебный проет реализован за 5 недель и сдан в обозначенные сроки. Оценка 'А'.
-                                a.admin__projects-link(href="https://sden4.github.io/loftschool-stage-1/") sden4.github.io/loftschool-stage-1
-                                .admin__projects-buttons
-                                    button.button_edit.button_edit_projects Править
-                                    button.button__group.button__group_remove.button__group_remove_projects Удалить
+                                    button.button_edit.button_edit_projects(type="button" @click="editWork") Править
+                                    button.button__group.button__group_remove.button__group_remove_projects(type="button" @click="removeExistedWork") Удалить
+
 </template>
 
 <script id="projects">
-    //{{validation.firstError('works.photo')}}
     import axios from "axios";
     import { Validator } from 'simple-vue-validator';
 
@@ -165,50 +191,65 @@
             return {
                 renderedPhotoProject: "",
                 addNewWorkPoint: false,
-                works: {
+                editWorkPoint: false,
+                works: [],
+                work: {
                     photo: {},
                     title: "",
                     link: "",
                     description: "",
-                    techs: ""
+                    techs: []
                 }
             }
         },
         mixins: [require('simple-vue-validator').mixin],
         validators: {
-            // 'works.photo'(value) {
-            //     return Validator.value(value).required(errorMessagePhoto);
-            // },
-            'works.title'(value) {
+            'work.photo'(value) {
+                return Validator.value(value).required(errorMessagePhoto);
+            },
+            'work.title'(value) {
                 return Validator.value(value).required(errorMessage);
             },
-            'works.link'(value) {
+            'work.link'(value) {
                 return Validator.value(value).required(errorMessage);
             },
-            'works.description'(value) {
+            'work.description'(value) {
                 return Validator.value(value).required(errorMessage);
             },
-            'works.techs'(value) {
+            'work.techs'(value) {
                 return Validator.value(value).required(errorMessage);
             }
         },
+        created() {
+            this.fetchWorks();
+        },
         methods: {
+            addTag(e){
+                const tagsString = e.target.value;
+                const tagsArray = tagsString.split(",");
+
+                this.work.techs = tagsArray;
+            },
+            deleteTag(e) {
+                console.log(this.work.techs)
+            },
             showAddForm() {
                 this.addNewWorkPoint = true;
             },
             closeAddForm() {
-                this.works.title = "";
-                this.works.link = "";
-                this.works.description = "";
-                this.works.techs = "";
-                this.renderedPhotoProject = {};
+                this.work.title = "";
+                this.work.link = "";
+                this.work.description = "";
+                this.work.techs = [];
+                this.renderedPhotoProject = "";
+                this.work.photo = {};
                 this.validation.reset();
                 this.addNewWorkPoint = false;
             },
             async photoDownLoad(e) {
             
                 const file = e.target.files[0];
-                this.works.photo = file;
+                this.work.photo = file;
                 this.renderImageFile(file);
             
             },
@@ -229,8 +270,8 @@
                     try {
                         const formData = new FormData();
 
-                        Object.keys(this.works).forEach(key => {
-                            const value = this.works[key];
+                        Object.keys(this.work).forEach(key => {
+                            const value = this.work[key];
                             formData.append(key, value);
                         });
 
@@ -240,17 +281,38 @@
                             console.log('Проект добавлен');
                         });
 
-                        this.renderedPhotoProject = {};
-                        this.works.title = "";
-                        this.works.link = "";
-                        this.works.description = "";
-                        this.works.techs = "";
+                        this.renderedPhotoProject = "";
+                        this.work.photo = {};
+                        this.work.title = "";
+                        this.work.link = "";
+                        this.work.description = "";
+                        this.work.techs = [];
                         this.validation.reset();
                         this.addNewWorkPoint = false;
-                    } catch (error) {
-                    }
+
+                    } catch (error) {}
                 })
             },
+            async fetchWorks() {
+                try {
+                    const response = await axios.get(baseURL + "/works/255");
+                    this.works = response.data;
+                    console.log(this.works);
+                } catch (error) {}
+            },
+            editWork() {
+                this.addNewWorkPoint = true;
+                this.editWorkPoint = true;
+
+                try {
+                    
+                } catch (error) {}
+            },
+            async removeExistedWork() {
+                try {
+                    await console.log(this.works)
+                } catch (error) {}
+            }
         }
     }
 </script>

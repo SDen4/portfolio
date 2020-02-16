@@ -63,8 +63,8 @@
             },
             async deleteExistedGroup() {
                 try {
-                    console.log("Yess!!!" + this.title);
-                    console.log(this.category);
+                    console.log("Yess!!!");
+                    console.log(this.category.id);
                     // await this.deleteGroup(this.delCategory.id);
 
 
