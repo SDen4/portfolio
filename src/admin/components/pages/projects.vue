@@ -61,7 +61,7 @@
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Добавление тэга
                                     input.admin__edit-project-input(
-                                        v-on:input="addTag"
+                                        @input="addTag"
                                         v-model="work.techs"
                                         type="text"
                                         placeholder="Добавьте тэг"
@@ -149,7 +149,7 @@
                                         button.projects__tools-close
                                 .admin__edit-project-form-buttons
                                     button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
-                                    button.button__add.button__add_submit(type="submit")
+                                    button.button__add.button__add_submit(@click="editWork" type="submit")
             .admin__projects
                 ul.admin__projects-list
                     li.admin__projects-item_new
@@ -169,7 +169,7 @@
                                 .admin__projects-text {{work.description}}
                                 a.admin__projects-link(:href="`${work.link}`") {{work.link}}
                                 .admin__projects-buttons
-                                    button.button_edit.button_edit_projects(type="button" @click="editWork") Править
+                                    button.button_edit.button_edit_projects(type="button" @click="editWorkOpenForm") Править
                                     button.button__group.button__group_remove.button__group_remove_projects(type="button" @click="removeExistedWork") Удалить
 
 </template>
@@ -230,8 +230,8 @@
 
                 this.work.techs = tagsArray;
             },
-            deleteTag(e) {
-                console.log(this.work.techs)
+            deleteTag() {
+                console.log(this.work.tech.id)
             },
             showAddForm() {
                 this.addNewWorkPoint = true;
@@ -300,18 +300,21 @@
                     console.log(this.works);
                 } catch (error) {}
             },
-            editWork() {
+            editWorkOpenForm() {
                 this.addNewWorkPoint = true;
                 this.editWorkPoint = true;
-
-                try {
-                    
-                } catch (error) {}
             },
             async removeExistedWork() {
                 try {
-                    await console.log(this.works)
+                    await console.log(this.work.id);
                 } catch (error) {}
+            },
+            async editWork() {
+                try {
+                    await console.log(this.works);
+                } catch (error) {
+                    
+                }
             }
         }
     }
