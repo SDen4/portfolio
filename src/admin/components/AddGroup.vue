@@ -37,6 +37,7 @@
                 type: Boolean
             },
             category: {
+                id: 0, //!!!
                 type: Object,
                 default: () => {},
                 // required: true

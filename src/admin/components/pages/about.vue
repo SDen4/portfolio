@@ -7,7 +7,7 @@
             .admin__block_container.admin__new-review_container
                 .admin__edit-project-subtitle Новый отзыв
                 .admin__edit-project-content.admin__new-rewiew_content
-                    form.admin__new-review-form(v-if="editReviewPoint === false" @submit="addNewReview")
+                    form.admin__new-review-form(v-if="editReviewPoint === false" @submit.prevent="addNewReview")
                         .admin__new-review-left
                             .admin__new-review-left_container
                                 label.admin__new-review-add-photo(

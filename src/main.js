@@ -3,7 +3,7 @@ if (process.env.NODE_ENV === "development") {
   require("file-loader!./index.pug");
 }
 
-
+import '@babel/polyfill';
 import "./scripts/skills";
 import "./scripts/projects";
 import "./scripts/about";
