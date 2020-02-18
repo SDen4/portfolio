@@ -5,7 +5,8 @@
         .admin__data
             .admin__edit-project(:class="{'admin__edit-project_active' : addNewWorkPoint}")
                 .admin__block_container.admin__edit-project_container
-                    .admin__edit-project-subtitle Редактирование Работы
+                    .admin__edit-project-subtitle(v-if="editWorkPoint === false") Добавление новой Работы
+                    .admin__edit-project-subtitle(v-else) Редактирование Работы
                     .admin__edit-project-content
                         form.admin__edit-project-formdata(v-if="editWorkPoint === false" @submit.prevent="addNewWork")
                             .admin__edit-project-content-left
@@ -26,7 +27,6 @@
                                     accept="image/*"
                                     type="file"
                                 )
-                                div(:class="{'form__error_add-work-photo' : validation.hasError('work.photo')}") {{validation.firstError('work.photo')}}
                             .admin__edit-project-content-right
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Название
@@ -64,7 +64,7 @@
                                         @input="addTag"
                                         v-model="work.techs"
                                         type="text"
-                                        placeholder="Добавьте тэг"
+                                        placeholder="Добавьте тэги через запятую"
                                     )
                                     div(
                                         :class="{'form__error_add-project' : validation.hasError('work.techs')}"
@@ -72,7 +72,7 @@
                                 ul.admin__edit-project-tool-list
                                     li.projects__tools-item.admin__edit-project-tool-item(v-for="tech in work.techs" :key="tech.id")
                                         .projects__tools-name.projects__tools-name_admin {{tech}}
-                                        button.projects__tools-close(type="button" @click="deleteTag")
+                                        button.projects__tools-close(type="button" @click="deleteTag(tech)")
                                 .admin__edit-project-form-buttons
                                     button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
                                     button.button__add.button__add_submit(type="submit")
@@ -80,8 +80,8 @@
                             .admin__edit-project-content-left
                                 label.admin__edit-project-new-photo(
                                     for="add-work-photo"
-                                    :class="{formPic: renderedPhotoProject.length}"
-                                    :style="{backgroundImage: `url(${renderedPhotoProject})`}"
+                                    class="formPic"
+                                    :style="{backgroundImage: `url(https://webdev-api.loftschool.com/${editedWork.photo})`}"
                                 )
                                     span.admin__edit-project-new-photo-text(
                                         :class="{hideText: renderedPhotoProject.length}"
@@ -100,53 +100,47 @@
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Название
                                     input.admin__edit-project-input(
-                                        v-model="work.title"
+                                        v-model="editedWork.title"
                                         type="text"
                                         placeholder="Введите название нового проекта"
                                     )
                                     div(
-                                        :class="{'form__error_add-project' : validation.hasError('work.title')}"
-                                    ) {{validation.firstError('work.title')}}
+                                        :class="{'form__error_add-project' : validation.hasError('editedWork.title')}"
+                                    ) {{validation.firstError('editedWork.title')}}
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Ссылка
                                     input.admin__edit-project-input(
-                                        v-model="work.link"
+                                        v-model="editedWork.link"
                                         type="text"
                                         placeholder="Введите ссылку"
                                     )
                                     div(
-                                        :class="{'form__error_add-project' : validation.hasError('work.link')}"
-                                    ) {{validation.firstError('work.link')}}
+                                        :class="{'form__error_add-project' : validation.hasError('editedWork.link')}"
+                                    ) {{validation.firstError('editedWork.link')}}
                                 label.admin__edit-project-data.admin__edit-project-data-textarea
                                     .admin__edit-project-name Описание
                                     textarea.admin__edit-project-input.admin__edit-project-input_textarea(
-                                        v-model="work.description"
+                                        v-model="editedWork.description"
                                         type="text"
                                         placeholder="Введите описание"
                                     )
                                     div(
-                                        :class="{'form__error_add-project_textarea' : validation.hasError('work.description')}"
-                                    ) {{validation.firstError('work.description')}}
+                                        :class="{'form__error_add-project_textarea' : validation.hasError('editedWork.description')}"
+                                    ) {{validation.firstError('editedWork.description')}}
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Добавление тэга
                                     input.admin__edit-project-input(
-                                        v-model="work.techs"
+                                        v-model="editedWork.techs"
                                         type="text"
                                         placeholder="Добавьте тэг"
                                     )
                                     div(
-                                        :class="{'form__error_add-project' : validation.hasError('work.techs')}"
-                                        ) {{validation.firstError('work.techs')}}
+                                        :class="{'form__error_add-project' : validation.hasError('editedWork.techs')}"
+                                        ) {{validation.firstError('editedWork.techs')}}
                                 ul.admin__edit-project-tool-list
-                                    li.projects__tools-item.admin__edit-project-tool-item
-                                        .projects__tools-name.projects__tools-name_admin HTML
-                                        button.projects__tools-close
-                                    li.projects__tools-item.admin__edit-project-tool-item
-                                        .projects__tools-name.projects__tools-name_admin CSS
-                                        button.projects__tools-close
-                                    li.projects__tools-item.admin__edit-project-tool-item
-                                        .projects__tools-name.projects__tools-name_admin Javascript
-                                        button.projects__tools-close
+                                    li.projects__tools-item.admin__edit-project-tool-item(v-for="tech in editedWork.techs" :key="tech.id")
+                                        .projects__tools-name.projects__tools-name_admin {{tech}}
+                                        button.projects__tools-close(type="button" @click="deleteTag(tech)")
                                 .admin__edit-project-form-buttons
                                     button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
                                     button.button__add.button__add_submit(@click="editWork" type="submit")
@@ -159,9 +153,12 @@
                     li.admin__projects-item(v-for="work in works" :key="work.id")
                         .admin__projects-preview
                             .admin__projects-preview_pic
-                                img.admin__projects-preview_pic(:src="`https://webdev-api.loftschool.com/${work.photo}`" alt="Project preview")
+                                img.admin__projects-preview_pic(
+                                    :src="`https://webdev-api.loftschool.com/${work.photo}`"
+                                    alt="Project preview"
+                                )
                             ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
-                                li.projects__tools-item.admin__projects_tool(v-for="tech in work.techs" :key="tech.id")
+                                li.projects__tools-item.admin__projects_tool(v-for="tech in work.techs")
                                     .projects__tools-name.admin__projects__tool-name {{tech}}
                         .admin__projects-descr
                             .admin__projects-descr_container
@@ -169,21 +166,29 @@
                                 .admin__projects-text {{work.description}}
                                 a.admin__projects-link(:href="`${work.link}`") {{work.link}}
                                 .admin__projects-buttons
-                                    button.button_edit.button_edit_projects(type="button" @click="editWorkOpenForm") Править
-                                    button.button__group.button__group_remove.button__group_remove_projects(type="button" @click="removeExistedWork") Удалить
+                                    button.button_edit.button_edit_projects(
+                                        type="button"
+                                        @click="editWorkOpenForm(work)"
+                                    ) Править
+                                    button.button__group.button__group_remove.button__group_remove_projects(
+                                        type="button"
+                                        @click="removeExistedWork(work)"
+                                    ) Удалить
 
 </template>
 
 <script id="projects">
-    import axios from "axios";
+    import $axios from '../../requests.js';
     import { Validator } from 'simple-vue-validator';
+    import requests from '../../requests.js';
 
     const errorMessage = "Заполните поле";
-    const errorMessagePhoto = "Загрузите фото";
+
+
     const baseURL = "https://webdev-api.loftschool.com";
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     
-    if(!token) {console.log("Отсутствует токен")};
+    // if(!token) {console.log("Отсутствует токен")};
 
 
     export default {
@@ -193,20 +198,19 @@
                 addNewWorkPoint: false,
                 editWorkPoint: false,
                 works: [],
+                tags: "",
                 work: {
                     photo: {},
                     title: "",
                     link: "",
                     description: "",
                     techs: []
-                }
+                },
+                editedWork: {}
             }
         },
         mixins: [require('simple-vue-validator').mixin],
         validators: {
-            'work.photo'(value) {
-                return Validator.value(value).required(errorMessagePhoto);
-            },
             'work.title'(value) {
                 return Validator.value(value).required(errorMessage);
             },
@@ -217,6 +221,18 @@
                 return Validator.value(value).required(errorMessage);
             },
             'work.techs'(value) {
+                return Validator.value(value).required(errorMessage);
+            },
+            'editedWork.title'(value) {
+                return Validator.value(value).required(errorMessage);
+            },
+            'editedWork.link'(value) {
+                return Validator.value(value).required(errorMessage);
+            },
+            'editedWork.description'(value) {
+                return Validator.value(value).required(errorMessage);
+            },
+            'editedWork.techs'(value) {
                 return Validator.value(value).required(errorMessage);
             }
         },
@@ -230,8 +246,9 @@
 
                 this.work.techs = tagsArray;
             },
-            deleteTag() {
-                console.log(this.work.tech.id)
+            deleteTag(deletedTech) {
+                console.log(deletedTech);
+                this.work.techs = this.work.techs.filter(item => item !== deletedTech);
             },
             showAddForm() {
                 this.addNewWorkPoint = true;
@@ -245,6 +262,7 @@
                 this.work.photo = {};
                 this.validation.reset();
                 this.addNewWorkPoint = false;
+                this.editWorkPoint = false;
             },
             async photoDownLoad(e) {
             
@@ -275,7 +293,7 @@
                             formData.append(key, value);
                         });
 
-                        axios.post(baseURL + "/works", formData)
+                        $axios.post(baseURL + "/works", formData)
                         .then(response => {
                             console.log(response.data);
                             console.log('Проект добавлен');
@@ -295,25 +313,38 @@
             },
             async fetchWorks() {
                 try {
-                    const response = await axios.get(baseURL + "/works/255");
+                    const response = await $axios.get(baseURL + "/works/255");
                     this.works = response.data;
-                    console.log(this.works);
                 } catch (error) {}
             },
-            editWorkOpenForm() {
+            editWorkOpenForm(editedWorkObj) {
                 this.addNewWorkPoint = true;
                 this.editWorkPoint = true;
+                this.editedWork = editedWorkObj;
+                console.log(editedWorkObj.techs);
+                
+
+                const tagsEditedArray = editedWorkObj.techs.split(",");
+                this.editedWork.techs = tagsEditedArray;
+
+
             },
-            async removeExistedWork() {
+            async removeExistedWork(removedItem) {
                 try {
-                    await console.log(this.work.id);
+                    const responseDel = await $axios.delete(baseURL + `/works/${removedItem.id}`);
+                    this.works = this.works.filter(item => item.id !== removedItem.id);
                 } catch (error) {}
             },
             async editWork() {
                 try {
-                    await console.log(this.works);
+                    const editCurrentWork = await $axios.post(baseURL + `/works/${this.editedWork.id}`, this.editedWork);
+                    this.works = this.works.map(item => {
+                        return item.id === this.editedWork.id ? editedWork : item;
+                    });
                 } catch (error) {
-                    
+                } finally {
+                    this.editWorkPoint = false;
+                    this.addNewWorkPoint = false;
                 }
             }
         }

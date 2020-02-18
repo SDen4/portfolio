@@ -42,17 +42,17 @@ export default {
             };
             state.categories = state.categories.map(findCategory);
         },
-        DELETE__GROUP: (state, deletedCategory) => {
-            const deleteGroup = category => {
-                category = category.filter(
-                    category => category.id !== deletedCategory.id
+        DELETE__GROUP: (state, deletedCategoryId) => {
+            const deleteGroup = categories => {
+                categories = categories.filter(
+                    category => category.id !== deletedCategoryId
                 );
             };
             const findGroup = category => {
-                if(category.id === deletedGroup.id) {
+                if(category.id === deletedCategoryId) {
                     deleteGroup(category);
                 };
-                return category;
+                return categories;
             };
             state.categories = state.categories.map(findGroup);
         }
@@ -79,11 +79,10 @@ export default {
             } catch (error) {
             }
         },
-        async deleteGroup({commit}, deletedCategory) {
-            console.log(deletedCategory);
+        async deleteGroup({commit}, deletedCategoryId) {
             try {
-                const {data} = await this.$axios.delete(`/categories/${deletedCategory.id}`);
-                commit("DELETE__GROUP", data, {root: true});
+                const { data } = await this.$axios.delete(`/categories/${deletedCategoryId}`);
+                commit("DELETE__GROUP", data);
             } catch (error) {
             }
         }

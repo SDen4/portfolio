@@ -1,5 +1,9 @@
 <style lang="postcss">
     @import "../styles/main.pcss";
+
+    [v-cloak] {
+        display: none;
+    }
 </style>
 
 <template lang="pug">
@@ -21,27 +25,15 @@
                         router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="/").admin__nav-link Обо мне
                         router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="projects").admin__nav-link Работы
                         router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="about").admin__nav-link Отзывы
-
             .admin__content
-                .admin__container.admin__container_content
+                .admin__container.admin__container_content(v-cloak)
                     router-view
 </template>
 
 <script>
-    import login from './components/Login.vue';
-    import myself from './components/pages/myself.vue';
-    import projects from './components/pages/projects.vue';
-    import about from './components/pages/about.vue';
     import { mapActions } from "vuex";
 
-
     export default {
-        components: {
-            login,
-            myself,
-            projects,
-            about,
-        },
         methods: {
             ...mapActions("user", ["logout"]),
             logoutUser() {

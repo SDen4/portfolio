@@ -1,3 +1,12 @@
+<style lang="pcss">
+    .blocked {
+        opacity: .5;
+        filter: grayscale(100%);
+        pointer-events: none;
+        user-select: none;
+    }
+</style>
+
 <template lang="pug">
     section.login
         .login__wrapper
@@ -11,17 +20,33 @@
                             :class={blocked: loading}
                         )
                             label.login__form-data
-                                .login__form-pic.login__form-pic_log(:class="{'login__form-pic_log_error' : validation.hasError('user.name')}")
+                                .login__form-pic.login__form-pic_log(
+                                    :class="{'login__form-pic_log_error' : validation.hasError('user.name')}"
+                                )
                                 .login__form-info
                                     .login__form-name Логин
-                                    input.login__form-input(v-model="user.name" type="text" placeholder="Введите логин")
-                                    div(:class="{form__error : validation.hasError('user.name')}") {{validation.firstError('user.name')}}
+                                    input.login__form-input(
+                                        v-model="user.name"
+                                        type="text"
+                                        placeholder="Введите логин"
+                                    )
+                                    div(
+                                        :class="{form__error : validation.hasError('user.name')}"
+                                    ) {{validation.firstError('user.name')}}
                             label.login__form-data
-                                .login__form-pic.login__form-pic_psw(:class="{'login__form-pic_psw_error' : validation.hasError('user.password')}")
+                                .login__form-pic.login__form-pic_psw(
+                                    :class="{'login__form-pic_psw_error' : validation.hasError('user.password')}"
+                                )
                                 .login__form-info
                                     .login__form-name Пароль
-                                    input.login__form-input(v-model="user.password" type="password" placeholder="Введите пароль")
-                                    div(:class="{form__error : validation.hasError('user.password')}") {{validation.firstError('user.password')}}
+                                    input.login__form-input(
+                                        v-model="user.password"
+                                        type="password"
+                                        placeholder="Введите пароль"
+                                    )
+                                    div(
+                                        :class="{form__error : validation.hasError('user.password')}"
+                                    ) {{validation.firstError('user.password')}}
                             .login__button
                                 button.button__add.button__add_submit.button__login(
                                     type="submit"
@@ -95,12 +120,3 @@
         }
     };
 </script>
-
-<style lang="pcss">
-.blocked {
-    opacity: .5;
-    filter: grayscale(100%);
-    pointer-events: none;
-    user-select: none;
-}
-</style>

@@ -24,16 +24,6 @@
 </template>
 
 <script id="add-skill">
-//(v-for="skill in catSkills" :key="skill.id") 
-    // import axios from 'axios';
-
-    // const baseUrl = "https://webdev-api.loftschool.com";
-    // const token = localStorage.getItem("token") || "";
-
-    // axios.defaults.baseURL = baseUrl;
-    // axios.defaults.headers['Authorization'] = `Bearer ${token}`;
-    // localStorage.setItem("token", token);
-
     import { mapActions } from 'vuex';
 
     export default {
@@ -48,7 +38,6 @@
                 required: true
             }
         },
-        // props: ["categoryId", "catSkills"],
         data() {
             return {
                 loading: false,
@@ -59,15 +48,6 @@
                 }
             }
         },
-        // data() {
-        //     return {
-        //         skill: {
-        //             title: "",
-        //             percent: 0,
-        //             category: this.categoryId
-        //         }
-        //     }
-        // },
         methods: {
             ...mapActions("skills", ["addSkill"]),
             async addNewSkill() {
@@ -80,14 +60,7 @@
                 } finally {
                     this.loading = false;
                 }
-            },
-            // addNewSkill() {
-            //     axios.post('/skills', this.skill).then(response => {
-            //         this.$emit('skillAdded', response.data);
-            //         // this.skill.title = "";
-            //         // this.skill.percent = 0;
-            //     })
-            // }
+            }
         }
     }
 </script>

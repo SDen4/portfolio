@@ -3,22 +3,24 @@
         li.admin__group-item(:class="{'admin__group-item_unActive' : unAct}")
             .admin__group_container
                 form.admin__group-new-name-form(@submit.prevent="createGroup") 
-                    //-method - addNewCategory
                     label.admin__group-new-name
-                        input.admin__group-name-input(v-model="title" type="text" placeholder="Название новой группы")
+                        input.admin__group-name-input(
+                            v-model="title"
+                            type="text"
+                            placeholder="Название новой группы"
+                        )
                     .admin__group-name-buttons
                         button.button__group.button__group_approve(type="submit")
                         button.button__group.button__group_remove(@click="canceAddGroup" type="reset")
-        li.admin__group-item(v-for="category in categories" :key="category.id") {{category.id}}
+        li.admin__group-item(v-for="(category, currentIndex) in categories" :key="category.id")
             .admin__group_container
                 .admin__group-name
                     .admin__group-name-text {{category.category}}
                     .admin__group-name-buttons
-                        button.button__group.button__group_remove(@click="deleteExistedGroup" type="button")
+                        button.button__group.button__group_remove(@click="deleteExistedGroup(category.id)" type="button")
                 AddSkill(
                     :category="category"
                 )
-
 </template>
 
 <script>
@@ -28,8 +30,7 @@
     export default {
         data() {
             return {
-                // delCategory: {...this.category},
-                title: ""
+                title: "",
             }
         },
         props: {
@@ -37,17 +38,15 @@
                 type: Boolean
             },
             category: {
-                id: 0, //!!!
                 type: Object,
-                default: () => {},
-                // required: true
+                default: () => {}
             }
         },
         components: {
             AddSkill: () => import("./AddSkill.vue")
         },
         computed: {
-            ...mapState("AddGroup", {categories: state => state.categories})
+            ...mapState("AddGroup", {categories: state => state.categories}),
         },
         created() {
             this.fetchCategories();
@@ -62,40 +61,14 @@
                     alert("Пожалуйста, зарегистрируйтесь и повторите попытку")
                 }
             },
-            async deleteExistedGroup() {
+            async deleteExistedGroup(idOfDeletedCategory) {
                 try {
-                    console.log("Yess!!!");
-                    console.log(this.category.id);
-                    // await this.deleteGroup(this.delCategory.id);
-
-
-                } catch (error) {
-                }
+                    await this.deleteGroup(idOfDeletedCategory);
+                } catch (error) {}
             },
             canceAddGroup () {
                 this.unAct = true;
             }
         }
     }
-
 </script>
-
-
-//-(v-for="cat in categories" :key="cat.id")
-//- {{cat.category}}
-
-// AddSkill(
-//     :catSkills="cat.skills",
-//     :categoryId="cat.id",
-//     @skillAdded="addSkill"
-// )
-    // import AddSkill from "./AddSkill.vue"
-    // import axios from "axios";
-
-    // const baseUrl = "https://webdev-api.loftschool.com";
-    // const token = localStorage.getItem("token") || "";
-    // const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjI1NSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1ODEyMjUyMTIsImV4cCI6MTU4MTI0MzIxMiwibmJmIjoxNTgxMjI1MjEyLCJqdGkiOiJTeWk2eHlSSTdzckNIbkJGIn0.veEKtKDPuCx6jDL-pDthJuthe__Dl5lX6EGF9MsgjCY";
-
-    // axios.defaults.baseURL = baseUrl;
-    // axios.defaults.headers['Authorization'] = `Bearer ${token}`;
-    // localStorage.setItem("token", token);

@@ -5,7 +5,8 @@
     .admin__data
         .admin__new-review(:class="{'admin__new-review_active' : addNewReviewPoint}")
             .admin__block_container.admin__new-review_container
-                .admin__edit-project-subtitle Новый отзыв
+                .admin__edit-project-subtitle(v-if="editReviewPoint === false") Новый отзыв
+                .admin__edit-project-subtitle(v-else) Редактировать отзыв
                 .admin__edit-project-content.admin__new-rewiew_content
                     form.admin__new-review-form(v-if="editReviewPoint === false" @submit.prevent="addNewReview")
                         .admin__new-review-left
@@ -122,12 +123,13 @@
                             .admin__projects-text {{review.text}}
                             .admin__projects-buttons
                                 button.button_edit.button_edit_projects(type="button" @click="editReview") Править
-                                button.button__group.button__group_remove.button__group_remove_projects(type="button" @click="removeExistedReview") Удалить
+                                button.button__group.button__group_remove.button__group_remove_projects(type="button" @click="removeExistedReview(review)") Удалить
 
 </template>
 
 <script id="about">
-    import axios from "axios";
+    import $axios from '../../requests.js';
+
     import { Validator } from 'simple-vue-validator';
     const errorMessage = "Заполните поле";
     const errorMessagePhoto = "Загрузите фото";
@@ -214,12 +216,18 @@
                             formData.append(key, value);
                         })
 
-                        axios.post(baseURL + "/reviews", formData)
+                        
 
+                        $axios.post(baseURL + "/reviews", formData)
                         .then(response => {
-                            console.log(response.data);
-                            console.log('Отзыв добавлен');
-                        });
+                            // console.log(response.data);
+                            // console.log('Отзыв добавлен');
+                            // console.log(formData);
+
+                            console.log(this.reviews)
+                        
+                            // this.reviews = this.reviews.unshift(this.review);
+
                         console.log("Добавлен новый отзыв!");
                         this.renderedPhoto = "";
                         this.review.photo = {};
@@ -228,15 +236,17 @@
                         this.review.text = "";
                         this.validation.reset();
                         this.addNewReviewPoint = false;
+                        });
+
+
                     } catch (error) {
                     }
                 })
             },
             async fetchReviews() {
                 try {
-                    const response = await axios.get(baseURL + "/reviews/255");
+                    const response = await $axios.get(baseURL + "/reviews/255");
                     this.reviews = response.data;
-                    // console.log(this.reviews);
                 } catch (error) {
                     
                 }
@@ -250,9 +260,14 @@
                     
                 }
             },
-            async removeExistedReview() {
+            async removeExistedReview(removedItem) {
                 try {
-                    await console.log(this.response.data)
+                    event.preventDefault();
+                    console.log(removedItem.id);
+
+                    const responseDel = await $axios.delete(baseURL + `/reviews/${removedItem.id}`);
+                    this.reviews = this.reviews.filter(item => item.id !== removedItem.id);
+
                 } catch (error) {
                     
                 }

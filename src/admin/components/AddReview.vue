@@ -16,19 +16,13 @@
 </template>
 
 <script id="add-review">
-
     export default {
-    props: {
-        reviews: {
-            type: Object,
-            default: () => {},
-            required: true
-        }
-    },
-    data() {
-        return {
-            
-        }
-    }
+        props: {
+            reviews: {
+                type: Object,
+                default: () => {},
+                required: true
+            }
+        },
     };
 </script>

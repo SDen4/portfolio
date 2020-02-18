@@ -1,4 +1,10 @@
 import Vue from "vue";
+import axios from "axios";
+
+const $axios = axios.create({
+    baseURL: "https://webdev-api.loftschool.com"
+})
+
 
 const buttons = {
     template: "#projects-slider-buttons",
@@ -27,10 +33,11 @@ const info = {
     components: {
         tools
     },
-    props: ["currentProject"],
+    props: ["currentProject", "projects", "currentIndex"],
     computed: {
         toolsArray() {
-            return this.currentProject.skills.split(', ');
+            // return this.currentProject.skills.split(', ');
+            return this.project.techs.split(', ');
         }
     }
 }
@@ -47,7 +54,6 @@ new Vue ({
     data() {
         return {
             projects: [],
-            // currentProject: {},
             currentIndex: 0
         };
     },
@@ -57,13 +63,13 @@ new Vue ({
         }
     },
     methods: {
-        makeImages(data) {
-            return data.map(item => {
-                const requiredPic = require(`../images/projects/${item.photo}`);
-                item.photo = requiredPic;
-                return item;
-            })
-        },
+        // makeImages(data) {
+        //     return data.map(item => {
+        //         const requiredPic = require(`../images/projects/${item.photo}`);
+        //         item.photo = requiredPic;
+        //         return item;
+        //     })
+        // },
         handleSlide(direction) {
             switch(direction) {
                 case "next":
@@ -85,8 +91,12 @@ new Vue ({
             }
         }
     },
-    created() {
-        const data = require("../../projects.json");
-        this.projects = this.makeImages(data);
+    async created() {
+        // const data = require("../../projects.json");
+        const { data } = await $axios.get("/works/255");
+        console.log(data)
+
+        this.projects = data;
+        // this.projects = this.makeImages(data);
     }
 });

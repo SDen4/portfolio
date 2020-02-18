@@ -1,6 +1,10 @@
 import Vue from "vue";
+import axios from "axios";
 import Flickity from "vue-flickity";
 
+const $axios = axios.create({
+    baseURL: "https://webdev-api.loftschool.com"
+})
 
 new Vue ({
     el: "#about-component",
@@ -45,8 +49,9 @@ new Vue ({
             this.$refs.flickity.previous();
         }
     },
-    created() {
-        const data = require("../../feedbacks.json");
-        this.feedbacks = this.makeImages(data);
+    async created() {
+        const { data } = await $axios.get("/reviews/255");
+        this.feedbacks = data;
     }
 })
+

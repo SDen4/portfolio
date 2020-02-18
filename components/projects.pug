@@ -1,4 +1,5 @@
 script(type="text/x-template")#projects-slider
+    //- pre {{projects}}
     .projects__main-content
         display(
             :projects = "projects",
@@ -6,7 +7,11 @@ script(type="text/x-template")#projects-slider
             :currentIndex = "currentIndex",
             @slide = "handleSlide"
         )
-        info(:currentProject = "currentProject")
+        info(
+            :projects = "projects",
+            :currentProject = "currentProject",
+            :currentIndex = "currentIndex",
+        )
 
 
 script(type="text/x-template")#projects-slider-display
@@ -14,8 +19,12 @@ script(type="text/x-template")#projects-slider-display
         .projects__slider
             .projects__view-zone
                 ul.projects__list
-                    li.projects__item <!-- .projects__item_active активный класс -->
-                        img(:src="currentProject.photo", alt="Project" class="projects__pic")
+                    li.projects__item
+                        img(
+                            :src="`https://webdev-api.loftschool.com/${currentProject.photo}`"
+                            alt="Project"
+                            class="projects__pic"
+                        )
             buttons(@slide = "$emit('slide', $event)")
             preview(
                 :projects = "projects",
@@ -27,29 +36,36 @@ script(type="text/x-template")#projects-slider-display
 script(type="text/x-template")#projects-slider-preview
     .projects__scroll
         ul.projects__list
-            li.projects__item.projects__item_small(v-for="project in projects" :class="{projects__item_active_small: project.id === currentProject.id}")
+            li.projects__item.projects__item_small(
+                v-for="project in projects"
+                :class="{projects__item_active_small: project.id === currentProject.id}"
+            )
                 a.projects__item-link
-                    img(:src="project.photo" alt="Project small picture" class="projects__pic projects__pic_small")
+                    img(
+                        :src="`https://webdev-api.loftschool.com/${project.photo}`"
+                        class="projects__pic projects__pic_small"
+                    )
 
 
 script(type="text/x-template")#projects-slider-buttons
     .projects__scroll-buttons
         a(href="#" @click.prevent="$emit('slide', 'next')").button_next
             +icon('arrow-down', 'projects__arrow')
-        a(href="#" @click.prevent="$emit('slide', 'prev')").button_prev <!--.button_unactive класс неактивной кнопки-->
+        a(href="#" @click.prevent="$emit('slide', 'prev')").button_prev
             +icon('arrow-down', 'projects__arrow projects__arrow_l')
 
 
 script(type="text/x-template")#projects-slider-info
     ul.projects__info-list
-        li.projects__info-item.projects__info-item_active <!-- активный класс описания проекта -->
+        li.projects__info-item.projects__info-item_active
+            //-v-for="info in projects")
             .projects__content
                 tools(
-                    :tools = "toolsArray"
+                    //- :tools = "toolsArray"
                 )
                 h3.title.title__projects.title__project-name {{currentProject.title}}
                 .projects__feedback.site__text
-                    p {{currentProject.desc}}
+                    p {{currentProject.description}}
                 a.projects__link(:href="currentProject.link")
                     +icon('link', 'projects__link-pic')
                     .projects__link-name Посмотреть сайт
@@ -58,5 +74,6 @@ script(type="text/x-template")#projects-slider-info
 script(type="text/x-template")#projects-slider-tools
     .projects__tools
         ul.projects__tools-list
-            li.projects__tools-item(v-for="tool in tools")
+            //- li.projects__tools-item(v-for="tool in tools")
+            li.projects__tools-item(v-for="tool in project.techs")
                 .projects__tools-name {{tool}}

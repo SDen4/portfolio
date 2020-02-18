@@ -7,14 +7,11 @@ script(type="text/x-template")#skills-list
 
 script(type="text/x-template")#skills-group
     .skills__group
-        //- .skills__group-name {{skill.skillsGroup}}
         .skills__group-name {{skill.category}}
         ul.skills__list
-            //- li.skills__item(v-for="(skillPers, skillName) in skill.skills")
             li.skills__item(v-for="skillItem in skill.skills")
                 skills-item(
                     :skill="skillItem"
-
                 )
 
 
@@ -27,6 +24,3 @@ script(type="text/x-template")#skills-item
                 stop(offset="100%" stop-color="#db9222")
         .skills__empty-round
             .skills__name {{skill.title}}
-
-//- :skillName="skillName"
-//- :skillPers="skillPers"

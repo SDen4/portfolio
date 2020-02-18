@@ -8,7 +8,6 @@ const $axios = axios.create({
 
 const skillsItem = {
     template: "#skills-item",
-    // props: ["skillName", "skillPers"],
     props: {
         skill: Object
     },
@@ -41,7 +40,6 @@ new Vue ({
     },
 
     async created() {
-        // const data = require("../../skills.json");
         const { data } = await $axios.get("/categories/255");
         this.skills = data;
     }
