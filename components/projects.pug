@@ -58,10 +58,9 @@ script(type="text/x-template")#projects-slider-buttons
 script(type="text/x-template")#projects-slider-info
     ul.projects__info-list
         li.projects__info-item.projects__info-item_active
-            //-v-for="info in projects")
             .projects__content
                 tools(
-                    //- :tools = "toolsArray"
+                    :currentProject="currentProject"
                 )
                 h3.title.title__projects.title__project-name {{currentProject.title}}
                 .projects__feedback.site__text
@@ -74,6 +73,5 @@ script(type="text/x-template")#projects-slider-info
 script(type="text/x-template")#projects-slider-tools
     .projects__tools
         ul.projects__tools-list
-            //- li.projects__tools-item(v-for="tool in tools")
-            li.projects__tools-item(v-for="tool in project.techs")
-                .projects__tools-name {{tool}}
+            li.projects__tools-item(v-for="tag in currentProject.techs")
+                .projects__tools-name {{tag}}

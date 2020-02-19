@@ -25,7 +25,7 @@ const display = {
 
 const tools = {
     template: "#projects-slider-tools",
-    props: ["tools"]
+    props: ["currentProject"]
 }
 
 const info = {
@@ -41,7 +41,6 @@ const info = {
         }
     }
 }
-
 
 
 new Vue ({
@@ -63,13 +62,6 @@ new Vue ({
         }
     },
     methods: {
-        // makeImages(data) {
-        //     return data.map(item => {
-        //         const requiredPic = require(`../images/projects/${item.photo}`);
-        //         item.photo = requiredPic;
-        //         return item;
-        //     })
-        // },
         handleSlide(direction) {
             switch(direction) {
                 case "next":
@@ -92,11 +84,7 @@ new Vue ({
         }
     },
     async created() {
-        // const data = require("../../projects.json");
         const { data } = await $axios.get("/works/255");
-        console.log(data)
-
         this.projects = data;
-        // this.projects = this.makeImages(data);
     }
 });

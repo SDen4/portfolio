@@ -90,12 +90,11 @@
                                         :class="{hideText: renderedPhotoProject.length}"
                                     )
                                 input.admin__new-review-add-photo-input(
-                                    @change="photoDownLoad"
+                                    @change="photoDownLoadEdited"
                                     id="add-work-photo"
                                     accept="image/*"
                                     type="file"
                                 )
-                                div(:class="{'form__error_add-work-photo' : validation.hasError('work.photo')}") {{validation.firstError('work.photo')}}
                             .admin__edit-project-content-right
                                 label.admin__edit-project-data
                                     .admin__edit-project-name Название
@@ -198,7 +197,6 @@
                 addNewWorkPoint: false,
                 editWorkPoint: false,
                 works: [],
-                tags: "",
                 work: {
                     photo: {},
                     title: "",
@@ -223,20 +221,20 @@
             'work.techs'(value) {
                 return Validator.value(value).required(errorMessage);
             },
-            'editedWork.title'(value) {
-                return Validator.value(value).required(errorMessage);
-            },
-            'editedWork.link'(value) {
-                return Validator.value(value).required(errorMessage);
-            },
-            'editedWork.description'(value) {
-                return Validator.value(value).required(errorMessage);
-            },
-            'editedWork.techs'(value) {
-                return Validator.value(value).required(errorMessage);
-            }
+            // 'editedWork.title'(value) {
+            //     return Validator.value(value).required(errorMessage);
+            // },
+            // 'editedWork.link'(value) {
+            //     return Validator.value(value).required(errorMessage);
+            // },
+            // 'editedWork.description'(value) {
+            //     return Validator.value(value).required(errorMessage);
+            // },
+            // 'editedWork.techs'(value) {
+            //     return Validator.value(value).required(errorMessage);
+            // }    
         },
-        created() {
+        created(editedWork) {
             this.fetchWorks();
         },
         methods: {
@@ -271,6 +269,13 @@
                 this.renderImageFile(file);
             
             },
+            async photoDownLoadEdited(e) {
+                this.editedWork.photo = "";
+                const fileEdited = e.target.files[0];
+                this.editedWork.photo = fileEdited;
+                this.renderImageFile(fileEdited);
+            
+            },
             renderImageFile(file) {
                 const reader = new FileReader();
                 try {
@@ -292,13 +297,13 @@
                             const value = this.work[key];
                             formData.append(key, value);
                         });
-
+                        
                         $axios.post(baseURL + "/works", formData)
                         .then(response => {
                             console.log(response.data);
                             console.log('Проект добавлен');
                         });
-
+                        
                         this.renderedPhotoProject = "";
                         this.work.photo = {};
                         this.work.title = "";
@@ -315,25 +320,17 @@
                 try {
                     const response = await $axios.get(baseURL + "/works/255");
                     this.works = response.data;
+                    console.log(this.works)
                 } catch (error) {}
             },
             editWorkOpenForm(editedWorkObj) {
                 this.addNewWorkPoint = true;
                 this.editWorkPoint = true;
+
                 this.editedWork = editedWorkObj;
-                console.log(editedWorkObj.techs);
                 
-
-                const tagsEditedArray = editedWorkObj.techs.split(",");
-                this.editedWork.techs = tagsEditedArray;
-
-
-            },
-            async removeExistedWork(removedItem) {
-                try {
-                    const responseDel = await $axios.delete(baseURL + `/works/${removedItem.id}`);
-                    this.works = this.works.filter(item => item.id !== removedItem.id);
-                } catch (error) {}
+                // const tagsEditedArray = editedWorkObj.techs.split(",");
+                // this.editedWork.techs = tagsEditedArray;
             },
             async editWork() {
                 try {
@@ -346,7 +343,13 @@
                     this.editWorkPoint = false;
                     this.addNewWorkPoint = false;
                 }
-            }
+            },
+            async removeExistedWork(removedItem) {
+                try {
+                    const responseDel = await $axios.delete(baseURL + `/works/${removedItem.id}`);
+                    this.works = this.works.filter(item => item.id !== removedItem.id);
+                } catch (error) {}
+            },
         }
     }
 </script>

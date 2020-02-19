@@ -23,9 +23,7 @@
                                     type="file"
                                     @change="hadleFile"
                                 )
-                                div(
-                                    :class="{'form__error_add-review-photo' : validation.hasError('review.photo')}"
-                                ) {{validation.firstError('review.photo')}}
+                                div(:class="{'form__error_add-review-photo' : validation.hasError('review.photo')}") {{validation.firstError('review.photo')}}
                         .admin__new-review-right
                             .admin__new-review-form-row
                                 label.admin__edit-project-data.admin__new-review-form-data
@@ -61,8 +59,8 @@
                             .admin__new-review-left_container
                                 label.admin__new-review-add-photo(
                                     for="add-edit-review-photo"
-                                    :class="{hide: renderedPhoto.length}"
-                                    :style="{backgroundImage: `url(${renderedPhoto})`}"
+                                    class="hide"
+                                    :style="{backgroundImage: `url(https://webdev-api.loftschool.com/${editedReview.photo})`}"
                                 )
                                 span.admin__new-review-add-photo-text Изменить фото
                                 input.admin__new-review-add-photo-input(
@@ -71,39 +69,38 @@
                                     type="file"
                                     @change="hadleFile"
                                 )
-                                div(
-                                    :class="{'form__error_add-review-photo' : validation.hasError('review.photo')}"
-                                ) {{validation.firstError('review.photo')}}
                         .admin__new-review-right
                             .admin__new-review-form-row
                                 label.admin__edit-project-data.admin__new-review-form-data
                                     .admin__edit-project-name Имя автора
                                     input.admin__edit-project-input(
-                                        v-model="review.author"
+                                        v-model="editedReview.author"
                                         type="text"
                                         placeholder="Укажите здесь имя"
                                     )
-                                    div(:class="{'form__error_add-project' : validation.hasError('review.author')}") {{validation.firstError('review.author')}}
+                                    div(:class="{'form__error_add-project' : validation.hasError('editedReview.author')}") {{validation.firstError('editedReview.author')}}
                                 label.admin__edit-project-data.admin__new-review-form-data
                                     .admin__edit-project-name Титул автора
                                     input.admin__edit-project-input(
-                                        v-model="review.occ"
+                                        v-model="editedReview.occ"
                                         type="text"
                                         placeholder="Укажите здесь титул"
                                     )
-                                    div(:class="{'form__error_add-project' : validation.hasError('review.occ')}") {{validation.firstError('review.occ')}}
+                                    div(:class="{'form__error_add-project' : validation.hasError('editedReview.occ')}") {{validation.firstError('editedReview.occ')}}
                             .admin__new-review-form-row
                                 label.admin__new-review-form-data
                                     .admin__edit-project-name Отзыв
                                     textarea.admin__edit-project-input_textarea.admin__new-review-input_textarea(
-                                        v-model="review.text"
+                                        v-model="editedReview.text"
                                         type="text"
                                         placeholder="Введите отзыв"
                                     )
-                                    div(:class="{'form__error_add-review' : validation.hasError('review.text')}") {{validation.firstError('review.text')}}
+                                    div(
+                                        :class="{'form__error_add-review' : validation.hasError('editedReview.text')}"
+                                    ) {{validation.firstError('editedReview.text')}}
                             .admin__new-review-form-row
                                 button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
-                                button.button__add.button__add_submit(type="submit")
+                                button.button__add.button__add_submit(type="submit" @click="editReview")
         .admin__projects.admin__reviews
             ul.admin__projects-list.admin__reviews-list
                 li.admin__projects-item_new.admin__reviews-item_new
@@ -122,33 +119,29 @@
                         .admin__projects-descr_container
                             .admin__projects-text {{review.text}}
                             .admin__projects-buttons
-                                button.button_edit.button_edit_projects(type="button" @click="editReview") Править
+                                button.button_edit.button_edit_projects(type="button" @click="editReviewOpenForm(review)") Править
                                 button.button__group.button__group_remove.button__group_remove_projects(type="button" @click="removeExistedReview(review)") Удалить
 
 </template>
 
 <script id="about">
     import $axios from '../../requests.js';
-
     import { Validator } from 'simple-vue-validator';
     const errorMessage = "Заполните поле";
-    const errorMessagePhoto = "Загрузите фото";
     const baseURL = "https://webdev-api.loftschool.com";
 
     const token = localStorage.getItem("token");
-    if(!token) {console.log("Отсутствует токен")};
+    // if(!token) {console.log("Отсутствует токен")};
 
     export default {
         name: "about",
-        // components: {
-        //     addReview: ()=> import('../AddReview.vue')
-        // },
         data() {
             return {
                 renderedPhoto: "",
                 addNewReviewPoint: false,
                 editReviewPoint: false,
                 reviews: [],
+                editedReview: {},
                 review: {
                     photo: {},
                     author: "",
@@ -159,9 +152,6 @@
         },
         mixins: [require('simple-vue-validator').mixin],
         validators: {
-            'review.photo'(value) {
-                return Validator.value(value).required(errorMessagePhoto);
-            },
             'review.author'(value) {
                 return Validator.value(value).required(errorMessage);
             },
@@ -170,7 +160,16 @@
             },
             'review.text'(value) {
                 return Validator.value(value).required(errorMessage);
-            }
+            },
+            // 'editedReview.author'(value) {
+            //     return Validator.value(value).required(errorMessage);
+            // },
+            // 'editedReview.occ'(value) {
+            //     return Validator.value(value).required(errorMessage);
+            // },
+            // 'editedReview.text'(value) {
+            //     return Validator.value(value).required(errorMessage);
+            // }
         },
         created() {
             this.fetchReviews();
@@ -216,8 +215,6 @@
                             formData.append(key, value);
                         })
 
-                        
-
                         $axios.post(baseURL + "/reviews", formData)
                         .then(response => {
                             // console.log(response.data);
@@ -227,7 +224,7 @@
                             console.log(this.reviews)
                         
                             // this.reviews = this.reviews.unshift(this.review);
-
+                        });
                         console.log("Добавлен новый отзыв!");
                         this.renderedPhoto = "";
                         this.review.photo = {};
@@ -236,7 +233,6 @@
                         this.review.text = "";
                         this.validation.reset();
                         this.addNewReviewPoint = false;
-                        });
 
 
                     } catch (error) {
@@ -251,23 +247,32 @@
                     
                 }
             },
-            editReview() {
-                this.editReviewPoint = true;
-                this.addNewReviewPoint = true;
+            editReviewOpenForm(editedReviewObj) {
                 try {
-                    
+                    this.editReviewPoint = true;
+                    this.addNewReviewPoint = true;
+                    this.editedReview = editedReviewObj;
+                    console.log(this.editedReview);
+                } catch (error) {}
+            },
+            async editReview() {
+                try {
+                    const editCurrentReview = await $axios.post(baseURL + `/reviews/${this.editedReview.id}`, this.editedReview);
+                    this.reviews = this.reviews.map(item => {
+                        return item.id === this.editedReview.id ? editedReview : item;
+                    });
                 } catch (error) {
-                    
+                } finally {
+                    this.editReviewPoint = false;
+                    this.addNewReviewPoint = false;
                 }
             },
             async removeExistedReview(removedItem) {
                 try {
                     event.preventDefault();
                     console.log(removedItem.id);
-
                     const responseDel = await $axios.delete(baseURL + `/reviews/${removedItem.id}`);
                     this.reviews = this.reviews.filter(item => item.id !== removedItem.id);
-
                 } catch (error) {
                     
                 }
