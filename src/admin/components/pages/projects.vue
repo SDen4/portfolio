@@ -318,19 +318,9 @@
             },
             async fetchWorks() {
                 try {
-                    const response = await $axios.get(baseURL + "/works/255");
-                    
-                    let obj = response.data;
-                    for (let i=0; i<obj.length; i++) {
-                      console.log(obj[i].techs);//проверить, берет ли данные в каждом из объектов
-                      let item = obj[i].techs;
-                      let arr = item.split(",");
-                      obj[i].techs = arr;
-                    };
-                    
-                    this.works = obj;
+                    const response = await $axios.get(baseURL + "/works/255");                    
+                    this.works = response.data;
                     console.log(this.works)
-                    
                 } catch (error) {}
             },
             editWorkOpenForm(editedWorkObj) {
