@@ -1,8 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./router";
-// import routes from "@/router/routes";
-// import store from "../store/modules/user.js";
 import { store } from "../store";
 import axios from "axios";
 

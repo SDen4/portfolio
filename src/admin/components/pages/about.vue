@@ -212,10 +212,11 @@
                         Object.keys(this.review).forEach(key => {
                             const value = this.review[key];
                             formData.append(key, value);
-                        })
+                        });
 
                         $axios.post(baseURL + "/reviews", formData)
                         .then(response => {
+                            console.log(this.reviews);
                             // this.reviews = this.reviews.unshift(this.review);
                         });
                         this.renderedPhoto = "";

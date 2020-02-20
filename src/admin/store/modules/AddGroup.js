@@ -74,7 +74,6 @@ export default {
         async fetchCategories({commit}) {
             try {
                 const {data} = await this.$axios.get("/categories/255");
-                console.log(data);
                 commit("SET_GROUPS", data);
             } catch (error) {
             }
