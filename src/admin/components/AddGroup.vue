@@ -39,7 +39,7 @@
             },
             category: {
                 type: Object,
-                default: () => {}
+                // default: () => {}
             }
         },
         components: {

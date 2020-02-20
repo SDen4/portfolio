@@ -183,12 +183,7 @@
     import requests from '../../requests.js';
 
     const errorMessage = "Заполните поле";
-
-
     const baseURL = "https://webdev-api.loftschool.com";
-    // const token = localStorage.getItem("token");
-    
-    // if(!token) {console.log("Отсутствует токен")};
 
 
     export default {
@@ -244,21 +239,17 @@
                 const tagsArray = tagsString.split(",");
 
                 this.work.techs = tagsArray;
-                console.log(tagsArray)
             },
             addTagEdited(e) {
                 const tagsString = e.target.value;
                 const tagsArray = tagsString.split(",");
 
                 this.editedWork.techs = tagsArray;
-                console.log(tagsArray)
             },
             deleteTag(deletedTech) {
-                console.log(deletedTech);
                 this.work.techs = this.work.techs.filter(item => item !== deletedTech);
             },
             deleteEditedTag(deletedTech) {
-                console.log(deletedTech);
                 this.editedWork.techs = this.editedWork.techs.filter(item => item !== deletedTech);
             },
             showAddForm() {
@@ -313,7 +304,6 @@
                         
                         $axios.post(baseURL + "/works", formData)
                         .then(response => {
-                            console.log(response.data);
                             console.log('Проект добавлен');
                         });
                         
@@ -345,7 +335,6 @@
                         arrayOut[i] = objInn;
                     };
                     this.works = arrayOut;
-                    console.log(this.works)
                 } catch (error) {}
             },
             editWorkOpenForm(editedWorkObj) {
@@ -356,7 +345,22 @@
             },
             async editWork() {
                 try {
-                    const editCurrentWork = await $axios.post(baseURL + `/works/${this.editedWork.id}`, this.editedWork);
+                    let objSend = this.editedWork;
+
+                    let clone = {};
+                    for(let n in objSend) {
+                        clone[n] = objSend[n];
+                    }
+
+                    for(let j in clone) {
+                        if(j==="techs") {
+                            let sendArr = clone[j];
+                            let sendStr = sendArr.join(",");
+                            clone[j] = sendStr;
+                        }
+                    };
+
+                    const editCurrentWork = await $axios.post(baseURL + `/works/${this.editedWork.id}`, clone);
                     this.works = this.works.map(item => {
                         return item.id === this.editedWork.id ? editedWork : item;
                     });

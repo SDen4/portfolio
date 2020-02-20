@@ -1,11 +1,3 @@
-<style lang="postcss">
-    @import "../styles/main.pcss";
-
-    [v-cloak] {
-        display: none;
-    }
-</style>
-
 <template lang="pug">
 .maincontent
     section.admin
@@ -26,7 +18,7 @@
                         router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="projects").admin__nav-link Работы
                         router-link.admin__nav-item(exact-active-class="admin__nav-item_active" to="about").admin__nav-link Отзывы
             .admin__content
-                .admin__container.admin__container_content(v-cloak)
+                .admin__container.admin__container_content
                     router-view
 </template>
 
@@ -44,3 +36,6 @@
     };
 </script>
 
+<style lang="postcss">
+    @import "../styles/main.pcss";
+</style>

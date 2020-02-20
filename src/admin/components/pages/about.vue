@@ -131,7 +131,6 @@
     const baseURL = "https://webdev-api.loftschool.com";
 
     const token = localStorage.getItem("token");
-    // if(!token) {console.log("Отсутствует токен")};
 
     export default {
         name: "about",
@@ -217,15 +216,8 @@
 
                         $axios.post(baseURL + "/reviews", formData)
                         .then(response => {
-                            // console.log(response.data);
-                            // console.log('Отзыв добавлен');
-                            // console.log(formData);
-
-                            console.log(this.reviews)
-                        
                             // this.reviews = this.reviews.unshift(this.review);
                         });
-                        console.log("Добавлен новый отзыв!");
                         this.renderedPhoto = "";
                         this.review.photo = {};
                         this.review.author = "";
@@ -252,7 +244,6 @@
                     this.editReviewPoint = true;
                     this.addNewReviewPoint = true;
                     this.editedReview = editedReviewObj;
-                    console.log(this.editedReview);
                 } catch (error) {}
             },
             async editReview() {
@@ -270,7 +261,6 @@
             async removeExistedReview(removedItem) {
                 try {
                     event.preventDefault();
-                    console.log(removedItem.id);
                     const responseDel = await $axios.delete(baseURL + `/reviews/${removedItem.id}`);
                     this.reviews = this.reviews.filter(item => item.id !== removedItem.id);
                 } catch (error) {

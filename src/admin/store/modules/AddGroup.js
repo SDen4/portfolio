@@ -52,7 +52,7 @@ export default {
                 if(category.id === deletedCategoryId) {
                     deleteGroup(category);
                 };
-                return categories;
+                return category;
             };
             state.categories = state.categories.map(findGroup);
         }
