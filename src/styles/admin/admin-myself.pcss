@@ -64,11 +64,16 @@
     max-width: 526PX;
     min-width: 340PX;
     width: 47%;
+    height: 100%;
     min-height: 388PX;
     margin-bottom: 60PX;
     border-radius: 5PX;
     background-color: $text-color;
     filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    transition: .6s;
+    &:hover {
+        filter: drop-shadow(1.256rem .17925rem .625rem rgba(0,0,0,.07));
+    }
     @include iPadProLow {
         width: 46%;
         min-width: 340PX;
@@ -119,6 +124,7 @@
     align-items: center;
     position: relative;
     width: 100%;
+    min-height: 40PX;
     &::after {
         content: "";
         display: block;

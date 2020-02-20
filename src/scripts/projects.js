@@ -85,6 +85,18 @@ new Vue ({
     },
     async created() {
         const { data } = await $axios.get("/works/255");
-        this.projects = data;
+        let arrayOut = data;
+        for(let i = 0; i<arrayOut.length; i++) {
+            let objInn = arrayOut[i];
+            for(let key in objInn) {
+                if(key === "techs") {
+                    let techStr = objInn[key];
+                    let techArr = techStr.split(",");
+                    objInn[key] = techArr;
+                };
+            };
+            arrayOut[i] = objInn;
+        };
+        this.projects = arrayOut;
     }
 });

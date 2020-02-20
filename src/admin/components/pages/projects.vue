@@ -127,8 +127,9 @@
                                         :class="{'form__error_add-project_textarea' : validation.hasError('editedWork.description')}"
                                     ) {{validation.firstError('editedWork.description')}}
                                 label.admin__edit-project-data
-                                    .admin__edit-project-name Добавление тэга
+                                    .admin__edit-project-name Редактирование тэгов
                                     input.admin__edit-project-input(
+                                        @input="addTagEdited"
                                         v-model="editedWork.techs"
                                         type="text"
                                         placeholder="Добавьте тэг"
@@ -139,7 +140,7 @@
                                 ul.admin__edit-project-tool-list
                                     li.projects__tools-item.admin__edit-project-tool-item(v-for="tech in editedWork.techs" :key="tech.id")
                                         .projects__tools-name.projects__tools-name_admin {{tech}}
-                                        button.projects__tools-close(type="button" @click="deleteTag(tech)")
+                                        button.projects__tools-close(type="button" @click="deleteEditedTag(tech)")
                                 .admin__edit-project-form-buttons
                                     button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
                                     button.button__add.button__add_submit(@click="editWork" type="submit")
@@ -243,10 +244,22 @@
                 const tagsArray = tagsString.split(",");
 
                 this.work.techs = tagsArray;
+                console.log(tagsArray)
+            },
+            addTagEdited(e) {
+                const tagsString = e.target.value;
+                const tagsArray = tagsString.split(",");
+
+                this.editedWork.techs = tagsArray;
+                console.log(tagsArray)
             },
             deleteTag(deletedTech) {
                 console.log(deletedTech);
                 this.work.techs = this.work.techs.filter(item => item !== deletedTech);
+            },
+            deleteEditedTag(deletedTech) {
+                console.log(deletedTech);
+                this.editedWork.techs = this.editedWork.techs.filter(item => item !== deletedTech);
             },
             showAddForm() {
                 this.addNewWorkPoint = true;
@@ -319,7 +332,19 @@
             async fetchWorks() {
                 try {
                     const response = await $axios.get(baseURL + "/works/255");
-                    this.works = response.data;
+                    let arrayOut = response.data;
+                    for(let i = 0; i<arrayOut.length; i++) {
+                        let objInn = arrayOut[i];
+                        for(let key in objInn) {
+                            if(key === "techs") {
+                                let techStr = objInn[key];
+                                let techArr = techStr.split(",");
+                                objInn[key] = techArr;
+                            };
+                        };
+                        arrayOut[i] = objInn;
+                    };
+                    this.works = arrayOut;
                     console.log(this.works)
                 } catch (error) {}
             },
@@ -328,9 +353,6 @@
                 this.editWorkPoint = true;
 
                 this.editedWork = editedWorkObj;
-                
-                // const tagsEditedArray = editedWorkObj.techs.split(",");
-                // this.editedWork.techs = tagsEditedArray;
             },
             async editWork() {
                 try {
