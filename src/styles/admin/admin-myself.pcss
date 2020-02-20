@@ -1,0 +1,253 @@
+.admin__block-myself {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.admin__title {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 30PX 0;
+    @include tablets {
+        width: 80%;
+    }
+    @include phones {
+        margin-left: 20PX;
+        flex-direction: column;
+    }
+}
+
+.admin__title-name {
+    width: 50%;
+    font-size: 21px;
+    font-weight: 700;
+    @include phones {
+        margin-bottom: 40PX;
+        width: 100%;
+    }
+}
+
+.admin__add-group {
+    display: flex;
+    width: 50%;
+    @include phones {
+        width: 100%;
+    }
+}
+
+.admin__add-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 20PX;
+    color: $text-color-nav-admin-active;
+}
+
+.admin__group-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include iPadProLow {
+        margin-left: -20PX;
+    }
+    @include tablets {
+        width: 103%;
+    }
+    @include phones {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.admin__group-item {
+    max-width: 526PX;
+    min-width: 340PX;
+    width: 47%;
+    min-height: 388PX;
+    margin-bottom: 60PX;
+    border-radius: 5PX;
+    background-color: $text-color;
+    filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    @include iPadProLow {
+        width: 46%;
+        min-width: 340PX;
+        margin-bottom: 20PX;
+        margin-left: 20PX;
+    }
+    @include tablets {
+        max-width: 340PX;
+    }
+    @include phones {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+    }
+    @include small {
+        min-width: 300PX;
+        max-width: 320PX;
+        margin-bottom: 10PX;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.admin__group-item_unActive {
+    display: none;
+}
+
+.admin__group_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+    margin: 30PX;
+    @include small {
+        width: 88%;
+        margin: 0;
+    }
+}
+
+.admin__group-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50PX;
+        height: 2PX;
+        width: inherit;
+        background-color: $admin_grayline;
+    }
+}
+
+//заголовок созданной группы
+.admin__group-name-text {
+    /* display: none; */
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.admin__group-name-text_active { //активный класс
+    display: block;
+}
+
+//форма создания имени новой группы
+.admin__group-new-name-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.admin__group-new-name {
+    width: 80%;
+    max-width: 275PX;
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 26PX;
+        height: 1PX;
+        width: inherit;
+        background-color: $black;
+    }
+}
+
+.admin__group-name-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 275PX;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.admin__group-name-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+}
+.admin__skills_container {
+    width: 100%;
+    height: 83%;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin__skills {
+    height: 86%;
+}
+
+.admin__skills-list {
+    width: 100%;
+}
+
+.admin__skills-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 30PX 0;
+}
+
+.admin__skills-name {
+    width: 60%;
+}
+
+.admin__skills-percent {
+    width: 20%;
+}
+
+.admin__skills-edit-buttons {
+    width: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin__skills-add {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin__skills-new-skill {
+    width: 220PX;
+    @include iPadProLow {
+        width: 160PX;
+    }
+}
+
+.admin__skills-new-persent {
+    width: 45PX;
+}
+
+.admin__skills-new-skill, .admin__skills-new-persent {
+    margin-right: 20PX;
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 30PX;
+        height: 1PX;
+        width: inherit;
+        background-color: $black;
+    }
+}
+
+.admin__skills-new, .admin__skills-setPercent {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

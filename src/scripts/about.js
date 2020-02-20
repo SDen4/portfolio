@@ -1,22 +1,19 @@
 import Vue from "vue";
+import axios from "axios";
 import Flickity from "vue-flickity";
 
-const buttons = {
-    template: "#about-slider-buttons",
-}
-
-const display = {
-    template: "#about-display",
-    props: ["feedbacks", "currentFeedback", "currentIndex"]
-}
+const $axios = axios.create({
+    baseURL: "https://webdev-api.loftschool.com"
+})
 
 new Vue ({
     el: "#about-component",
     template: "#about-slider",
+    feedbacks: "feedbacks",
+    currentFeedback: "currentFeedback",
+    currentIndex: "currentIndex",
     components: {
-        Flickity,
-        buttons,
-        display
+        Flickity
     },
     data() {
         return {
@@ -26,7 +23,9 @@ new Vue ({
                 initialIndex: 0,
                 prevNextButtons: false,
                 pageDots: false,
-                wrapAround: true
+                wrapAround: true,
+                groupCells: '100%',
+                cellAlign: 'left'
             }
         }
     },
@@ -45,15 +44,14 @@ new Vue ({
         },
         next() {
             this.$refs.flickity.next();
-            console.log('next');
         },
         previous() {
             this.$refs.flickity.previous();
-            console.log('prev');
         }
     },
-    created() {
-        const data = require("../../feedbacks.json");
-        this.feedbacks = this.makeImages(data);
+    async created() {
+        const { data } = await $axios.get("/reviews/255");
+        this.feedbacks = data;
     }
 })
+

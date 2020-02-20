@@ -8,8 +8,15 @@
 }
 
 .gamburger-menu__link {
+    display: block;
     width: 24PX;
     height: 20PX;
+    &:hover .gamburger-menu__section {
+        background-color: $text-color-gray;
+        &::before, &::after {
+            background-color: $text-color-gray;
+        }
+    }
 }
 
 .gamburger-menu__section {
@@ -18,12 +25,14 @@
     height: 4PX;
     background-color: $text-color;
     position: relative;
+    transition: .6s;
     &::before, &::after {
         content: "";
         width: 24PX;
         height: 4PX;
         background-color: $text-color;
         position: absolute;
+        transition: .6s;
     }
     &::before {
         top: 8PX;

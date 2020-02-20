@@ -1,0 +1,278 @@
+.admin__projects {
+    width: 100%;
+    margin-bottom: 30PX;
+    @include small {
+        margin-bottom: 10PX;
+    }
+}
+
+.admin__title-name_projects {
+    margin-bottom: 0;
+}
+
+.admin__projects-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* width: 100%; */
+    @include tablets {
+        margin-left: -20PX;
+    }
+    @include phones {
+        margin-left: 0;
+    }
+}
+
+.admin__projects-item_new {
+    display: flex;
+    max-width: 340PX;
+    height: 550PX;
+    width: 30%;
+    border-radius: 5PX;
+    background: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+    position: relative;
+    margin-bottom: 60PX;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #005dff 0%, #0090ff 100%);
+        transition: .6s;
+        opacity: 0;
+    }
+    &:hover:before {
+        opacity: 1;
+    }
+    @include tablets {
+        min-width: 300PX;
+        width: 46%;
+        margin-bottom: 20PX;
+        margin-left: 20PX;
+    }
+    @include phones {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10PX;
+    }
+    @include small {
+        max-height: 112PX;
+    }
+}
+
+.admin__projects-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: transparent;
+    @include small {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.admin__projects-add-button {
+    width: 150PX;
+    height: 150PX;
+    border-radius: 50%;
+    border: 1PX solid $text-color;
+    margin-bottom: 30PX;
+    position: relative;
+    @include small {
+        width: 50PX;
+        height: 50PX;
+        border: 2PX solid $text-color;
+        margin-bottom: 0;
+        margin-right: 20PX;
+    }
+    &:after {
+        content: "+";
+        display: block;
+        position: absolute;
+        width: 40PX;
+        height: 40PX;
+        top: 36%;
+        left: 36%;
+        color: #fff;
+        font-size: 72PX;
+        line-height: 35PX;
+            @include small {
+                width: 14PX;
+                height: 14PX;
+                font-size: 24PX;
+                line-height: 10PX;
+            }
+    }
+}
+
+.admin__projects-add-text {
+    width: 150PX;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    color: $text-color;
+    z-index: 10;
+}
+
+.admin__projects-item {
+    display: flex;
+    flex-direction: column;
+    max-width: 340PX;
+    height: 550PX;
+    width: 30%;
+    margin-bottom: 60PX;
+    border-radius: 5PX;
+    background-color: $text-color;
+    filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    @include tablets {
+        min-width: 300PX;
+        width: 46%;
+        margin-bottom: 20PX;
+        margin-left: 20PX;
+    }
+    @include phones {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10PX;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    @include small {
+        max-width: 320PX;
+    }
+}
+
+.admin__projects-preview {
+    max-width: 340PX;
+    height: 195PX;
+    width: 100%;
+    position: relative;
+    @include phones {
+        max-width: 100%;
+    }
+}
+
+.admin__projects-preview_pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.admin__projects-preview_pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin__edit-project-tool-list_preview {
+    position: absolute;
+    bottom: 0;
+    right: 2%;
+    left: unset;
+    top: unset;
+    margin: 0;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.admin__projects_tool {
+    background-color: $text-color;
+    border: 1PX solid $black;
+    height: 30PX;
+}
+
+.admin__projects__tool-name {
+    @include iPadProLow {
+        padding: 15PX 10PX;
+    }
+    @include tablets {
+        padding: 15PX 20PX;
+        font-size: 13PX;
+        font-weight: 600;
+    }
+}
+
+.admin__projects-descr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.admin__projects-descr_container {
+    width: 82%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include iPadProLow {
+        width: 90%;
+    }
+}
+
+.admin__projects-title {
+    width: 100%;
+    font-size: 18PX;
+    font-weight: 700;
+    text-align: start;
+    margin: 25PX 0 5PX;
+}
+
+.admin__projects-text {
+    width: 100%;
+    font-size: 16PX;
+    font-weight: 600;
+    line-height: 30PX;
+    @include iPadProLow {
+        font-size: 14PX;
+        line-height: 22PX;
+    }
+    @include phones {
+        line-height: 32PX;
+    }
+}
+
+.admin__projects-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: $text-color-nav-admin-active;
+    transition: .6s;
+    text-decoration: none;
+    &:after{
+        content: "";
+        display: block;
+        opacity: 0;
+        height: 2PX;
+        background-color: $text-color-nav-admin-active;
+        transition: .6s;
+    }
+    &:hover:after{
+        opacity: 1;
+    }
+    @include iPadProLow {
+        font-size: 14PX;
+    }
+}
+
+.admin__projects-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30PX;
+}

@@ -1,0 +1,130 @@
+.popup-menu {
+    display: none;
+    z-index: 10;
+    @include tablets {
+        display: flex;
+        height: 100vh;
+        width: 43.5%;
+        justify-content: center;
+        align-items: center;
+        background-color: $text-color;
+        position: absolute;
+        right: -44%;
+        left: unset;
+        color: $text-color-admin;
+    }
+    @include phones {
+        width: 73%;
+        right: -74%;
+    }
+    @include small {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+.popup-menu-screen-lock{
+    @include tablets {
+        content: "";
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        width: 52%;
+        height: 100vh;
+        background-color: transparent;
+    }
+    @include phones {
+        width: 28%;
+    }
+    @include small {
+        display: none;
+        width: 0;
+    }
+}
+
+.button__close-popup {
+    display: none;
+    @include tablets {
+        display: block;
+        width: 22PX;
+        height: 22PX;
+        position: absolute;
+        top: 6%;
+        left: 82%;
+        background-image: url("~images/content/cross-login.png");
+        background-color: transparent;
+        outline: none;
+    }
+}
+
+.popup-menu_container {
+    display: none;
+    @include tablets {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 160PX;
+        height: 340PX;
+    }
+}
+
+.nav_popup {
+    @include tablets {
+        max-width: unset;
+        margin: 0;
+        height: 253PX;
+    }
+}
+
+.nav__list_popup {
+    @include tablets {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+}
+
+.nav__item_popup {
+    @include tablets {
+        font-size: 18PX;
+        font-weight: 600;
+    }
+}
+
+.nav__link_popup {
+    @include tablets {
+        &:after {
+            background-color: $text-color-admin;
+        }
+    }
+}
+
+.socials__popup {
+    @include tablets {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+.socials__list_popup {
+    @include tablets {
+        width: 100%;
+    }
+}
+
+.socials__item_popup {
+    @include tablets {
+        margin-right: 0;
+    }
+}
+
+.socials__pic_popup {
+    @include tablets {
+        fill: $text-color-admin;
+        &:hover {
+            fill: $text-color-decor;
+        }
+    }
+}

@@ -1,18 +1,17 @@
 script(type="text/x-template")#skills-list
     ul.skills__data
-        li.skills__data-item(v-for="skill in skills")
+        li.skills__data-item(v-for="skill in skills" v-if="skill.skills.length")
             skills-group(
                 :skill="skill"
             )
 
 script(type="text/x-template")#skills-group
     .skills__group
-        .skills__group-name {{skill.skillsGroup}}
+        .skills__group-name {{skill.category}}
         ul.skills__list
-            li.skills__item(v-for="(skillPers, skillName) in skill.skills")
+            li.skills__item(v-for="skillItem in skill.skills")
                 skills-item(
-                    :skillName="skillName"
-                    :skillPers="skillPers"
+                    :skill="skillItem"
                 )
 
 
@@ -24,4 +23,4 @@ script(type="text/x-template")#skills-item
                 stop(offset="0%" stop-color="#cf721a")
                 stop(offset="100%" stop-color="#db9222")
         .skills__empty-round
-            .skills__name {{skillName}}
+            .skills__name {{skill.title}}

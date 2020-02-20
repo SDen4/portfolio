@@ -144,6 +144,12 @@
     display: flex;
     position: relative;
     align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.flickity-viewport {
+    width: 100%;
 }
 
 .about__item {
@@ -164,6 +170,9 @@
     @include phones {
         width: 84vw;
         margin-right: 0;
+    }
+    @include small {
+        width: 86vw;
     }
 }
 
@@ -212,14 +221,6 @@
     @include tablets {
         justify-content: flex-start;
     }
-}
-
-.ava {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
 }
 
 .ava_about {

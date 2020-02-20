@@ -1,4 +1,10 @@
 import Vue from "vue";
+import axios from "axios";
+
+const $axios = axios.create({
+    baseURL: "https://webdev-api.loftschool.com"
+})
+
 
 const buttons = {
     template: "#projects-slider-buttons",
@@ -19,7 +25,7 @@ const display = {
 
 const tools = {
     template: "#projects-slider-tools",
-    props: ["tools"]
+    props: ["currentProject"]
 }
 
 const info = {
@@ -27,14 +33,14 @@ const info = {
     components: {
         tools
     },
-    props: ["currentProject"],
+    props: ["currentProject", "projects", "currentIndex"],
     computed: {
         toolsArray() {
-            return this.currentProject.skills.split(', ');
+            // return this.currentProject.skills.split(', ');
+            return this.project.techs.split(', ');
         }
     }
 }
-
 
 
 new Vue ({
@@ -47,7 +53,6 @@ new Vue ({
     data() {
         return {
             projects: [],
-            // currentProject: {},
             currentIndex: 0
         };
     },
@@ -57,37 +62,29 @@ new Vue ({
         }
     },
     methods: {
-        makeImages(data) {
-            return data.map(item => {
-                const requiredPic = require(`../images/projects/${item.photo}`);
-                item.photo = requiredPic;
-                return item;
-            })
-        },
         handleSlide(direction) {
             switch(direction) {
                 case "next":
-                    this.currentIndex++;
-                    break;
+                    if(this.currentIndex === this.projects.length-1) {
+                        this.currentIndex = 0;
+                        break;
+                    } else {
+                        this.currentIndex++;
+                        break;
+                    };
                 case "prev":
-                    this.currentIndex--;
-                    break;
+                    if(this.currentIndex === 0) {
+                        this.currentIndex = this.projects.length-1;
+                        break;
+                    } else {
+                        this.currentIndex--;
+                        break;
+                    }
             }
-        },
-        // sliderLoop(value) {
-        //     const projectsTotalNum = this.projects.lenght - 1;
-        //     if (value > projectsTotalNum) this.currentIndex = 0;
-        //     else if (value < 0) this.currentIndex = projectsTotalNum;
-        // }
-    // },
-    // watch: {
-    //     currentIndex(value) {
-    //         this.sliderLoop(value)
-    //     }
+        }
     },
-    created() {
-        const data = require("../../projects.json");
-        this.projects = this.makeImages(data);
-        // this.currentProject = this.projects[this.currentIndex];
+    async created() {
+        const { data } = await $axios.get("/works/255");
+        this.projects = data;
     }
 });

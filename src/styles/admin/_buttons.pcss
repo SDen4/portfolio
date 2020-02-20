@@ -1,0 +1,204 @@
+.button__add {
+    width: 20PX;
+    height: 20PX;
+    border-radius: 50%;
+    padding: 0;
+    background: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+    position: relative;
+    outline: none;
+    color: $text-color;
+    text-transform: uppercase;
+    &:before, &:after {
+        content: "+";
+        display: block;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+    }
+    &:after {
+        color: inherit;
+        font-size: inherit;
+        background: linear-gradient(90deg, #005dff 0%, #0090ff 100%);
+        opacity: 0;
+        transition: .6s;
+    }
+    &:hover:after {
+        opacity: 1;
+    }
+}
+
+.button__add_skill {
+    width: 40PX;
+    height: 40PX;
+    font-size: 30PX;
+}
+
+.button__add_download {
+    width: 182PX;
+    height: 51PX;
+    border-radius: 25PX;
+    font-size: 16PX;
+    font-weight: 700;
+    line-height: 48PX;
+    &:after, &:before {
+        content: "Загрузить";
+    }
+}
+
+.button__add_download_label {
+    &:before, &:after {
+        text-align: center;
+    }
+}
+
+.button__add_cancel {
+    width: 152PX;
+    height: 51PX;
+    border-radius: 25PX;
+    font-size: 16PX;
+    font-weight: 700;
+    line-height: 48PX;
+    margin-right: 20PX;
+    background: transparent;
+    color: $text-color-nav-admin-active;
+    &:after, &:before {
+        content: "Отмена";
+        color: $text-color;
+    }
+    &:before {
+        color: $text-color-nav-admin-active;
+    }
+    @include iPadProLow {
+        width: 135PX;
+    }
+    @include tablets {
+        width: 152PX;
+    }
+    @include phones {
+        width: 125PX;
+    }
+    @include small {
+        font-size: 14PX;
+        width: 85PX;
+        margin-right: 5PX;
+    }
+}
+
+.button__add_submit {
+    width: 182PX;
+    height: 51PX;
+    border-radius: 25PX;
+    font-size: 16PX;
+    font-weight: 700;
+    line-height: 48PX;
+    &:after, &:before {
+        content: "Сохранить";
+    }
+    @include iPadProLow {
+        width: 145PX;
+    }
+    @include tablets {
+        width: 182PX;
+    }
+    @include phones {
+        width: 125PX;
+    }
+    @include small {
+        font-size: 14PX;
+        width: 115PX;
+    }
+}
+
+.button__group {
+    width: 14PX;
+    height: 18PX;
+    padding: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.button__group_approve {
+    margin-right: 20PX;
+    background: svg-load("tick.svg", fill=$admin__green, width=100%, height=100%) right center no-repeat;
+    transition: .6s;
+    &:hover {
+        background: svg-load("tick.svg", fill=$text-color-admin, width=100%, height=100%) right center no-repeat;
+    }
+}
+
+.button__group_approve_skill {
+    margin-right: 0;
+}
+
+.button__group_remove {
+    background: svg-load("Cross.svg", fill=$admin_red, width=100%, height=100%) right center no-repeat;
+    transition: .6s;
+    &:hover {
+        background: svg-load("Cross.svg", fill=$text-color-admin, width=100%, height=100%) right center no-repeat;
+    }
+
+}
+
+.button_edit, .button_remove {
+    background-color: transparent;
+    width: 16PX;
+    height: 15PX;
+    outline: none;
+}
+
+.button_edit {
+    background: svg-load("pencil.svg", fill=$text-color-nav-admin-active, width=100%, height=100%) right center no-repeat;
+    transition: .6s;
+    &:hover {
+        background: svg-load("pencil.svg", fill=$text-color-admin, width=100%, height=100%) right center no-repeat;
+    }
+}
+
+.button_remove {
+    background: svg-load("trash.svg", fill=$text-color-admin, width=100%, height=100%) right center no-repeat;
+    transition: .6s;
+    &:hover {
+        background: svg-load("trash.svg", fill=$admin_red, width=100%, height=100%) right center no-repeat;
+    }
+}
+
+.button_edit_projects, .button__group_remove_projects {
+    font-size: 16PX;
+    font-weight: 600;
+    width: 50%;
+    padding: 0;
+    height: 18PX;
+    @include iPadProLow {
+        font-size: 14PX;
+    }
+}
+
+.button__login {
+    width: 348PX;
+    height: 80PX;
+    font-size: 18PX;
+    line-height: 80PX;
+    border-radius: 40PX 5PX;
+    background-image: linear-gradient(90deg, #ac00ed 0%, #5500f1 100%);
+    &:after, &:before {
+        content: "Отправить";
+    }
+    &:after {
+        background-image: linear-gradient(270deg, #ac00ed 0%, #5500f1 100%);
+    }
+    @include tablets {
+        width: 280PX;
+        height: 70PX;
+        font-size: 16PX;
+        line-height: 70PX;
+    }
+    @include phones {
+        width: 200PX;
+        height: 50PX;
+        font-size: 14PX;
+        line-height: 50PX;
+    }
+}

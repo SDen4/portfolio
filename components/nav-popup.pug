@@ -1,0 +1,5 @@
+script(type="text/x-template")#navlistPopup
+    nav.nav.nav_popup
+        ul.nav__list.nav__list_popup
+            li.nav__item.nav__item_popup(v-for="nav in navs")
+                a.nav__link.nav__link_popup(:class="nav.class" @click.prevent :href="nav.to" v-text="nav.title")

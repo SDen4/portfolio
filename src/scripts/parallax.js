@@ -1,5 +1,4 @@
 var winWidth = document.querySelector('.parallax').offsetWidth;
-console.log("winWidth" + winWidth);
 var maxWinWidth = 753; // максимальное значение разрешения для планшетов
 
 if (winWidth>maxWinWidth) {
@@ -28,10 +27,8 @@ if (winWidth>maxWinWidth) {
             }
         }
     }());
-
+    window.onscroll = function() {
+        var wScroll = window.pageYOffset;
+        parallax.init(wScroll);
+    };
 }
-
-window.onscroll = function() {
-    var wScroll = window.pageYOffset;
-    parallax.init(wScroll);
-};

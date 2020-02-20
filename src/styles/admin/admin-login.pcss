@@ -1,0 +1,170 @@
+.login {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: url("~images/content/bg_intro_768.jpg") center center no-repeat;
+    background-size: cover;
+        @include small {
+            background: unset;
+        }
+}
+
+.login__wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(45, 60, 78, .7);
+    @include small {
+        background-color: unset;
+    }
+}
+
+.login__block {
+    width: 564PX;
+    height: 518PX;
+    border-radius: 5PX;
+    background-color: $text-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    @include tablets {
+        width: 420PX;
+        height: 465PX;
+    }
+    @include phones {
+        width: 320PX;
+        height: 340PX;
+    }
+    @include small {
+        height: 100%;
+    }
+}
+
+.login__close {
+    display: block;
+    width: 22PX;
+    height: 22PX;
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    background-image: url("~images/content/cross-login.png");
+    background-color: transparent;
+    outline: none;
+}
+
+.login__block_wrapper {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include phones {
+        height: 90%;
+    }
+    @include small {
+        height: 70%;
+    }
+}
+
+.login__title {
+    font-size: 36PX;
+    font-weight: 600;
+    color: $text-color-admin;
+    @include tablets {
+        font-size: 24PX;
+    }
+    @include phones {
+        font-size: 18PX;
+    }
+}
+
+.login__content {
+    width: 100%;
+    height: 100%;
+}
+
+.login__form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.login__form-data {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 80PX;
+        height: 1PX;
+        width: inherit;
+        background-color: #272727;
+    }
+}
+
+.login__form-pic {
+    width: 32PX;
+    margin-right: 20PX;
+}
+
+.login__form-pic_log {
+    height: 30PX;
+    background: svg-load("user.svg", fill=$text-color-admin_gray, width=100%, height=100%) center center no-repeat;
+}
+
+.login__form-pic_log_error {
+    background: svg-load("user.svg", fill=$admin_red, width=100%, height=100%) center center no-repeat;
+}
+
+.login__form-pic_psw {
+    height: 28PX;
+    background: svg-load("key.svg", fill=$text-color-admin_gray, width=100%, height=100%) center center no-repeat;
+}
+
+.login__form-pic_psw_error {
+    background: svg-load("key.svg", fill=$admin_red, width=100%, height=100%) center center no-repeat;
+}
+
+.login__form-info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.login__form-name {
+    font-size: 16PX;
+    font-weight: 600;
+    color: $text-color-admin_gray;
+    margin-bottom: 30PX;
+    @include tablets {
+        font-size: 14PX;
+    }
+    @include tablets {
+        font-size: 13PX;
+    }
+}
+
+.login__form-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 25PX;
+}
+
+.login__button {
+    display: flex;
+    justify-content: center;
+}

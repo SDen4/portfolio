@@ -2,10 +2,15 @@ include ./mixins.pug
 include ../components/skills.pug
 include ../components/projects.pug
 include ../components/about.pug
+include ../components/nav.pug
+include ../components/nav-footer.pug
+include ../components/nav-popup.pug
+include ../components/form.pug
+
 
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -26,16 +31,22 @@ html(lang="en")
               +image("content/p3.png", "parallax__layer_img parallax__layer_img3", "ParallaxImage")
             .parallax__layer.parallax__layer_4
               +image("content/p4.png", "parallax__layer_img parallax__layer_img4", "ParallaxImage")
-            section.intro
-              .container
+            section.intro#main
+              .popup-menu-screen-lock
+              .popup-menu(id="popup-menu")
+                button.button__close-popup(id="popup-menu-button-close")
+                .popup-menu_container
+                  #navPopupComponent
+                  +scl-popup('socials', socialIconsNew)
+              .container#cont
                 .intro__wrapper
                   header.header
                     .header__wrapper
                       .logo ДС
-                      +nav('nav', navMenu)
+                      #nav-component
                       +scl('socials', socialIconsNew)
                       .gamburger-menu
-                        a.gamburger-menu__link
+                        a.gamburger-menu__link(href="#" id="gamburger-menu-button")
                           .gamburger-menu__section
                   .main-title
                     .pre-title !{preTitle}
@@ -43,12 +54,12 @@ html(lang="en")
                   a.scroll(href='')
                     span.scroll__name Скролл
                     +icon('scroll', 'scroll__pic')
-            section.developer
+            section.developer#developer
               .container.container_developer
                 .developer__wrapper
                   .developer__left
                     .ava.ava_developer
-                      +image('content/owner.jpeg', 'developer__ava', 'Developer')
+                      +image('content/owner.jpeg', 'developer__photo', 'Developer')
                     .developer__info
                       +devInfo('developer-que', devDataQues)
                       +devInfo('developer-ans', devDataAnsw)
@@ -61,16 +72,16 @@ html(lang="en")
                           | Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                     .site__text.site__text_i
                       p #{siteText}
-        section.skills
+        section.skills#skills
           .skills__pic-container
-            +icon('hands', 'skills__pic')
+            +image('content/hands.png', 'skills__pic')
           .skills__wrapper
             .skills__intro
               h2.title.title_skills Чем я могу быть полезен вам
               .site__text.site__text_skills
                 p #{siteText}
             #skills-component
-        section.projects
+        section.projects#projects
           .container.container_projects
             .projects__wrapper
               h2.title.title__projects Мои работы
@@ -78,39 +89,11 @@ html(lang="en")
         .about-form
           +image("content/bg_aboutAndFeedback.jpg", "about-form__bg", 'Form section background')
           +icon('leaves', 'form_leaves')
-          section.about
+          section.about#about
             .container
               #about-component
-          section.form__section
-            .container
-              .form__wrapper
-                h2.title.title_form Связаться со мной
-                form.form
-                  .form__content
-                    label.form__data
-                      .form__data_wrapper
-                        +icon('user', 'form__svg form__user_svg')
-                        .form__input-info
-                          .form__subtitle Введите ваше имя
-                          input.form__input(type="text", name="name", placeholder="Ковальчук Дмитрий")
-                      .form__line
-                    label.form__data
-                      .form__data_wrapper
-                        +icon('envelope', 'form__svg form__envelope_svg')
-                        .form__input-info
-                          .form__subtitle Введите ваш e-mail
-                          input.form__input(type="text", name="email", placeholder="loftschool@study.com")
-                      .form__line
-                  .form__content
-                    label.form__data
-                      .form__data_wrapper
-                        +icon('message', 'form__svg form__message_svg')
-                        .form__input-info
-                          .form__subtitle Сообщение к письму
-                          textarea.form__input.form__input_textarea(type="text", name="message", placeholder="Требуется помощь в создании сайта. Интересуют сроки и цена вопроса.")
-                      .form__line
-                  .form__content.form__content_button
-                    button.button(type="submit") #{buttonText}
+          section.form__section#contacts
+            #form-component
         footer.footer
           .container
             .container_footer
@@ -121,7 +104,7 @@ html(lang="en")
                   .pre-title.pre-title_footer !{preTitle}
               .footer__right
                 .footer__right-up
-                  +nav('nav', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+                  #nav-footer-component
                 .footer__right-bottom
                   .footer__right-bottom-l
                     .site__text.site__text_footer

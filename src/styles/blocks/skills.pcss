@@ -46,6 +46,7 @@
     display: block;
     max-width: 682PX;
     max-height: 983PX;
+    width: 100%;
     @include tablets {
         transform: rotate(-90deg);
     }
@@ -53,18 +54,21 @@
         max-width: 235PX;
         max-height: 338PX;
         position: absolute;
-        bottom: -23PX;
-        left: 16PX;
+        bottom: -51PX;
+        left: 48PX;
+    }
+    @include small {
+        left: 30PX;
     }
 }
 
 .skills__wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     max-width: 875PX;
     width: 50%;
-    height: 72%;
+    height: 95%;
     @include desktop {
         width: 80%;
         height: 52%;

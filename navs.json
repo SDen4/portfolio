@@ -1,0 +1,39 @@
+[
+    {
+        "id": "main",
+        "title": "Главная",
+        "class": "nav__link_main",
+        "to": "#main"
+    },
+    {
+        "id": "about",
+        "title": "Обо мне",
+        "class": "nav__link_about",
+        "to": "#developer"
+    },
+    {
+        "id": "skills",
+        "title": "Навыки",
+        "class": "nav__link_skills",
+        "to": "#skills"
+    },
+    {
+        "id": "projects",
+        "title": "Работы",
+        "class": "nav__link_projects",
+        "to": "#projects"
+        
+    },
+    {
+        "id": "reviews",
+        "title": "Отзывы",
+        "class": "nav__link_reviews",
+        "to": "#about"
+    },
+    {
+        "id": "contacts",
+        "title": "Связаться",
+        "class": "nav__link_contacts",
+        "to": "#contacts"
+    }
+]
