@@ -52,7 +52,7 @@ export default {
                 if(category.id === deletedCategoryId) {
                     deleteGroup(category);
                 };
-                return categories;
+                return category;
             };
             state.categories = state.categories.map(findGroup);
         }
@@ -74,7 +74,6 @@ export default {
         async fetchCategories({commit}) {
             try {
                 const {data} = await this.$axios.get("/categories/255");
-                console.log(data);
                 commit("SET_GROUPS", data);
             } catch (error) {
             }

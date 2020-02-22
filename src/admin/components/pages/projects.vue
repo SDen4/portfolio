@@ -127,8 +127,9 @@
                                         :class="{'form__error_add-project_textarea' : validation.hasError('editedWork.description')}"
                                     ) {{validation.firstError('editedWork.description')}}
                                 label.admin__edit-project-data
-                                    .admin__edit-project-name Добавление тэга
+                                    .admin__edit-project-name Редактирование тэгов
                                     input.admin__edit-project-input(
+                                        @input="addTagEdited"
                                         v-model="editedWork.techs"
                                         type="text"
                                         placeholder="Добавьте тэг"
@@ -139,7 +140,7 @@
                                 ul.admin__edit-project-tool-list
                                     li.projects__tools-item.admin__edit-project-tool-item(v-for="tech in editedWork.techs" :key="tech.id")
                                         .projects__tools-name.projects__tools-name_admin {{tech}}
-                                        button.projects__tools-close(type="button" @click="deleteTag(tech)")
+                                        button.projects__tools-close(type="button" @click="deleteEditedTag(tech)")
                                 .admin__edit-project-form-buttons
                                     button.button__add.button__add_cancel(@click="closeAddForm" type="reset")
                                     button.button__add.button__add_submit(@click="editWork" type="submit")
@@ -182,12 +183,7 @@
     import requests from '../../requests.js';
 
     const errorMessage = "Заполните поле";
-
-
     const baseURL = "https://webdev-api.loftschool.com";
-    // const token = localStorage.getItem("token");
-    
-    // if(!token) {console.log("Отсутствует токен")};
 
 
     export default {
@@ -244,9 +240,17 @@
 
                 this.work.techs = tagsArray;
             },
+            addTagEdited(e) {
+                const tagsString = e.target.value;
+                const tagsArray = tagsString.split(",");
+
+                this.editedWork.techs = tagsArray;
+            },
             deleteTag(deletedTech) {
-                console.log(deletedTech);
                 this.work.techs = this.work.techs.filter(item => item !== deletedTech);
+            },
+            deleteEditedTag(deletedTech) {
+                this.editedWork.techs = this.editedWork.techs.filter(item => item !== deletedTech);
             },
             showAddForm() {
                 this.addNewWorkPoint = true;
@@ -300,7 +304,6 @@
                         
                         $axios.post(baseURL + "/works", formData)
                         .then(response => {
-                            console.log(response.data);
                             console.log('Проект добавлен');
                         });
                         
@@ -318,9 +321,20 @@
             },
             async fetchWorks() {
                 try {
-                    const response = await $axios.get(baseURL + "/works/255");                    
-                    this.works = response.data;
-                    console.log(this.works)
+                    const response = await $axios.get(baseURL + "/works/255");
+                    let arrayOut = response.data;
+                    for(let i = 0; i<arrayOut.length; i++) {
+                        let objInn = arrayOut[i];
+                        for(let key in objInn) {
+                            if(key === "techs") {
+                                let techStr = objInn[key];
+                                let techArr = techStr.split(",");
+                                objInn[key] = techArr;
+                            };
+                        };
+                        arrayOut[i] = objInn;
+                    };
+                    this.works = arrayOut;
                 } catch (error) {}
             },
             editWorkOpenForm(editedWorkObj) {
@@ -328,13 +342,25 @@
                 this.editWorkPoint = true;
 
                 this.editedWork = editedWorkObj;
-                
-                // const tagsEditedArray = editedWorkObj.techs.split(",");
-                // this.editedWork.techs = tagsEditedArray;
             },
             async editWork() {
                 try {
-                    const editCurrentWork = await $axios.post(baseURL + `/works/${this.editedWork.id}`, this.editedWork);
+                    let objSend = this.editedWork;
+
+                    let clone = {};
+                    for(let n in objSend) {
+                        clone[n] = objSend[n];
+                    }
+
+                    for(let j in clone) {
+                        if(j==="techs") {
+                            let sendArr = clone[j];
+                            let sendStr = sendArr.join(",");
+                            clone[j] = sendStr;
+                        }
+                    };
+
+                    const editCurrentWork = await $axios.post(baseURL + `/works/${this.editedWork.id}`, clone);
                     this.works = this.works.map(item => {
                         return item.id === this.editedWork.id ? editedWork : item;
                     });
