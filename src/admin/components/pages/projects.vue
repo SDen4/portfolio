@@ -305,6 +305,7 @@
                         $axios.post(baseURL + "/works", formData)
                         .then(response => {
                             console.log('Проект добавлен');
+                            this.works.unshift(response.data);
                         });
                         
                         this.renderedPhotoProject = "";
