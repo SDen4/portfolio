@@ -305,7 +305,11 @@
                         $axios.post(baseURL + "/works", formData)
                         .then(response => {
                             console.log('Проект добавлен');
-                            this.works.unshift(response.data);
+                            console.log(response.data.techs);
+                            let techsIn = response.data.techs;
+                            let techsArr = techsIn.split(",");
+                            response.data.techs = techsArr;
+                            this.works.push(response.data);
                         });
                         
                         this.renderedPhotoProject = "";

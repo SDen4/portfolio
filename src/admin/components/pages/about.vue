@@ -216,7 +216,7 @@
 
                         $axios.post(baseURL + "/reviews", formData)
                         .then(response => {
-                            this.reviews.unshift(response.data);
+                            this.reviews.push(response.data);
                         });
                         this.renderedPhoto = "";
                         this.review.photo = {};
