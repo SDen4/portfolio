@@ -226,7 +226,6 @@
                         this.validation.reset();
                         this.addNewReviewPoint = false;
 
-
                     } catch (error) {
                     }
                 })
@@ -244,6 +243,12 @@
                     this.editReviewPoint = true;
                     this.addNewReviewPoint = true;
                     this.editedReview = editedReviewObj;
+
+                    window.scrollTo({
+                        behavior: 'smooth',
+                        top: 0,
+                    });
+
                 } catch (error) {}
             },
             async editReview() {

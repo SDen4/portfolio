@@ -304,14 +304,11 @@
                         
                         $axios.post(baseURL + "/works", formData)
                         .then(response => {
-                            console.log('Проект добавлен');
-                            console.log(response.data.techs);
-                            let techsIn = response.data.techs;
-                            let techsArr = techsIn.split(",");
+                            let techsArr = response.data.techs.split(",");
                             response.data.techs = techsArr;
                             this.works.push(response.data);
                         });
-                        
+
                         this.renderedPhotoProject = "";
                         this.work.photo = {};
                         this.work.title = "";
@@ -320,7 +317,6 @@
                         this.work.techs = [];
                         this.validation.reset();
                         this.addNewWorkPoint = false;
-
                     } catch (error) {}
                 })
             },
@@ -345,8 +341,12 @@
             editWorkOpenForm(editedWorkObj) {
                 this.addNewWorkPoint = true;
                 this.editWorkPoint = true;
-
                 this.editedWork = editedWorkObj;
+
+                window.scrollTo({
+                    behavior: 'smooth',
+                    top: 0,
+                });
             },
             async editWork() {
                 try {
