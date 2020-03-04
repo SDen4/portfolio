@@ -36,7 +36,6 @@ const info = {
     props: ["currentProject", "projects", "currentIndex"],
     computed: {
         toolsArray() {
-            // return this.currentProject.skills.split(', ');
             return this.project.techs.split(', ');
         }
     }

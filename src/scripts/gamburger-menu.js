@@ -34,6 +34,7 @@ popupMenuClose.addEventListener("click", function(e) {
     }, 1);
 })
 
+//close popup menu by tap on free space
 sreenLock.addEventListener('click', function(e) {
     e.preventDefault();
     if (e.target == sreenLock && curRight !==0 && duration === 0) {
@@ -43,7 +44,7 @@ sreenLock.addEventListener('click', function(e) {
 
 
 
-//скролл по навигации, в т.ч. из popup меню
+//scroll by navigation, incl from popup menu
 setTimeout( ()=> {
     const anchors = document.querySelectorAll('a.nav__link');
     for (let anchor of anchors) {
@@ -71,7 +72,7 @@ setTimeout( ()=> {
 }, 1);
 
 
-//скролл по кнопке "скролл"
+//scroll by "скролл"-button
     const scrollButton = document.querySelector("a.scroll");
     scrollButton.addEventListener('click', function(e) {
         e.preventDefault();
