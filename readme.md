@@ -8,3 +8,4 @@ $ git clone https://github.com/SDen4/portfolio.git
 $ cd portfolio
 $ yarn
 ```
+## Открыть на [github-pages](https://sden4.github.io/portfolio/)
