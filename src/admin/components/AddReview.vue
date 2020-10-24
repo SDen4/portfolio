@@ -3,7 +3,7 @@
         .admin__reviews_user
             .admin__reviews_user-left
                 .ava.ava_admin.admin__reviews_ava
-                    img.admin__photo.user__photo(src="", alt="User photo")
+                    img.admin__photo.user__photo(src="", alt="User photo", loading='lazy')
             .admin__reviews_user-right
                 .admin__reviews_user-name Ковальчук Дмитрий
                 .admin__reviews_user-prof Основатель Loftschool

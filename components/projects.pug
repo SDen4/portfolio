@@ -23,6 +23,7 @@ script(type="text/x-template")#projects-slider-display
                             :src="`https://webdev-api.loftschool.com/${currentProject.photo}`"
                             alt="Project"
                             class="projects__pic"
+                            loading='lazy'
                         )
             buttons(@slide = "$emit('slide', $event)")
             preview(
@@ -43,6 +44,7 @@ script(type="text/x-template")#projects-slider-preview
                     img(
                         :src="`https://webdev-api.loftschool.com/${project.photo}`"
                         class="projects__pic projects__pic_small"
+                        loading='lazy'
                     )
 
 

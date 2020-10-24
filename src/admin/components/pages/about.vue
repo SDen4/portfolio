@@ -111,7 +111,7 @@
                     .admin__reviews_user
                         .admin__reviews_user-left
                             .ava.ava_admin.admin__reviews_ava
-                                img.admin__photo.user__photo(:src="`https://webdev-api.loftschool.com/${review.photo}`", alt="User photo")
+                                img.admin__photo.user__photo(:src="`https://webdev-api.loftschool.com/${review.photo}`", alt="User photo", loading='lazy')
                         .admin__reviews_user-right
                             .admin__reviews_user-name {{review.author}}
                             .admin__reviews_user-prof {{review.occ}}

@@ -156,6 +156,7 @@
                                 img.admin__projects-preview_pic(
                                     :src="`https://webdev-api.loftschool.com/${work.photo}`"
                                     alt="Project preview"
+                                    loading='lazy'
                                 )
                             ul.admin__edit-project-tool-list.admin__edit-project-tool-list_preview
                                 li.projects__tools-item.admin__projects_tool(v-for="tech in work.techs")

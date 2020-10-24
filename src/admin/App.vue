@@ -5,7 +5,7 @@
             .admin__container.admin__container_header
                 .admin__user
                     .ava.ava_admin
-                        img.admin__photo(src="~images/content/owner.jpg")
+                        img.admin__photo(src="~images/content/owner.jpg", loading='lazy')
                     .title.title_admin Денис Скрябин
                     .pre-title.pre-title_admin Панель администрирования
                 .admin__close

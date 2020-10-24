@@ -20,7 +20,7 @@ mixin icon(name, className)
     use(xlink:href=icon.url)
 
 mixin image(path, className, altName)
-  img(src=require(`images/${path}`) class=className alt=altName)
+  img(loading='lazy' src=require(`images/${path}`) class=className alt=altName)
 
 mixin scl(className, items)
   div(class=`${className}`)
