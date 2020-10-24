@@ -19,8 +19,8 @@ mixin icon(name, className)
   svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
     use(xlink:href=icon.url)
 
-mixin image(path, className, altName)
-  img(loading='lazy' src=require(`images/${path}`) class=className alt=altName)
+mixin image(path, className, altName, loading)
+  img(src=require(`images/${path}`) class=className alt=altName, loading=loading)
 
 mixin scl(className, items)
   div(class=`${className}`)

@@ -59,7 +59,7 @@ html(lang="ru")
                 .developer__wrapper
                   .developer__left
                     .ava.ava_developer
-                      +image('content/owner.jpg', 'developer__photo', 'Developer')
+                      +image('content/owner.jpg', 'developer__photo', 'Developer', 'lazy')
                     .developer__info
                       +devInfo('developer-que', devDataQues)
                       +devInfo('developer-ans', devDataAnsw)
@@ -73,7 +73,7 @@ html(lang="ru")
                       p #{siteText}
         section.skills#skills
           .skills__pic-container
-            +image('content/hands.png', 'skills__pic')
+            +image('content/hands.png', 'skills__pic', 'hands', 'lazy')
           .skills__wrapper
             .skills__intro
               h2.title.title_skills Чем я могу быть полезен вам
@@ -86,7 +86,7 @@ html(lang="ru")
               h2.title.title__projects Мои работы
               #projects-component
         .about-form
-          +image("content/bg_aboutAndFeedback.jpg", "about-form__bg", 'Form section background')
+          +image("content/bg_aboutAndFeedback.jpg", "about-form__bg", 'Form section background', 'lazy')
           +icon('leaves', 'form_leaves')
           section.about#about
             .container

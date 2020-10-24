@@ -19,7 +19,8 @@ script(type="text/x-template")#about-slider
                                 .ava.ava_about
                                     img(
                                     :src="`https://webdev-api.loftschool.com/${feedback.photo}`"
-                                        alt="User Avatar"
+                                    alt="User Avatar"
+                                    loading='lazy'
                                     ).user__ava
                                 .about__user-data
                                     h5.about__user-name {{feedback.author}}
