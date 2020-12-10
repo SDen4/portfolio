@@ -14,7 +14,7 @@ const skillsItem = {
     mounted() {
         const circle = this.$refs["segment"];
         const dashArray = parseInt(getComputedStyle(circle).getPropertyValue("stroke-dasharray"));
-        const persent = (dashArray/100)*(100 - this.skill.percent);
+        const persent = (dashArray / 100) * (100 - this.skill.percent);
         circle.style.strokeDashoffset = persent;
     }
 }
@@ -27,7 +27,7 @@ const skillsGroup = {
     props: ["skill"]
 }
 
-new Vue ({
+new Vue({
     el: "#skills-component",
     template: "#skills-list",
     data() {
@@ -40,7 +40,9 @@ new Vue ({
     },
 
     async created() {
-        const { data } = await $axios.get("/categories/255");
+        const {
+            data
+        } = await $axios.get("/categories/255");
         this.skills = data;
     }
 })

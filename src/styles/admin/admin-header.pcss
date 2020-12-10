@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 16PX 0;
+
     @include phones {
         width: unset;
         flex-direction: column;
@@ -18,6 +19,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 80%;
+
     @include phones {
         margin-bottom: 10PX;
     }
@@ -33,6 +35,7 @@
     font-size: 18PX;
     font-weight: 600;
     margin-right: 20PX;
+
     @include small {
         margin-right: 0;
         font-size: 16PX;
@@ -44,6 +47,7 @@
     font-size: 14PX;
     font-weight: 400;
     text-align: start;
+
     @include phones {
         display: none;
     }
@@ -51,6 +55,7 @@
 
 .admin__close {
     width: fit-content;
+
     @include phones {
         width: 80%;
         text-align: start;
@@ -61,6 +66,7 @@
     font-size: 16px;
     font-weight: 400;
     color: $text-color;
+
     &:after {
         content: "";
         display: block;
@@ -69,9 +75,11 @@
         background-color: $text-color;
         transition: .6s;
     }
-    &:hover:after{
+
+    &:hover:after {
         opacity: 1;
     }
+
     @include small {
         font-size: 14PX;
     }

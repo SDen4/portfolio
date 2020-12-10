@@ -1,21 +1,20 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./router";
-import { store } from "../store";
+import {
+    store
+} from "../store";
 import axios from "axios";
 
 const guard = axios.create({
     baseURL: "https://webdev-api.loftschool.com"
 })
 
-
-
-
-
-
 Vue.use(VueRouter);
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({
+    routes
+});
 
 router.beforeEach(async (to, from, next) => {
     const inPublicRoute = to.matched.some(route => route.meta.public);

@@ -2,6 +2,7 @@
     width: 100%;
     position: relative;
     z-index: 10;
+
     @include phones {
         margin-bottom: 10%;
     }
@@ -10,9 +11,11 @@
 .form__wrapper {
     display: flex;
     flex-direction: column;
+
     @include desktop {
         margin: 0 4% -6%;
     }
+
     @include phones {
         margin: 0 3.5%;
     }
@@ -21,13 +24,16 @@
 .form {
     width: 50vw;
     max-width: 850PX;
+
     @include desktop {
         width: 72vw;
         max-width: 860PX;
     }
+
     @include tablets {
         width: 92vw;
     }
+
     @include phones {
         width: 84vw;
     }
@@ -35,11 +41,13 @@
 
 .title_form {
     margin-bottom: 86PX;
+
     @include tablets {
         font-size: 30PX;
         text-align: center;
         margin-bottom: 50PX;
     }
+
     @include phones {
         font-size: 24PX;
         text-align: start;
@@ -53,17 +61,21 @@
     justify-content: space-between;
     margin: 0 90PX 40PX 0;
     width: 100%;
+
     &:last-child {
         margin-bottom: 0;
     }
+
     @include tablets {
         margin-bottom: 38PX;
     }
+
     @include phones {
         flex-direction: column;
         margin-bottom: 60PX;
         align-items: center;
     }
+
     @include small {
         margin-bottom: 42PX;
     }
@@ -71,6 +83,7 @@
 
 .form__content_button {
     margin-top: 67PX;
+
     @include tablets {
         margin-top: 0;
         justify-content: center;
@@ -82,15 +95,20 @@
     flex-direction: column;
     width: 100%;
     margin-right: 8%;
+
     &:last-child {
-        margin-right: 0; /*проверить работу на textarea!!!*/
+        margin-right: 0;
+        /*проверить работу на textarea!!!*/
     }
+
     @include tablets {
         margin-right: 3.5%;
     }
+
     @include phones {
         margin-right: 0;
         margin-bottom: 14%;
+
         &:last-child {
             margin-bottom: 0;
         }
@@ -101,9 +119,11 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 15PX;
+
     @include tablets {
         margin-bottom: 18PX;
     }
+
     @include phones {
         align-items: center;
     }
@@ -123,6 +143,7 @@
     right: 0;
     z-index: 5;
     filter: blur(5PX);
+
     @include phones {
         display: none;
     }
@@ -152,6 +173,7 @@
     color: $text-color-gray;
     font-weight: 600;
     margin-bottom: 30PX;
+
     @include tablets {
         margin-bottom: 24PX;
     }
@@ -165,6 +187,7 @@
     color: $text-color-gray;
     width: 95%;
     outline: none;
+
     @include tablets {
         font-size: 14PX;
     }
@@ -173,6 +196,7 @@
 .form__input_textarea {
     min-height: 38PX;
     overflow: hidden;
+
     @include phones {
         min-height: 72PX;
         line-height: 24PX;
@@ -180,7 +204,7 @@
 }
 
 .form__input::placeholder {
-    color: $text-color; 
+    color: $text-color;
     opacity: 1;
     transition: .6s;
 }
@@ -207,6 +231,7 @@
     @include tablets {
         padding: 32PX 119PX;
     }
+
     @include phones {
         font-size: 16PX;
         padding: 20PX 76PX;
@@ -216,13 +241,14 @@
         content: "$buttonText";
         display: block;
         position: absolute;
-        top:0;
+        top: 0;
         left: 0;
         padding: inherit;
         background-image: linear-gradient(90deg, #ff7f00 0%, #ff9d00 100%);
         opacity: 0;
         transition: .6s;
     }
+
     &:hover:before {
         opacity: 1;
     }

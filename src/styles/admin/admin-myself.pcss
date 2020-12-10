@@ -10,9 +10,11 @@
     display: flex;
     justify-content: flex-start;
     margin: 30PX 0;
+
     @include tablets {
         width: 80%;
     }
+
     @include phones {
         margin-left: 20PX;
         flex-direction: column;
@@ -23,6 +25,7 @@
     width: 50%;
     font-size: 21px;
     font-weight: 700;
+
     @include phones {
         margin-bottom: 40PX;
         width: 100%;
@@ -32,6 +35,7 @@
 .admin__add-group {
     display: flex;
     width: 50%;
+
     @include phones {
         width: 100%;
     }
@@ -48,12 +52,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     @include iPadProLow {
         margin-left: -20PX;
     }
+
     @include tablets {
         width: 103%;
     }
+
     @include phones {
         width: 100%;
         margin-left: 0;
@@ -69,20 +76,24 @@
     margin-bottom: 60PX;
     border-radius: 5PX;
     background-color: $text-color;
-    filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    filter: drop-shadow(4.096px 2.868px 10px rgba(0, 0, 0, 0.07));
     transition: .6s;
+
     &:hover {
-        filter: drop-shadow(1.256rem .17925rem .625rem rgba(0,0,0,.07));
+        filter: drop-shadow(1.256rem .17925rem .625rem rgba(0, 0, 0, .07));
     }
+
     @include iPadProLow {
         width: 46%;
         min-width: 340PX;
         margin-bottom: 20PX;
         margin-left: 20PX;
     }
+
     @include tablets {
         max-width: 340PX;
     }
+
     @include phones {
         display: flex;
         justify-content: center;
@@ -92,10 +103,12 @@
         min-width: unset;
         max-width: 100%;
     }
+
     @include small {
         min-width: 300PX;
         max-width: 320PX;
         margin-bottom: 10PX;
+
         &:last-child {
             margin-bottom: 0;
         }
@@ -113,6 +126,7 @@
     height: 85%;
     min-height: 330PX;
     margin: 30PX;
+
     @include small {
         width: 88%;
         margin: 0;
@@ -126,6 +140,7 @@
     position: relative;
     width: 100%;
     min-height: 40PX;
+
     &::after {
         content: "";
         display: block;
@@ -144,7 +159,8 @@
     font-weight: 600;
 }
 
-.admin__group-name-text_active { //активный класс
+.admin__group-name-text_active {
+    //активный класс
     display: block;
 }
 
@@ -159,6 +175,7 @@
     width: 80%;
     max-width: 275PX;
     position: relative;
+
     &:after {
         content: "";
         display: block;
@@ -184,6 +201,7 @@
     justify-content: flex-end;
     width: 20%;
 }
+
 .admin__skills_container {
     width: 100%;
     height: 83%;
@@ -229,6 +247,7 @@
 
 .admin__skills-new-skill {
     width: 220PX;
+
     @include iPadProLow {
         width: 160PX;
     }
@@ -238,9 +257,11 @@
     width: 45PX;
 }
 
-.admin__skills-new-skill, .admin__skills-new-persent {
+.admin__skills-new-skill,
+.admin__skills-new-persent {
     margin-right: 20PX;
     position: relative;
+
     &:after {
         content: "";
         display: block;
@@ -252,7 +273,8 @@
     }
 }
 
-.admin__skills-new, .admin__skills-setPercent {
+.admin__skills-new,
+.admin__skills-setPercent {
     width: 100%;
     background-color: transparent;
     border: none;

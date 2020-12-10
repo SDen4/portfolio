@@ -1,7 +1,7 @@
 var winWidth = document.querySelector('.parallax').offsetWidth;
 var maxWinWidth = 753; // максимальное значение разрешения для планшетов
 
-if (winWidth>maxWinWidth) {
+if (winWidth > maxWinWidth) {
 
     var parallax = (function () {
         var layer1 = document.querySelector(".parallax__layer_1");
@@ -10,7 +10,7 @@ if (winWidth>maxWinWidth) {
         var layer4 = document.querySelector(".parallax__layer_4");
 
         return {
-            move: function(block, windowScroll, k) {
+            move: function (block, windowScroll, k) {
                 var shift = windowScroll / -k + "%";
                 var transformString = "translate3d(0, " + shift + " ,0)";
                 var style = block.style;
@@ -18,7 +18,7 @@ if (winWidth>maxWinWidth) {
                 style.webkitTransform = transformString;
 
             },
-            init: function(wScroll) {
+            init: function (wScroll) {
                 this.move(layer1, wScroll, 500);
                 this.move(layer2, wScroll, 100);
                 this.move(layer3, wScroll, 75);
@@ -27,7 +27,7 @@ if (winWidth>maxWinWidth) {
             }
         }
     }());
-    window.onscroll = function() {
+    window.onscroll = function () {
         var wScroll = window.pageYOffset;
         parallax.init(wScroll);
     };

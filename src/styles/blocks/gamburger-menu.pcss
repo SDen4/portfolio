@@ -2,6 +2,7 @@
     width: 24PX;
     height: 20PX;
     display: none;
+
     @include tablets {
         display: block;
     }
@@ -11,9 +12,12 @@
     display: block;
     width: 24PX;
     height: 20PX;
+
     &:hover .gamburger-menu__section {
         background-color: $text-color-gray;
-        &::before, &::after {
+
+        &::before,
+        &::after {
             background-color: $text-color-gray;
         }
     }
@@ -26,7 +30,9 @@
     background-color: $text-color;
     position: relative;
     transition: .6s;
-    &::before, &::after {
+
+    &::before,
+    &::after {
         content: "";
         width: 24PX;
         height: 4PX;
@@ -34,9 +40,11 @@
         position: absolute;
         transition: .6s;
     }
+
     &::before {
         top: 8PX;
     }
+
     &::after {
         top: 16PX;
     }

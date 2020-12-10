@@ -24,12 +24,15 @@
     justify-content: center;
     align-items: center;
     z-index: 20;
+
     @include tablets {
         width: 420PX;
     }
+
     @include phones {
         width: 300PX;
     }
+
     @include small {
         width: 220PX;
     }
@@ -42,9 +45,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
     @include tablets {
         height: 65%;
     }
+
     @include phones {
         height: 55%;
     }
@@ -55,9 +60,11 @@
     font-weight: 600;
     text-align: center;
     color: $text-color-admin;
+
     @include tablets {
         font-size: 28PX;
     }
+
     @include phones {
         font-size: 24PX;
         line-height: 30PX
@@ -76,16 +83,19 @@
     outline: none;
     color: $text-color;
     text-transform: uppercase;
-    &:after, &:before {
+
+    &:after,
+    &:before {
         content: "Закрыть";
         display: block;
         position: absolute;
-        top:0;
+        top: 0;
         left: 0;
         width: inherit;
         height: inherit;
         border-radius: inherit;
     }
+
     &:after {
         color: inherit;
         font-size: inherit;
@@ -93,15 +103,18 @@
         opacity: 0;
         transition: .6s;
     }
+
     &:hover:after {
         opacity: 1;
     }
+
     @include tablets {
         width: 280PX;
         height: 70PX;
         font-size: 16PX;
         line-height: 70PX;
     }
+
     @include phones {
         width: 200PX;
         height: 50PX;

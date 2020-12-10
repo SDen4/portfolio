@@ -6,7 +6,7 @@ const $axios = axios.create({
     baseURL: "https://webdev-api.loftschool.com"
 })
 
-new Vue ({
+new Vue({
     el: "#about-component",
     template: "#about-slider",
     feedbacks: "feedbacks",
@@ -50,8 +50,9 @@ new Vue ({
         }
     },
     async created() {
-        const { data } = await $axios.get("/reviews/255");
+        const {
+            data
+        } = await $axios.get("/reviews/255");
         this.feedbacks = data;
     }
 })
-

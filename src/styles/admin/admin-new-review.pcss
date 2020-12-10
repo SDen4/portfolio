@@ -8,7 +8,7 @@
     align-items: center;
     width: 100%;
     background-color: $text-color;
-    filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    filter: drop-shadow(4.096px 2.868px 10px rgba(0, 0, 0, 0.07));
     margin-bottom: 30PX;
 }
 
@@ -18,6 +18,7 @@
 
 .admin__new-review_container {
     flex-direction: column;
+
     @include small {
         margin: 20PX;
     }
@@ -26,6 +27,7 @@
 .admin__new-rewiew_content {
     width: 100%;
     height: 100%;
+
     @include tablets {
         width: 98%;
         flex-direction: row;
@@ -42,6 +44,7 @@
     width: 30%;
     min-width: 250PX;
     margin-bottom: 40PX;
+
     @include tablets {
         min-width: 220PX;
     }
@@ -54,6 +57,7 @@
     width: 80%;
     height: 100%;
     position: relative;
+
     @include small {
         width: 100%;
     }
@@ -69,14 +73,17 @@
     background-color: $admin_new_photo;
     position: relative;
     margin-bottom: 27PX;
+
     @include tablets {
         height: 180PX;
         width: 180PX;
     }
+
     @include small {
         height: 200PX;
         width: 200PX;
     }
+
     &:after {
         content: "";
         display: block;
@@ -88,12 +95,14 @@
         background-image: url("~images/content/new-user.png");
         background-size: cover;
         z-index: 50;
+
         @include tablets {
             width: 76PX;
             height: 102PX;
             top: 36PX;
             left: 52PX;
         }
+
         @include small {
             width: 85PX;
             height: 113PX;
@@ -107,6 +116,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+
     &:after {
         display: none;
     }
@@ -132,6 +142,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+
     @include tablets {
         flex-direction: column;
         align-items: center;
@@ -144,6 +155,7 @@
     justify-content: center;
     align-items: center;
     width: 70%;
+
     @include tablets {
         width: 100%;
     }
@@ -154,16 +166,20 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 40PX;
+
     &:last-child {
         margin-bottom: 0;
         justify-content: flex-end;
+
         @include iPadProLow {
             flex-direction: row;
         }
+
         @include small {
             justify-content: center;
         }
     }
+
     @include iPadProLow {
         flex-direction: column;
     }
@@ -173,9 +189,11 @@
     width: 100%;
     margin-right: 30PX;
     margin-bottom: 0;
+
     &:last-child {
         margin-right: 0;
     }
+
     @include iPadProLow {
         margin-bottom: 40PX;
     }

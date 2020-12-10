@@ -4,7 +4,7 @@
 }
 
 .admin__container_nav {
-        width: 100%;
+    width: 100%;
 }
 
 .admin__nav-list {
@@ -13,9 +13,11 @@
     align-items: center;
     width: 35%;
     padding: 16PX 0 0;
+
     @include tablets {
         width: 42%;
     }
+
     @include phones {
         width: 100%;
     }
@@ -26,6 +28,7 @@
     text-align: center;
     position: relative;
     transition: .6s;
+
     &:after {
         content: "";
         display: block;
@@ -37,16 +40,18 @@
         background-color: $text-color-nav-admin-active;
         transition: .6s;
     }
-    &:hover:after{
+
+    &:hover:after {
         opacity: 1;
     }
+
     &:hover {
         color: $text-color-nav-admin-active;
     }
 }
 
 .admin__nav-item_active {
-    &:after{
+    &:after {
         opacity: 1;
     }
 }

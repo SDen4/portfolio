@@ -2,7 +2,8 @@
     margin-bottom: 0;
 }
 
-.admin__reviews-item_new, .admin__reviews-item {
+.admin__reviews-item_new,
+.admin__reviews-item {
     max-height: 380PX;
 }
 
@@ -30,6 +31,7 @@
     width: -webkit-fill-available;
     margin: 10PX 30PX 40PX;
     position: relative;
+
     &:after {
         content: "";
         display: block;
@@ -39,6 +41,7 @@
         width: inherit;
         background-color: $admin_grayline;
     }
+
     @include iPadProLow {
         margin: 10PX 10PX 40PX;
     }

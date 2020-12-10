@@ -1,6 +1,7 @@
 .admin__projects {
     width: 100%;
     margin-bottom: 30PX;
+
     @include small {
         margin-bottom: 10PX;
     }
@@ -15,10 +16,11 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    /* width: 100%; */
+
     @include tablets {
         margin-left: -20PX;
     }
+
     @include phones {
         margin-left: 0;
     }
@@ -33,32 +35,37 @@
     background: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
     position: relative;
     margin-bottom: 60PX;
+
     &:before {
         content: "";
         display: block;
         position: absolute;
-        top:0;
+        top: 0;
         width: 100%;
         height: 100%;
         background: linear-gradient(90deg, #005dff 0%, #0090ff 100%);
         transition: .6s;
         opacity: 0;
     }
+
     &:hover:before {
         opacity: 1;
     }
+
     @include tablets {
         min-width: 300PX;
         width: 46%;
         margin-bottom: 20PX;
         margin-left: 20PX;
     }
+
     @include phones {
         max-width: 100%;
         width: 100%;
         margin-left: 0;
         margin-bottom: 10PX;
     }
+
     @include small {
         max-height: 112PX;
     }
@@ -73,6 +80,7 @@
     height: 100%;
     padding: 0;
     background-color: transparent;
+
     @include small {
         flex-direction: row;
         align-items: center;
@@ -86,6 +94,7 @@
     border: 1PX solid $text-color;
     margin-bottom: 30PX;
     position: relative;
+
     @include small {
         width: 50PX;
         height: 50PX;
@@ -93,6 +102,7 @@
         margin-bottom: 0;
         margin-right: 20PX;
     }
+
     &:after {
         content: "+";
         display: block;
@@ -104,12 +114,13 @@
         color: #fff;
         font-size: 72PX;
         line-height: 35PX;
-            @include small {
-                width: 14PX;
-                height: 14PX;
-                font-size: 24PX;
-                line-height: 10PX;
-            }
+
+        @include small {
+            width: 14PX;
+            height: 14PX;
+            font-size: 24PX;
+            line-height: 10PX;
+        }
     }
 }
 
@@ -132,26 +143,31 @@
     margin-bottom: 60PX;
     border-radius: 5PX;
     background-color: $text-color;
-    filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    filter: drop-shadow(4.096px 2.868px 10px rgba(0, 0, 0, 0.07));
     transition: .6s;
+
     &:hover {
-        filter: drop-shadow(1.256rem .17925rem .625rem rgba(0,0,0,.07));
+        filter: drop-shadow(1.256rem .17925rem .625rem rgba(0, 0, 0, .07));
     }
+
     @include tablets {
         min-width: 300PX;
         width: 46%;
         margin-bottom: 20PX;
         margin-left: 20PX;
     }
+
     @include phones {
         max-width: 100%;
         width: 100%;
         margin-left: 0;
         margin-bottom: 10PX;
+
         &:last-child {
             margin-bottom: 0;
         }
     }
+
     @include small {
         max-width: 320PX;
     }
@@ -162,6 +178,7 @@
     height: 195PX;
     width: 100%;
     position: relative;
+
     @include phones {
         max-width: 100%;
     }
@@ -203,6 +220,7 @@
     @include iPadProLow {
         padding: 15PX 10PX;
     }
+
     @include tablets {
         padding: 15PX 20PX;
         font-size: 13PX;
@@ -225,6 +243,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+
     @include iPadProLow {
         width: 90%;
     }
@@ -243,10 +262,12 @@
     font-size: 15PX;
     font-weight: 600;
     line-height: 30PX;
+
     @include iPadProLow {
         font-size: 14PX;
         line-height: 22PX;
     }
+
     @include phones {
         line-height: 32PX;
     }
@@ -258,7 +279,8 @@
     color: $text-color-nav-admin-active;
     transition: .6s;
     text-decoration: none;
-    &:after{
+
+    &:after {
         content: "";
         display: block;
         opacity: 0;
@@ -266,9 +288,11 @@
         background-color: $text-color-nav-admin-active;
         transition: .6s;
     }
-    &:hover:after{
+
+    &:hover:after {
         opacity: 1;
     }
+
     @include iPadProLow {
         font-size: 14PX;
     }

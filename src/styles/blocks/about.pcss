@@ -39,13 +39,16 @@
     position: relative;
     z-index: 10;
     margin-bottom: 6.8%;
+
     @include desktop {
         margin-bottom: 11%;
         margin-top: -2%;
     }
+
     @include tablets {
         margin-bottom: 4%;
     }
+
     @include phones {
         margin-bottom: 45%;
     }
@@ -54,6 +57,7 @@
 .about__wrapper {
     display: flex;
     flex-direction: column;
+
     @include desktop {
         margin: 0 3.5%;
     }
@@ -61,6 +65,7 @@
 
 .about__title {
     display: flex;
+
     @include phones {
         flex-direction: column;
         align-items: center;
@@ -71,11 +76,13 @@
 .title_about{
     margin-right: 96PX;
     margin-bottom: 95PX;
+
     @include tablets {
         font-size: 30PX;
         margin-right: 70PX;
         margin-bottom: 63PX;
     }
+
     @include phones {
         font-size: 24PX;
         margin-right: 0;
@@ -100,12 +107,15 @@
     margin-right: 30PX;
     outline: none;
     transition: .6s;
+
     &:last-child {
         margin-right: 0;
     }
+
     &:hover {
         border: 1PX solid $text-color-gray;
     }
+
     &:hover .about__button {
         fill: $text-color-gray;
     }
@@ -129,12 +139,15 @@
     max-width: 1152PX;
     max-height: 305PX;
     overflow: hidden;
+
     @include desktop {
         width: 80vw;
     }
+
     @include tablets {
         width: 90vw;
     }
+
     @include phones {
         width: 82vw;
     }
@@ -158,19 +171,24 @@
     width: 28vw;
     height: 100%;
     margin-right: 1%;
+
     &:last-child {
         margin-right: 0;
     }
+
     @include desktop {
         width: 40vw;
     }
+
     @include tablets {
         width: 45vw;
     }
+
     @include phones {
         width: 84vw;
         margin-right: 0;
     }
+
     @include small {
         width: 86vw;
     }
@@ -181,14 +199,17 @@
     width: 75PX;
     height: 63PX;
     margin-right: 20PX;
+
     @include desktop {
         margin-right: 5PX;
     }
+
     @include tablets {
         width: 30PX;
         height: 26PX;
         margin-right: 15PX;
     }
+
     @include phones {
         font-size: 14PX;
         margin-left: -40PX;
@@ -206,10 +227,12 @@
     margin-bottom: 24PX;
     font-weight: 600;
     max-width: 305PX;
+
     @include tablets {
         line-height: 24PX;
         margin-bottom: 30PX;
     }
+
     @include phones {
         margin-bottom: 26PX;
     }
@@ -218,6 +241,7 @@
 .about__item-user {
     display: flex;
     justify-content: space-between;
+
     @include tablets {
         justify-content: flex-start;
     }
@@ -226,9 +250,11 @@
 .ava_about {
     width: 76PX;
     height: 76PX;
+
     @include tablets {
         margin-right: 5%;
     }
+
     @include phones {
         max-width: 50PX;
         max-height: 50PX;
@@ -248,6 +274,7 @@
     flex-direction: column;
     justify-content: space-around;
     width: 60%;
+
     @include tablets {
         width: 70%;
     }
@@ -257,6 +284,7 @@
     font-size: 18PX;
     color: #ffffff;
     font-weight: 700;
+
     @include tablets {
         font-size: 16PX;
     }

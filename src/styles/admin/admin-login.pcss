@@ -7,9 +7,10 @@
     width: 100%;
     background: url("~images/content/bg_intro_768.jpg") center center no-repeat;
     background-size: cover;
-        @include small {
-            background: unset;
-        }
+
+    @include small {
+        background: unset;
+    }
 }
 
 .login__wrapper {
@@ -19,6 +20,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(45, 60, 78, .7);
+
     @include small {
         background-color: unset;
     }
@@ -33,14 +35,17 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
     @include tablets {
         width: 420PX;
         height: 465PX;
     }
+
     @include phones {
         width: 320PX;
         height: 340PX;
     }
+
     @include small {
         height: 100%;
     }
@@ -64,9 +69,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     @include phones {
         height: 90%;
     }
+
     @include small {
         height: 70%;
     }
@@ -76,9 +83,11 @@
     font-size: 36PX;
     font-weight: 600;
     color: $text-color-admin;
+
     @include tablets {
         font-size: 24PX;
     }
+
     @include phones {
         font-size: 18PX;
     }
@@ -102,6 +111,7 @@
     display: flex;
     align-items: flex-end;
     position: relative;
+
     &:after {
         content: "";
         display: block;
@@ -149,9 +159,11 @@
     font-weight: 600;
     color: $text-color-admin_gray;
     margin-bottom: 30PX;
+
     @include tablets {
         font-size: 14PX;
     }
+
     @include tablets {
         font-size: 13PX;
     }

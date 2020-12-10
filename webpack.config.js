@@ -9,7 +9,8 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = '/portfolio/';
+  // const publicPath = '/portfolio/';
+  const publicPath = '';
 
   const pcss = {
     test: /\.(p|post|)css$/,

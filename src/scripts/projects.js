@@ -18,7 +18,8 @@ const preview = {
 const display = {
     template: "#projects-slider-display",
     components: {
-        buttons, preview
+        buttons,
+        preview
     },
     props: ["projects", "currentProject", "currentIndex"]
 }
@@ -42,7 +43,7 @@ const info = {
 }
 
 
-new Vue ({
+new Vue({
     el: "#projects-component",
     template: "#projects-slider",
     components: {
@@ -62,9 +63,9 @@ new Vue ({
     },
     methods: {
         handleSlide(direction) {
-            switch(direction) {
+            switch (direction) {
                 case "next":
-                    if(this.currentIndex === this.projects.length-1) {
+                    if (this.currentIndex === this.projects.length - 1) {
                         this.currentIndex = 0;
                         break;
                     } else {
@@ -72,8 +73,8 @@ new Vue ({
                         break;
                     };
                 case "prev":
-                    if(this.currentIndex === 0) {
-                        this.currentIndex = this.projects.length-1;
+                    if (this.currentIndex === 0) {
+                        this.currentIndex = this.projects.length - 1;
                         break;
                     } else {
                         this.currentIndex--;
@@ -83,12 +84,14 @@ new Vue ({
         }
     },
     async created() {
-        const { data } = await $axios.get("/works/255");
+        const {
+            data
+        } = await $axios.get("/works/255");
         let arrayOut = data;
-        for(let i = 0; i<arrayOut.length; i++) {
+        for (let i = 0; i < arrayOut.length; i++) {
             let objInn = arrayOut[i];
-            for(let key in objInn) {
-                if(key === "techs") {
+            for (let key in objInn) {
+                if (key === "techs") {
                     let techStr = objInn[key];
                     let techArr = techStr.split(",");
                     objInn[key] = techArr;

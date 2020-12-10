@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
     background-color: $text-color;
-    filter: drop-shadow(4.096px 2.868px 10px rgba(0,0,0,0.07));
+    filter: drop-shadow(4.096px 2.868px 10px rgba(0, 0, 0, 0.07));
     margin-bottom: 30PX;
 }
 
@@ -14,6 +14,7 @@
 
 .admin__edit-project_container {
     flex-direction: column;
+
     @include small {
         margin: 20PX;
     }
@@ -28,6 +29,7 @@
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 75PX;
+
     &:after {
         content: "";
         display: block;
@@ -36,10 +38,12 @@
         height: 2PX;
         width: inherit;
         background-color: $admin_grayline;
+
         @include small {
             top: 40PX;
         }
     }
+
     @include tablets {
         margin-bottom: 60PX;
     }
@@ -48,6 +52,7 @@
 .admin__edit-project-content {
     display: flex;
     justify-content: space-between;
+
     @include tablets {
         flex-direction: column;
         align-items: center;
@@ -56,11 +61,13 @@
 
 .admin__edit-project-content-left {
     width: 48%;
+
     @include tablets {
         width: 73%;
         height: 30%;
         margin-bottom: 10%;
     }
+
     @include phones {
         width: 100%;
     }
@@ -105,6 +112,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     @include tablets {
         width: 96%;
     }
@@ -120,6 +128,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+
     @include tablets {
         flex-direction: column;
         align-items: center;
@@ -133,9 +142,11 @@
     width: 100%;
     position: relative;
     margin-bottom: 30PX;
+
     &:last-child {
         margin-bottom: 0;
     }
+
     &:after {
         content: "";
         display: block;
@@ -153,9 +164,11 @@
     }
 }
 
-.admin__edit-project-name, .admin__edit-project-input {
+.admin__edit-project-name,
+.admin__edit-project-input {
     font-size: 16px;
     font-weight: 600;
+
     @include small {
         font-size: 14px;
     }
@@ -188,9 +201,11 @@
 
 .admin__edit-project-tool-item {
     display: flex;
+
     @include tablets {
         margin-bottom: 0;
     }
+
     @include phones {
         margin-bottom: 10PX;
     }
@@ -202,6 +217,7 @@
         font-weight: 600;
         padding: 10PX 20PX;
     }
+
     @include small {
         padding: 8PX 10PX 8PX 18PX;
     }
@@ -220,6 +236,7 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+
     @include phones {
         justify-content: center;
     }

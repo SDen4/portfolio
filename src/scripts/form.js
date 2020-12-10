@@ -1,11 +1,13 @@
 import Vue from "vue";
-import { Validator } from 'simple-vue-validator';
+import {
+    Validator
+} from 'simple-vue-validator';
 
 const errorMessage = "Заполните поле";
 const errorMessageMail = "Введите e-mail";
 
 
-new Vue ({
+new Vue({
     el: "#form-component",
     template: "#form-container",
     mixins: [require('simple-vue-validator').mixin],
@@ -32,16 +34,15 @@ new Vue ({
     },
     methods: {
         sendMessage() {
-            this.$validate().then(success =>{
-                if(!success) return;
+            this.$validate().then(success => {
+                if (!success) return;
                 try {
                     console.log("Message send!!!")
                     this.msgModal = true;
                     this.user.name = "";
                     this.user.email = "";
                     this.user.message = "";
-                } catch (error) {
-                };
+                } catch (error) {};
                 this.validation.reset();
             });
         }

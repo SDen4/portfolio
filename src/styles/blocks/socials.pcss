@@ -1,106 +1,112 @@
 .socials {
-  max-width: 163PX;
-  width: 20%;
-  @include tablets {
-    width: 24%;
-    margin-left: 25%;
-  }
+    max-width: 163PX;
+    width: 20%;
 
-  &__footer {
-    max-width: 190PX;
-    width: 100%;
-      @include tablets {
-        margin-left: 0;
-      }
-  }
+    @include tablets {
+        width: 24%;
+        margin-left: 25%;
+    }
+
+    &__footer {
+        max-width: 190PX;
+        width: 100%;
+
+        @include tablets {
+            margin-left: 0;
+        }
+    }
 }
 
 .header__wrapper .socials {
-  @include phones {
-    display: none;
-  }
+    @include phones {
+        display: none;
+    }
 }
 
 .socials__list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .socials_footer {
-  max-width: unset;
-  width: 100%;
-  margin-left: 0;
+    max-width: unset;
+    width: 100%;
+    margin-left: 0;
 }
 
 .socials__list_footer {
-  width: 100%;
-  justify-content: flex-start;
+    width: 100%;
+    justify-content: flex-start;
 }
 
 .socials__item {
-  display: block;
-  &:last-child {
-      margin-right: 0;
-  }
-  @include tablets {
-    margin-right: 40PX;
-  }
+    display: block;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    @include tablets {
+        margin-right: 40PX;
+    }
 
 }
 
 .socials__item_footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  width: 50PX;
-  height: 50PX;
-  border-radius: 50%;
-  border: 1PX solid $text-color-gray;
+    width: 50PX;
+    height: 50PX;
+    border-radius: 50%;
+    border: 1PX solid $text-color-gray;
 
-  transition: .6s;
+    transition: .6s;
 
-  &:hover {
-    border: 1PX solid $text-color;
-  }
-  &:hover .socials__pic {
-    fill: $text-color;
-  }
+    &:hover {
+        border: 1PX solid $text-color;
+    }
 
-  margin-right: 20PX;
+    &:hover .socials__pic {
+        fill: $text-color;
+    }
 
-  &::last-child {
-    margin-right: 0;
-  }
+    margin-right: 20PX;
+
+    &::last-child {
+        margin-right: 0;
+    }
 
 
 }
 
 .socials__link {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .socials__pic {
-  fill: $text-color-gray;
-  transition: .6s;
-  &:hover {
-    fill: $text-color;
-  }
+    fill: $text-color-gray;
+    transition: .6s;
+
+    &:hover {
+        fill: $text-color;
+    }
 }
 
 .socials__pic_vk {
-  width: 31PX;
-  height: 28PX;
+    width: 31PX;
+    height: 28PX;
 }
 
 .socials__pic_insta {
-  width: 25PX;
-  height: 25PX;
+    width: 25PX;
+    height: 25PX;
 }
 
 .socials__pic_github {
-  width: 27PX;
-  height: 23PX;
+    width: 27PX;
+    height: 23PX;
 }

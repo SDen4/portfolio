@@ -4,54 +4,62 @@
     height: 188vh;
     min-height: 650PX;
     overflow: hidden;
+
     @include desktop {
         height: 210vh;
     }
+
     @include iPadPro {
         height: 150vh;
     }
+
     @include small360 {
         height: 230vh;
     }
+
     @include small360 {
         height: 240vh;
     }
 }
 
-.parallax__layer{
+.parallax__layer {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     height: 100%;
+
     @include tablets {
         display: none;
     }
+
     @include phones {
         display: none;
     }
 }
 
 .parallax__layer_1 {
-    top:0%;
+    top: 0%;
 }
 
 .parallax__layer_2 {
-    top:-14%;
+    top: -14%;
     /* @include desktop {
         top: -9%;
     } */
 }
 
 .parallax__layer_3 {
-    top:28%;
+    top: 28%;
+
     @include iPadPro {
-        top:18%;
+        top: 18%;
     }
 }
 
 .parallax__layer_4 {
-    top:65%;
+    top: 65%;
+
     @include iPadPro {
         top: 53%;
     }

@@ -1,15 +1,19 @@
 .projects {
     height: 114vh;
+
     @include desktop {
         height: 83vh;
     }
+
     @include iPadPro {
         height: 58vh;
     }
+
     @include tablets {
         overflow: hidden;
         height: 96vh;
     }
+
     @include phones {
         height: 142vh;
     }
@@ -22,13 +26,16 @@
 .projects__wrapper {
     display: flex;
     flex-direction: column;
-        margin: 0 2%;
+    margin: 0 2%;
+
     @include desktop {
         margin: 0 4% -2%;
     }
+
     @include tablets {
         margin: 0 2.5%;
     }
+
     @include phones {
         margin: 0;
     }
@@ -38,12 +45,15 @@
     display: flex;
     justify-content: flex-start;
     width: 79%;
+
     @include desktop {
         width: 69%;
     }
+
     @include tablets {
         width: 100%;
     }
+
     @include phones {
         margin-bottom: 19%;
     }
@@ -52,13 +62,16 @@
 .title__projects {
     color: $text-color-black;
     margin-bottom: 6.5%;
+
     @include desktop {
         margin-bottom: 6%;
     }
+
     @include tablets {
         font-size: 30PX;
         margin-bottom: 8%;
     }
+
     @include phones {
         margin-bottom: 10%;
         font-size: 24PX;
@@ -71,6 +84,7 @@
     justify-content: space-between;
     align-items: flex-start;
     height: 100%;
+
     @include tablets {
         flex-direction: column;
     }
@@ -80,17 +94,19 @@
     display: flex;
     position: relative;
     justify-content: flex-start;
+
     @include tablets {
         width: 100%;
         margin-bottom: 9%;
     }
+
     @include phones {
         width: 100%;
         margin-bottom: 0;
     }
 }
 
-.projects__decor-number{
+.projects__decor-number {
     display: flex;
     justify-content: center;
     max-width: 180PX;
@@ -99,11 +115,13 @@
     font-weight: 800;
     line-height: .8;
     margin-left: -7%;
+
     @include desktop {
         font-size: 300PX;
         max-width: 160PX;
         margin-left: -12%;
     }
+
     @include phones {
         display: none;
     }
@@ -116,14 +134,17 @@
     max-width: 991PX;
     max-height: 556PX;
     overflow: hidden;
+
     @include desktop {
         width: 52vw;
         height: 37vh;
     }
+
     @include tablets {
         width: 82vw;
         height: 37vh;
     }
+
     @include phones {
         width: 100vw;
         height: 32vh;
@@ -140,12 +161,15 @@
 .projects__item {
     width: 60vw;
     height: 100%;
+
     @include desktop {
         width: 52vw;
     }
+
     @include tablets {
         width: 82vw;
     }
+
     @include phones {
         width: 100vw;
     }
@@ -153,6 +177,7 @@
 
 .projects__item_small {
     transition: .3s;
+
     &:hover {
         box-shadow: 0 0 0 3px $slider-active;
         position: relative;
@@ -171,7 +196,7 @@
     object-fit: cover;
 }
 
-.projects__pic_small{
+.projects__pic_small {
     height: 100%;
     max-height: 100PX;
 }
@@ -179,29 +204,34 @@
 .projects__scroll-buttons {
     margin-top: 390PX;
     z-index: 10;
+
     @include desktop {
         margin-top: 222PX;
     }
+
     @include phones {
         margin-top: 82PX;
         margin-left: -50PX;
     }
 }
 
-.button_prev, .button_next {
+.button_prev,
+.button_next {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50PX;
     height: 50PX;
     background-color: $buttons_gray;
+
     &:hover .projects__arrow {
         fill: $text-color;
     }
 }
 
-.button_unactive{
+.button_unactive {
     cursor: unset;
+
     &:hover .projects__arrow {
         fill: $arrows-gray;
     }
@@ -213,11 +243,13 @@
     right: 50PX;
     width: 555PX;
     height: 100PX;
+
     @include desktop {
         top: 222PX;
         max-width: 530PX;
         width: 79%;
     }
+
     @include phones {
         display: none;
     }
@@ -227,18 +259,20 @@
     fill: $arrows-gray;
     width: 8PX;
     height: 10PX;
-    transition:  .6s;
+    transition: .6s;
 }
 
 .projects__arrow_l {
     transform: rotate(180deg);
 }
 
-.projects__info-list{
+.projects__info-list {
     height: 100%;
+
     @include desktop {
         width: 31%;
     }
+
     @include tablets {
         width: 100%;
     }
@@ -247,6 +281,7 @@
 .projects__info-item {
     display: none;
     align-items: flex-start;
+
     @include tablets {
         justify-content: center;
     }
@@ -256,13 +291,15 @@
     display: flex;
 }
 
-.projects__content{
+.projects__content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     @include tablets {
         align-items: center;
     }
+
     @include phones {
         margin: 0 10%;
     }
@@ -270,6 +307,7 @@
 
 .projects__tools {
     margin-bottom: 27PX;
+
     @include tablets {
         margin-bottom: 5PX;
     }
@@ -288,6 +326,7 @@
     border-radius: 22PX;
     background-color: $tools_block;
     margin: 0 9PX 9PX 0;
+
     &:last-child {
         margin-right: 0;
     }
@@ -298,6 +337,7 @@
     font-weight: 600;
     color: $tools_text;
     padding: 15PX 20PX;
+
     @include phones {
         font-size: 13PX;
         padding: 13PX 16PX;
@@ -310,6 +350,7 @@
     font-weight: 600;
     max-width: 340PX;
     margin-bottom: 38PX;
+
     @include tablets {
         font-size: 14PX;
         max-width: 445PX;
@@ -323,7 +364,7 @@
     align-items: center;
     z-index: 10;
 
-    &:hover .projects__link-name:after{
+    &:hover .projects__link-name:after {
         opacity: 1;
     }
 
@@ -346,7 +387,7 @@
     color: $links-color;
     transition: .6s;
 
-    &:after{
+    &:after {
         content: "";
         display: block;
         opacity: 0;
@@ -364,10 +405,13 @@
     font-size: 30PX;
     line-height: 48PX;
     margin-bottom: 30PX;
+    word-break: break-word;
+
     @include tablets {
         margin-bottom: 18PX;
         text-align: center;
     }
+
     @include phones {
         font-size: 24PX;
         line-height: 32PX;
